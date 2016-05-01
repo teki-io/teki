@@ -10,12 +10,13 @@ export class ProjectConfig extends SeedConfig {
     // this.APP_TITLE = 'Put name of your app here';
     let additional_deps: InjectableDependency[] = [
       { src: 'jquery/dist/jquery', inject: 'libs' },
-      { src: 'ng2-bootstrap/bundles/ng2-bootstrap', inject: 'lib' },
+      { src: 'bootstrap/dist/js/bootstrap', inject: 'lib' },
       { src: 'moment/moment', inject: 'lib' },
       { src: 'toastr/build/toastr.min', inject: 'lib' },
 
       { src: 'bootstrap/dist/css/bootstrap.css', inject: true },
       { src: 'font-awesome/css/font-awesome.min.css', inject: true },
+      { src: 'rdash-ui/dist/css/rdash.css', inject: true },
       { src: 'toastr/build/toastr.min.css', inject: true }
     ];
 

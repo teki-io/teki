@@ -1,0 +1,10 @@
+<div id="sidebar-wrapper">
+  <ul class="sidebar">
+    <li class="sidebar-main">
+      <a (click)="toggle()">Teki<span class="menu-icon fa fa-bars"></span></a>
+    </li>
+    <li class="sidebar-list" router-active>
+      <a [routerLink]=" ['Scheduler'] " router-active>Scheduler <span class="menu-icon fa fa-table"></span></a>
+    </li>
+  </ul>
+</div>

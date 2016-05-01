@@ -1,0 +1,23 @@
+a.router-link-active.active {
+    color: #fff;
+}
+
+.sidebar-list.active {
+    background: #2d3e63;
+}
+
+.dropdown-header{
+    font-size: 0.75rem;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.sidebar-footer {
+    display: inline-flex;
+}
