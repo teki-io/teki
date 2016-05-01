@@ -5,9 +5,10 @@ import {ToolbarComponent} from './toolbar.component';
 import {NameListService} from '../shared/index';
 import {HomeComponent} from '../+home/index';
 import {AboutComponent} from '../+about/index';
+import {SchedulerComponent} from '../+scheduler/index';
 
 @Component({
-  selector: 'sd-app',
+  selector: 'teki-app',
   viewProviders: [NameListService],
   templateUrl: 'app/components/app.component.html',
   directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent]
@@ -22,6 +23,11 @@ import {AboutComponent} from '../+about/index';
     path: '/about',
     name: 'About',
     component: AboutComponent
+  },
+  {
+    path: '/scheduler',
+    name: 'Scheduler',
+    component: SchedulerComponent
   }
 ])
 export class AppComponent {}

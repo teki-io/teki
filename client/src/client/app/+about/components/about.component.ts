@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 
 @Component({
-  selector: 'sd-about',
+  selector: 'teki-about',
   templateUrl: 'app/+about/components/about.component.html',
   styleUrls: ['app/+about/components/about.component.css']
 })

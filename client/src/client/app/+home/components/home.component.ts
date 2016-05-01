@@ -4,7 +4,7 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
 import {NameListService} from '../../shared/index';
 
 @Component({
-  selector: 'sd-home',
+  selector: 'teki-home',
   templateUrl: 'app/+home/components/home.component.html',
   styleUrls: ['app/+home/components/home.component.css'],
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES]

@@ -7,19 +7,17 @@ import {
 } from 'angular2/testing';
 import {Component} from 'angular2/core';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
-import {AboutComponent} from './about.component';
+import {SchedulerComponent} from './scheduler.component.ts';
 
 export function main() {
   describe('About component', () => {
-
-
     it('should work',
       inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
         tcb.createAsync(TestComponent)
           .then((rootTC: any) => {
-            let aboutDOMEl = rootTC.debugElement.children[0].nativeElement;
+            let schedulerDOMEl = rootTC.debugElement.children[0].nativeElement;
 
-            expect(DOM.querySelectorAll(aboutDOMEl, 'h2')[0].textContent).toEqual('Features');
+            expect(DOM.querySelectorAll(schedulerDOMEl, 'h2')[0].textContent).toEqual('Features');
           });
         }));
     });
@@ -27,7 +25,7 @@ export function main() {
 
 @Component({
   selector: 'test-cmp',
-  directives: [AboutComponent],
-  template: '<teki-about></teki-about>'
+  directives: [SchedulerComponent],
+  template: '<teki-scheduler></teki-scheduler>'
 })
 class TestComponent {}
