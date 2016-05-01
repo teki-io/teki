@@ -111,12 +111,21 @@
   },
   "dependencies": {
     "angular2": "2.0.0-beta.17",
+    "angular2-jwt": "^0.1.13",
+    "bootstrap": "^4.0.0-alpha.2",
     "es6-module-loader": "^0.17.8",
     "es6-promise": "^3.1.2",
     "es6-shim": "0.35.0",
+    "font-awesome": "^4.6.1",
+    "jquery": "^2.2.3",
+    "lodash": "^4.11.1",
+    "moment": "^2.13.0",
+    "ng2-bootstrap": "^1.0.15",
+    "rdash-ui": "^1.0.1",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",
     "systemjs": "~0.19.25",
+    "toastr": "^2.1.2",
     "zone.js": "^0.6.12"
   }
 }
