@@ -1,0 +1,13 @@
+machine:
+  node:
+    version: 6
+  environment:
+    PATH: ./node_modules/.bin:./bin:$PATH
+dependencies:
+  pre:
+    - npm install -g npm
+  post:
+    - cd ~/teki/client && npm install
+test:
+  override:
+    - cd ~/teki/client && npm test

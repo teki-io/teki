@@ -70,6 +70,7 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "is-ci": "^1.0.8",
+    "is-utf8": "^0.2.1",
     "isstream": "^0.1.2",
     "jasmine-core": "~2.4.1",
     "jasmine-spec-reporter": "^2.4.0",
