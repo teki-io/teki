@@ -1,0 +1,9 @@
+{
+  "headers": {
+    "scheduler": "Scheduler",
+    "setting": "Setting"
+  },
+  "setting": {
+    "changeLanguage": "Change Language"
+  }
+}

@@ -87,6 +87,9 @@ export class SeedConfig {
     packages: {
       angular2: { defaultExtension: false },
       rxjs: { defaultExtension: false }
+    },
+    map: {
+      'lodash': `${this.APP_BASE}node_modules/lodash/lodash.js`
     }
   };
 

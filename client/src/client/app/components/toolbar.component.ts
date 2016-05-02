@@ -1,6 +1,6 @@
-import {Component} from 'angular2/core';
+import {BaseComponent} from '../shared/core/index';
 
-@Component({
+@BaseComponent({
   selector: 'teki-toolbar',
   templateUrl: 'app/components/toolbar.component.html',
   styleUrls: ['app/components/toolbar.component.css']
