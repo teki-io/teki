@@ -4,6 +4,8 @@ machine:
   environment:
     PATH: ./node_modules/.bin:./bin:$PATH
 dependencies:
+  cache_directories:
+    - ~/teki/client/node_modules
   pre:
     - npm install -g npm
   post:
