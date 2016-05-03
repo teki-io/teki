@@ -1,5 +1,5 @@
 // angular
-import {Component, ChangeDetectionStrategy} from 'angular2/core';
+import {Component} from 'angular2/core';
 
 // libs
 import {TranslatePipe} from 'ng2-translate/ng2-translate';
@@ -31,17 +31,6 @@ export class DecoratorUtils {
 
     metadata.directives = metadata.directives ? metadata.directives.concat(DIRECTIVES) : DIRECTIVES;
     metadata.pipes = metadata.pipes ? metadata.pipes.concat(PIPES) : PIPES;
-
-    if (metadata.changeDetection) {
-      metadata.changeDetection = metadata.changeDetection;
-    } else {
-      // default OnPush
-      metadata.changeDetection = ChangeDetectionStrategy.OnPush;
-    }
-
-    if (metadata.encapsulation) {
-      metadata.encapsulation = metadata.encapsulation;
-    }
 
     // initialize anything
     if (metadata.init) {

@@ -7,13 +7,15 @@ import {SidebarComponent,
         ToolbarComponent}   from '../index';
 import {SchedulerComponent} from '../../+scheduler/index';
 import {SettingComponent}   from '../../+setting/index';
+import {ChangeDetectionStrategy} from 'angular2/core';
 
 @BaseComponent({
   selector: 'teki-app',
   templateUrl: 'app/components/app/app.component.html',
   styleUrls: ['app/components/app/app.component.css'],
   directives: [ROUTER_DIRECTIVES, SidebarComponent, ToolbarComponent, CORE_DIRECTIVES],
-  providers: [MultilingualService]
+  providers: [MultilingualService],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 
 @RouteConfig([

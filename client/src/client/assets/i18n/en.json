@@ -5,5 +5,14 @@
   },
   "setting": {
     "changeLanguage": "Change Language"
+  },
+  "scheduler": {
+    "schedule": "Schedule",
+    "month": "Month",
+    "week": "Week",
+    "day": "Day",
+    "today": "Today",
+    "thisWeek": "This Week",
+    "thisMonth": "This Month"
   }
 }
