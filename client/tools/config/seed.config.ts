@@ -90,7 +90,7 @@ export class SeedConfig {
     },
     map: {
       'lodash': `${this.APP_BASE}node_modules/lodash/lodash.js`,
-      'moment': `${this.APP_BASE}node_modules/moment/moment.js`
+      'toastr': `${this.APP_BASE}node_modules/toastr/toastr.js`
     }
   };
 

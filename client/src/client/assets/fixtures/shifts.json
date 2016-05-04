@@ -1,0 +1,9 @@
+[{
+  "id": 11,
+  "name": "123",
+  "startTime": "2016-05-04T19:00:00.000Z",
+  "endTime": "2016-05-04T19:00:00.000Z",
+  "employeeName": "Test",
+  "employeeId": 22,
+  "shiftTemplateId": 33
+}]
