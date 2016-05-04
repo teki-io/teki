@@ -89,7 +89,8 @@ export class SeedConfig {
       rxjs: { defaultExtension: false }
     },
     map: {
-      'lodash': `${this.APP_BASE}node_modules/lodash/lodash.js`
+      'lodash': `${this.APP_BASE}node_modules/lodash/lodash.js`,
+      'moment': `${this.APP_BASE}node_modules/moment/moment.js`
     }
   };
 

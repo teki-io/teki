@@ -25,7 +25,9 @@ System.config({
     'angular2/*': 'node_modules/angular2/*.js',
     'rxjs/*': 'node_modules/rxjs/*.js',
     'lodash': 'node_modules/lodash/index.js',
-    'ng2-translate/*': 'node_modules/ng2-translate/*.js'
+    'ng2-translate/*': 'node_modules/ng2-translate/*.js',
+    'moment/*': 'node_modules/moment/*.js',
+    'moment': 'node_modules/moment/moment.js'
   }
 });
 

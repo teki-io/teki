@@ -7,7 +7,7 @@ import {
 } from 'angular2/testing';
 import {Component} from 'angular2/core';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
-import {SchedulerComponent} from './scheduler.component';
+import {SchedulerComponent} from './schedular';
 
 export function main() {
   describe('About component', () => {

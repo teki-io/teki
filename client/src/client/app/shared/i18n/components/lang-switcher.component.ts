@@ -28,9 +28,5 @@ export class LangSwitcherComponent {
       lang = e.target.value;
     }
     this.multilang.changeLang(lang);
-    this.multilang.get('setting.changeLanguage')
-      .subscribe((result) => {
-        this.changeLanguage = result;
-      });
   }
 }
