@@ -1,7 +1,8 @@
 {
   "headers" : {
     "scheduler": "班表",
-    "setting": "設定"
+    "setting": "設定",
+    "colleague": "同事"
   },
   "setting": {
     "changeLanguage": "更換語言"

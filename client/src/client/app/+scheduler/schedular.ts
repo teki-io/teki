@@ -1,12 +1,12 @@
-import { BaseComponent }  from '../../../shared/core/index';
-import { Calendar } from '../calendar/calendar';
-import { Header } from '../header/header';
+import { BaseComponent }  from '../shared/core/index';
+import { Calendar } from './components/calendar/index';
+import { Header } from './components/header/index';
 import * as moment from 'moment/moment';
 
 @BaseComponent({
   selector: 'teki-scheduler',
-  templateUrl: 'app/+scheduler/components/scheduler/schedular.html',
-  styleUrls: ['app/+scheduler/components/scheduler/schedular.css'],
+  templateUrl: 'app/+scheduler/schedular.html',
+  styleUrls: ['app/+scheduler/schedular.css'],
   directives: [Calendar, Header]
 })
 

@@ -1,13 +1,14 @@
-import {BaseComponent,
-        MultilingualService} from '../../shared/index';
-import {CORE_DIRECTIVES}     from 'angular2/common';
-import {ROUTER_DIRECTIVES,
-        RouteConfig}         from 'angular2/router';
-import {SidebarComponent,
-        ToolbarComponent}   from '../index';
-import {SchedulerComponent} from '../../+scheduler/index';
-import {SettingComponent}   from '../../+setting/index';
-import {ChangeDetectionStrategy} from 'angular2/core';
+import { BaseComponent,
+         MultilingualService } from '../../shared/index';
+import { CORE_DIRECTIVES }     from 'angular2/common';
+import { ROUTER_DIRECTIVES,
+         RouteConfig }         from 'angular2/router';
+import { SidebarComponent,
+         ToolbarComponent }   from '../index';
+import { SchedulerComponent } from '../../+scheduler/index';
+import { SettingComponent }   from '../../+setting/index';
+import { ColleagueComponent } from '../../+colleague/index';
+import { ChangeDetectionStrategy } from 'angular2/core';
 
 @BaseComponent({
   selector: 'teki-app',
@@ -24,6 +25,11 @@ import {ChangeDetectionStrategy} from 'angular2/core';
     name: 'Scheduler',
     component: SchedulerComponent,
     useAsDefault: true
+  },
+  {
+    path: '/colleague',
+    name: 'Colleague',
+    component: ColleagueComponent
   },
   {
     path: '/setting',
