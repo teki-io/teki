@@ -1,2 +1,2 @@
-export * from './components/setting.component';
+export * from './setting';
 
