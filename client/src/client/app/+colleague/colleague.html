@@ -1,1 +1,4 @@
 <h2>{{ 'headers.colleague' | translate }}</h2>
+<div *ngFor="let employee of employees">
+  {{ employee.firstName }} {{ employee.lastName }}
+</div>

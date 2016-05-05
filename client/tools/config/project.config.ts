@@ -7,7 +7,7 @@ export class ProjectConfig extends SeedConfig {
 
   constructor() {
     super();
-    // this.APP_TITLE = 'Put name of your app here';
+     this.APP_TITLE = 'Teki';
     let additional_deps: InjectableDependency[] = [
       { src: 'jquery/dist/jquery', inject: 'libs' },
       { src: 'moment/moment', inject: 'libs' },
