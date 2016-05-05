@@ -1,12 +1,16 @@
 import { BaseComponent,
          Employee,
          EmployeeService } from '../shared/index';
+import { Widget }          from '../components/widget/index';
+import { WidgetBody }      from '../components/widget-body/index';
+import { WidgetHeader }    from '../components/widget-header/index';
 import * as _ from 'lodash';
 
 @BaseComponent({
   selector: 'teki-colleague',
   templateUrl: 'app/+colleague/colleague.html',
-  styleUrls: ['app/+colleague/colleague.css']
+  styleUrls: ['app/+colleague/colleague.css'],
+  directives: [Widget, WidgetBody, WidgetHeader]
 })
 
 export class ColleagueComponent {
