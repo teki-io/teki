@@ -1,6 +1,6 @@
-import {BaseComponent}  from '../../../shared/core/index';
-import {Calendar} from '../calendar/calendar';
-import {Header} from '../header/header';
+import { BaseComponent }  from '../../../shared/core/index';
+import { Calendar } from '../calendar/calendar';
+import { Header } from '../header/header';
 import * as moment from 'moment/moment';
 
 @BaseComponent({

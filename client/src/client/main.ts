@@ -1,19 +1,28 @@
-import {HTTP_PROVIDERS} from 'angular2/http';
-import {provide, enableProdMode} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
-import {ROUTER_PROVIDERS} from 'angular2/router';
-import {APP_BASE_HREF} from 'angular2/platform/common';
-import {MULTILINGUAL_PROVIDERS} from './app/shared/index';
-import {AppComponent} from './app/components/app/app.component';
-
+import { Http, HTTP_PROVIDERS } from 'angular2/http';
+import { provide, enableProdMode } from 'angular2/core';
+import { bootstrap } from 'angular2/platform/browser';
+import { ROUTER_PROVIDERS } from 'angular2/router';
+import { APP_BASE_HREF } from 'angular2/platform/common';
+import { APP_PROVIDERS } from './app/shared/index';
+import { AppComponent } from './app/components/app/app.component';
+import { AuthConfig, AuthHttp } from 'angular2-jwt/angular2-jwt';
 
 if ('<%= ENV %>' === 'prod') { enableProdMode(); }
 
 bootstrap(AppComponent, [
   HTTP_PROVIDERS,
-  MULTILINGUAL_PROVIDERS,
   ROUTER_PROVIDERS,
-  provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' })
+  APP_PROVIDERS,
+  provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' }),
+  provide(AuthHttp, {
+    useFactory: (http) => {
+      return new AuthHttp(new AuthConfig({
+        noJwtError: true,
+        tokenName: 'jwt'
+      }), http);
+    },
+    deps: [Http]
+  })
 ]);
 
 // In order to start the Service Worker located at "./worker.js"
