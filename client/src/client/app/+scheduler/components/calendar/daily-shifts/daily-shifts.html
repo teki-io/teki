@@ -1,0 +1,26 @@
+<div *ngIf = "!showAll">
+  Daily Shifts View
+  <shift
+    *ngFor ="let shift of day.shifts | slice:0:showLimit"
+    [shifts]="shifts"
+    [shift]="shift"
+    [employees]="availabeEmployees"
+    [canEdit]="showAll">
+  </shift>
+  <div>
+    <div>
+      <p>顯示所有 (<span>{{day.shifts.length - showLimit}}</span>)</p>
+    </div>
+  </div>
+</div>
+<div *ngIf = "showAll">
+  Daily Shifts View
+  <shift
+    *ngFor ="let shift of day.shifts"
+    [shifts]="shifts"
+    [shift]="shift"
+    [employees]="availabeEmployees"
+    [canEdit]="showAll"
+    (onEmployeeAssigned)="onEmployeeAssigned($event)">
+  </shift>
+</div>

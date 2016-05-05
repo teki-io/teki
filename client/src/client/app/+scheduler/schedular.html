@@ -4,14 +4,17 @@
       <teki-widget>
         <teki-widget-body>
           <header
-            *ngIf           ="currentDate !== undefined"
-            [(calendarMode)] ="calendarMode"
-            [(currentDate)]  ="currentDate"
-            (dateChanged)    ="onDateChanged($event)"
-            (modeChanged)    ="onModeChanged($event)"
+            *ngIf          ="currentDate !== undefined"
+            [calendarMode] ="calendarMode"
+            [currentDate]  ="currentDate"
+            (dateChanged)  ="onDateChanged($event)"
+            (modeChanged)  ="onModeChanged($event)"
           >
           </header>
-          <calendar></calendar>
+          <calendar
+            [calendarMode] ="calendarMode"
+            [currentDate]  ="currentDate"
+          ></calendar>
         </teki-widget-body>
       </teki-widget>
     </div>

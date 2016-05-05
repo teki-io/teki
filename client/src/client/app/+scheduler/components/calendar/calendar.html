@@ -1,3 +1,22 @@
-<div>
-  calendar
+<div *ngIf="!fetching">
+  <div *ngIf="shifts && shiftTemplates">
+    <month
+      *ngIf="calendarMode === 3"
+      [currentDate]    ="currentDate"
+      [shifts]         ="shifts"
+      [shiftTemplates] ="shiftTemplates"
+      [employees]      ="employees"
+    >
+    </month>
+    <week
+      *ngIf="calendarMode === 2"
+      [currentDate]    ="currentDate"
+      [shifts]         ="shifts"
+      [showAll]        ="true"
+      [shiftTemplates] ="shiftTemplates"
+      [employees]      ="employees"
+    >
+    </week>
+  </div>
 </div>
+<div *ngIf="fetching" class="spinner"></div>

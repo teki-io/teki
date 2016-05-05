@@ -1,7 +1,7 @@
 {
-  "name": "angular2-seed",
+  "name": "teki",
   "version": "0.0.0",
-  "description": "Seed for Angular 2 apps",
+  "description": "Angular 2 Scheduling App",
   "repository": {
     "url": "https://github.com/mgechev/angular2-seed"
   },
