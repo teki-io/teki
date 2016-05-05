@@ -1,6 +1,9 @@
-import { ShiftService, HttpErrorHandler } from './services/index';
+import { ShiftService,
+         HttpErrorHandler,
+         EmployeeService } from './services/index';
 import { LoginService } from './services/login';
-import { ApiShift } from './api/index';
+import { ApiShift,
+         ApiEmployee } from './api/index';
 import { MULTILINGUAL_PROVIDERS } from './i18n/index';
 
 export * from './services/index';
@@ -16,6 +19,8 @@ export const APP_PROVIDERS: any[] = [
   MULTILINGUAL_PROVIDERS,
   LoginService,
   ApiShift,
+  ApiEmployee,
   HttpErrorHandler,
-  ShiftService
+  ShiftService,
+  EmployeeService
 ];
