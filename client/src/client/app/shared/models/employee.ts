@@ -11,6 +11,7 @@ export class Employee {
   city:         string;
   zipCode:      string;
   admin:        boolean;
+  editing:      boolean;
 
   constructor(data: any) {
     this.id           = data.id;
@@ -24,5 +25,6 @@ export class Employee {
     this.zipCode      = data.zipCode;
     this.phoneNumber  = data.phoneNumber;
     this.admin        = data.admin;
+    this.editing      = false;
   }
 }

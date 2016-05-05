@@ -2,7 +2,7 @@
   "headers": {
     "scheduler": "Scheduler",
     "setting": "Setting",
-    "colleague": "Colleague"
+    "team": "Team"
   },
   "setting": {
     "changeLanguage": "Change Language"
@@ -16,7 +16,7 @@
     "thisWeek": "This Week",
     "thisMonth": "This Month"
   },
-  "colleague": {
+  "team": {
     "firstName": "First Name",
     "lastName": "Last Name",
     "phoneNumber": "Phone Number"
