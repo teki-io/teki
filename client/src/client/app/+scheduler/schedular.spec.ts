@@ -5,9 +5,9 @@ import {
   inject,
   it
 } from 'angular2/testing';
-import {Component} from 'angular2/core';
-import {DOM} from 'angular2/src/platform/dom/dom_adapter';
-import {SchedulerComponent} from './schedular';
+import { BaseComponent } from '../shared/core/index';
+import { DOM } from 'angular2/src/platform/dom/dom_adapter';
+import { SchedulerComponent } from './schedular';
 
 export function main() {
   describe('About component', () => {
@@ -23,7 +23,7 @@ export function main() {
     });
 }
 
-@Component({
+@BaseComponent({
   selector: 'test-cmp',
   directives: [SchedulerComponent],
   template: '<teki-scheduler></teki-scheduler>'

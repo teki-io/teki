@@ -5,9 +5,9 @@ import {
   inject,
   it
 } from 'angular2/testing';
-import {Component} from 'angular2/core';
-import {DOM} from 'angular2/src/platform/dom/dom_adapter';
-import {SettingComponent} from './setting';
+import { BaseComponent } from '../shared/core/index';
+import { DOM } from 'angular2/src/platform/dom/dom_adapter';
+import { SettingComponent } from './setting';
 
 export function main() {
   describe('Setting component', () => {
@@ -23,7 +23,7 @@ export function main() {
     });
 }
 
-@Component({
+@BaseComponent({
   selector: 'test-cmp',
   directives: [SettingComponent],
   template: '<teki-setting></teki-setting>'

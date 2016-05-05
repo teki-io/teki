@@ -4,7 +4,7 @@ import { bootstrap } from 'angular2/platform/browser';
 import { ROUTER_PROVIDERS } from 'angular2/router';
 import { APP_BASE_HREF } from 'angular2/platform/common';
 import { APP_PROVIDERS } from './app/shared/index';
-import { AppComponent } from './app/components/app/app.component';
+import { AppComponent } from './app/components/index';
 import { AuthConfig, AuthHttp } from 'angular2-jwt/angular2-jwt';
 
 if ('<%= ENV %>' === 'prod') { enableProdMode(); }

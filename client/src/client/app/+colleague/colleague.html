@@ -1,4 +1,24 @@
-<h2>{{ 'headers.colleague' | translate }}</h2>
-<div *ngFor="let employee of employees">
-  {{ employee.firstName }} {{ employee.lastName }}
+<div class="row">
+  <div class="col-lg-12">
+    <teki-widget>
+      <teki-widget-body>
+        <div class="title pull-left">{{ 'headers.colleague' | translate }}</div>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <td>{{ 'colleague.firstName' | translate }}</td>
+            <td>{{ 'colleague.lastName' | translate }}</td>
+            <td>{{ 'colleague.phoneNumber' | translate }}</td>
+            </thead>
+            <tbody>
+            <tr *ngFor="let employee of employees">
+              <td>{{ employee.firstName }}</td>
+              <td>{{ employee.lastName }}</td>
+              <td>{{ employee.phoneNumber }} </td>
+            </tr>
+          </table>
+        </div>
+      </teki-widget-body>
+    </teki-widget>
+  </div>
 </div>
