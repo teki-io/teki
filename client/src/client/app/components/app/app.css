@@ -21,3 +21,7 @@ a.router-link-active.active {
 .sidebar-footer {
     display: inline-flex;
 }
+
+.app-content {
+    padding-top: 15px;
+}

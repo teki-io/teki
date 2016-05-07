@@ -11,20 +11,23 @@
 
 
   <div *ngIf="editing" class="col-lg-3 table-cell">
-    <input placeholder="名" [(ngModel)]="employee.firstName">
+    <input placeholder="{{ 'team.firstName' | translate }}" [(ngModel)]="employee.firstName">
   </div>
   <div *ngIf="editing" class="col-lg-3 table-cell">
-    <input placeholder="姓" [(ngModel)]="employee.lastName">
+    <input placeholder="{{ 'team.lastName' | translate }}" [(ngModel)]="employee.lastName">
   </div>
   <div *ngIf="editing" class="col-lg-3 table-cell">
-    <input placeholder="電話" [(ngModel)]="employee.phoneNumber">
+    <input placeholder="{{ 'team.phoneNumber' | translate }}" [(ngModel)]="employee.phoneNumber">
   </div>
-  <div *ngIf="editing" class="col-lg-2">
+  <div *ngIf="editing" class="col-lg-3">
+    <div class="btn btn-sm btn-info" (click)="confirm()">
+      <i class="fa fa-check"></i>
+    </div>
     <div class="btn btn-sm btn-info" (click)="editing = false">
       <i class="fa fa-times"></i>
     </div>
-    <div class="btn btn-sm btn-info" (click)="confirm()">
-      <i class="fa fa-check"></i>
+    <div class="btn btn-sm btn-info" (click)="destroy()">
+      <i class="fa fa-trash-o"></i>
     </div>
   </div>
 </div>

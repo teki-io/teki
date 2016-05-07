@@ -4,7 +4,6 @@ import { CORE_DIRECTIVES }     from 'angular2/common';
 import { ROUTER_DIRECTIVES,
          RouteConfig }         from 'angular2/router';
 import { SidebarComponent }    from '../sidebar/index';
-import { ToolbarComponent }    from '../toolbar/index';
 import { SchedulerComponent }  from '../../+scheduler/index';
 import { SettingComponent }    from '../../+setting/index';
 import { TeamComponent }       from '../../+team/index';
@@ -13,7 +12,7 @@ import { TeamComponent }       from '../../+team/index';
   selector: 'teki-app',
   templateUrl: 'app/components/app/app.html',
   styleUrls: ['app/components/app/app.css'],
-  directives: [ROUTER_DIRECTIVES, SidebarComponent, ToolbarComponent, CORE_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES, SidebarComponent, CORE_DIRECTIVES],
   providers: [MultilingualService]
 })
 

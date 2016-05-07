@@ -17,8 +17,11 @@
     "thisMonth": "本月"
   },
   "team": {
+    "nameTaken": "員工名已經存在",
     "firstName": "名",
     "lastName": "姓",
-    "phoneNumber": "電話"
+    "phoneNumber": "電話",
+    "add": "新增",
+    "cancel": "取消"
   }
 }

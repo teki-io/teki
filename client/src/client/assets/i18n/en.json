@@ -17,8 +17,11 @@
     "thisMonth": "This Month"
   },
   "team": {
+    "nameTaken": "Name is already taken",
     "firstName": "First Name",
     "lastName": "Last Name",
-    "phoneNumber": "Phone Number"
+    "phoneNumber": "Phone Number",
+    "add": "Add",
+    "cancel": "Cancel"
   }
 }
