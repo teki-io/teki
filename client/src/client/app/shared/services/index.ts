@@ -4,3 +4,4 @@ export * from './name-list';
 export * from './shift';
 export * from './operator';
 export * from './employee';
+export * from './shift-template';

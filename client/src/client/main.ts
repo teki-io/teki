@@ -15,7 +15,7 @@ bootstrap(AppComponent, [
   APP_PROVIDERS,
   provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' }),
   provide(AuthHttp, {
-    useFactory: (http) => {
+    useFactory: (http: Http) => {
       return new AuthHttp(new AuthConfig({
         noJwtError: true,
         tokenName: 'jwt'
