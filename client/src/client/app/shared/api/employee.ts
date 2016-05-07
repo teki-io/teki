@@ -1,7 +1,8 @@
-import { API_ENDPOINTS, contentHeaders } from '../constants/index';
+import { API_ENDPOINTS,
+         contentHeaders,
+         Employee }   from '../index';
 import { Injectable } from 'angular2/core';
-import { Employee } from '../models/employee';
-import { AuthHttp } from 'angular2-jwt/angular2-jwt';
+import { AuthHttp }   from 'angular2-jwt/angular2-jwt';
 import 'rxjs/Rx';
 
 @Injectable()
