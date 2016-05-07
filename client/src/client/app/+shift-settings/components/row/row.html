@@ -1,0 +1,45 @@
+<div>
+  <div *ngIf="!editing" class="col-lg-3 table-cell">{{ shiftTemplate.name }}</div>
+  <div *ngIf="!editing" class="col-lg-3 table-cell">{{ shiftTemplate.startTime.local().format('HH:mm a') }}</div>
+  <div *ngIf="!editing" class="col-lg-3 table-cell">{{ shiftTemplate.endTime.local().format('HH:mm a') }}</div>
+  <div *ngIf="!editing" class="col-lg-1"></div>
+  <div *ngIf="!editing" class="col-lg-1">
+    <div *ngIf="!editing" class="btn btn-sm btn-info" (click)="edit()">
+      <i class="pull-right fa fa-pencil-square-o"></i>
+    </div>
+  </div>
+
+
+  <div *ngIf="editing" class="col-lg-3 table-cell">
+    <input placeholder="{{ 'shiftSettings.shiftName' | translate }}" [(ngModel)]="shiftTemplate.name">
+  </div>
+  <div *ngIf="editing" class="col-lg-3 table-cell">
+    <timepicker
+      [(ngModel)]="startTime"
+      [hourStep]="hstep"
+      [minuteStep]="mstep"
+      [showMeridian]="ismeridian"
+      [max]="endTime"
+    ></timepicker>
+  </div>
+  <div *ngIf="editing" class="col-lg-3 table-cell">
+    <timepicker
+      [(ngModel)]="endTime"
+      [hourStep]="hstep"
+      [minuteStep]="mstep"
+      [showMeridian]="ismeridian"
+      [min]="startTime"
+    ></timepicker>
+  </div>
+  <div *ngIf="editing" class="col-lg-3">
+    <div class="btn btn-sm btn-info" (click)="confirm()">
+      <i class="fa fa-check"></i>
+    </div>
+    <div class="btn btn-sm btn-info" (click)="editing = false">
+      <i class="fa fa-times"></i>
+    </div>
+    <div class="btn btn-sm btn-info" (click)="destroy()">
+      <i class="fa fa-trash-o"></i>
+    </div>
+  </div>
+</div>

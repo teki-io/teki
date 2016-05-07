@@ -4,9 +4,10 @@ import { CORE_DIRECTIVES }     from 'angular2/common';
 import { ROUTER_DIRECTIVES,
          RouteConfig }         from 'angular2/router';
 import { SidebarComponent }    from '../sidebar/index';
-import { SchedulerComponent }  from '../../+scheduler/index';
-import { SettingComponent }    from '../../+setting/index';
-import { TeamComponent }       from '../../+team/index';
+import { SchedulerComponent,
+         TeamComponent,
+         SettingComponent,
+         ShiftSettingsComponent }  from '../../index';
 
 @BaseComponent({
   selector: 'teki-app',
@@ -32,6 +33,11 @@ import { TeamComponent }       from '../../+team/index';
     path: '/setting',
     name: 'Setting',
     component: SettingComponent
+  },
+  {
+    path: '/shift-settings',
+    name: 'ShiftSettings',
+    component: ShiftSettingsComponent
   }
 ])
 

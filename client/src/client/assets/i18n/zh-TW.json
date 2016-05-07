@@ -2,7 +2,8 @@
   "headers" : {
     "scheduler": "班表",
     "setting": "設定",
-    "team": "同事"
+    "team": "同事",
+    "shiftSettings": "班表設定"
   },
   "setting": {
     "changeLanguage": "更換語言"
@@ -23,5 +24,11 @@
     "phoneNumber": "電話",
     "add": "新增",
     "cancel": "取消"
+  },
+  "shiftSettings": {
+    "shiftName": "班名",
+    "startTime": "開始時間",
+    "endTime": "結束時間",
+    "nameTaken": "班名已經存在"
   }
 }
