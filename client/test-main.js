@@ -25,6 +25,7 @@ System.config({
     'angular2/*': 'node_modules/angular2/*.js',
     'rxjs/*': 'node_modules/rxjs/*.js',
     'ng2-translate/*': 'node_modules/ng2-translate/*.js',
+    'ng2-bootstrap/*': 'node_modules/ng2-bootstrap/*.js',
     'moment/*': 'node_modules/moment/*.js',
     'moment': 'node_modules/moment/moment.js',
     'angular2-jwt/angular2-jwt': 'node_modules/angular2-jwt/angular2-jwt.js'

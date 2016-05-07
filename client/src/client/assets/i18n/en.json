@@ -2,7 +2,8 @@
   "headers": {
     "scheduler": "Scheduler",
     "setting": "Setting",
-    "team": "Team"
+    "team": "Team",
+    "shiftSettings": "Shift Settings"
   },
   "setting": {
     "changeLanguage": "Change Language"
@@ -17,11 +18,17 @@
     "thisMonth": "This Month"
   },
   "team": {
-    "nameTaken": "Name is already taken",
+    "nameTaken": "Employee Name is already taken",
     "firstName": "First Name",
     "lastName": "Last Name",
     "phoneNumber": "Phone Number",
     "add": "Add",
     "cancel": "Cancel"
+  },
+  "shiftSettings": {
+    "shiftName": "Shift Name",
+    "startTime": "Start Time",
+    "endTime": "End Time",
+    "nameTaken": "Shift Name is already taken"
   }
 }

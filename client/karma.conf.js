@@ -35,6 +35,7 @@ module.exports = function(config) {
       { pattern: 'node_modules/jquery/dist/jquery.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/ng2-translate/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/ng2-bootstrap/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/moment/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/toastr/toastr.js', included: false, watched: false },
       { pattern: 'node_modules/lodash/lodash.js', included: false, watched: false },

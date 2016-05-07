@@ -10,6 +10,12 @@
       </a>
     </li>
     <li class="sidebar-list" router-active>
+      <a [routerLink]=" ['ShiftSettings'] " router-active>
+        {{ 'headers.shiftSettings' | translate }}
+        <span class="menu-icon fa fa-sliders"></span>
+      </a>
+    </li>
+    <li class="sidebar-list" router-active>
       <a [routerLink]=" ['Team'] " router-active>
         {{ 'headers.team' | translate }}
         <span class="menu-icon fa fa-users"></span>

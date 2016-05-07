@@ -1,0 +1,31 @@
+<div>
+  <div class="col-lg-3 table-cell">
+    <input placeholder="{{ 'shiftSettings.shiftName' | translate }}" [(ngModel)]="shiftTemplate.name">
+  </div>
+  <div class="col-lg-3 table-cell">
+    <timepicker
+      [(ngModel)]="startTime"
+      [hourStep]="hstep"
+      [minuteStep]="mstep"
+      [showMeridian]="ismeridian"
+      [max]="endTime"
+    ></timepicker>
+  </div>
+  <div class="col-lg-3 table-cell">
+    <timepicker
+      [(ngModel)]="endTime"
+      [hourStep]="hstep"
+      [minuteStep]="mstep"
+      [showMeridian]="ismeridian"
+      [max]="startTime"
+    ></timepicker>
+  </div>
+  <div class="col-lg-2">
+    <div class="btn btn-sm btn-info" (click)="confirm()">
+      <i class="fa fa-check"></i>
+    </div>
+    <div class="btn btn-sm btn-info" (click)="cancel()">
+      <i class="fa fa-times"></i>
+    </div>
+  </div>
+</div>
