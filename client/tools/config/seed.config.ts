@@ -27,6 +27,7 @@ export class SeedConfig {
   APP_SRC              = 'src/client';
   ASSETS_SRC           = `${this.APP_SRC}/assets`;
   CSS_SRC              = `${this.APP_SRC}/css`;
+  FONTS_SRC            = `${this.APP_SRC}/fonts/*`;
 
   TOOLS_DIR            = 'tools';
   SEED_TASKS_DIR       = join(process.cwd(), this.TOOLS_DIR, 'tasks', 'seed');
@@ -38,6 +39,7 @@ export class SeedConfig {
   APP_DEST             = `${this.DIST_DIR}/${this.ENV}`;
   CSS_DEST             = `${this.APP_DEST}/css`;
   JS_DEST              = `${this.APP_DEST}/js`;
+  FONTS_DEST           = `${this.APP_DEST}/fonts`;
   VERSION              = appVersion();
 
   CSS_PROD_BUNDLE      = 'all.css';
@@ -48,6 +50,8 @@ export class SeedConfig {
   VERSION_NODE         = '4.0.0';
 
   CODELYZER_RULES      = customRules();
+
+  FONTS_DEPENDENCIES: string[] = [];
 
   NPM_DEPENDENCIES: InjectableDependency[] = [
     { src: 'systemjs/dist/system-polyfills.src.js', inject: 'shims', env: ENVIRONMENTS.DEVELOPMENT },

@@ -24,5 +24,16 @@ export class ProjectConfig extends SeedConfig {
     const seedDependencies = this.NPM_DEPENDENCIES;
 
     this.NPM_DEPENDENCIES = seedDependencies.concat(additional_deps);
+
+    this.FONTS_DEPENDENCIES = [
+      'node_modules/font-awesome/fonts/*',
+      'node_modules/rdash-ui/dist/fonts/*',
+      this.FONTS_SRC
+    ];
+
+    this.APP_ASSETS = [
+      { src: `${this.CSS_SRC}/glyphicons.css`, inject: true, vendor: false },
+      ...this.APP_ASSETS
+    ];
   }
 }
