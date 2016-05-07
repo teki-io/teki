@@ -1,0 +1,30 @@
+<div>
+  <div *ngIf="!editing" class="col-lg-3 table-cell">{{ employee.firstName }}</div>
+  <div *ngIf="!editing" class="col-lg-3 table-cell">{{ employee.lastName }}</div>
+  <div *ngIf="!editing" class="col-lg-3 table-cell">{{ employee.phoneNumber }}</div>
+  <div *ngIf="!editing" class="col-lg-1"></div>
+  <div *ngIf="!editing" class="col-lg-1">
+    <div *ngIf="!editing" class="btn btn-sm btn-info" (click)="edit()">
+      <i class="pull-right fa fa-pencil-square-o"></i>
+    </div>
+  </div>
+
+
+  <div *ngIf="editing" class="col-lg-3 table-cell">
+    <input placeholder="名" [(ngModel)]="employee.firstName">
+  </div>
+  <div *ngIf="editing" class="col-lg-3 table-cell">
+    <input placeholder="姓" [(ngModel)]="employee.lastName">
+  </div>
+  <div *ngIf="editing" class="col-lg-3 table-cell">
+    <input placeholder="電話" [(ngModel)]="employee.phoneNumber">
+  </div>
+  <div *ngIf="editing" class="col-lg-2">
+    <div class="btn btn-sm btn-info" (click)="editing = false">
+      <i class="fa fa-times"></i>
+    </div>
+    <div class="btn btn-sm btn-info" (click)="confirm()">
+      <i class="fa fa-check"></i>
+    </div>
+  </div>
+</div>

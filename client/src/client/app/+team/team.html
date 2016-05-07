@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-lg-12">
+    <teki-widget>
+      <teki-widget-body>
+        <div class="title pull-left">{{ 'headers.team' | translate }}</div>
+        <div class="table-responsive">
+          <headers></headers>
+          <row class="row"
+               *ngFor="let employee of employees"
+               [employee]="employee">
+          </row>
+        </div>
+      </teki-widget-body>
+    </teki-widget>
+  </div>
+</div>

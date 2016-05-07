@@ -7,7 +7,7 @@ import { SidebarComponent }    from '../sidebar/index';
 import { ToolbarComponent }    from '../toolbar/index';
 import { SchedulerComponent }  from '../../+scheduler/index';
 import { SettingComponent }    from '../../+setting/index';
-import { ColleagueComponent }  from '../../+colleague/index';
+import { TeamComponent }       from '../../+team/index';
 
 @BaseComponent({
   selector: 'teki-app',
@@ -25,9 +25,9 @@ import { ColleagueComponent }  from '../../+colleague/index';
     useAsDefault: true
   },
   {
-    path: '/colleague',
-    name: 'Colleague',
-    component: ColleagueComponent
+    path: '/team',
+    name: 'Team',
+    component: TeamComponent
   },
   {
     path: '/setting',

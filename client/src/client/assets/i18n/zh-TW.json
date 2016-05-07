@@ -2,7 +2,7 @@
   "headers" : {
     "scheduler": "班表",
     "setting": "設定",
-    "colleague": "同事"
+    "team": "同事"
   },
   "setting": {
     "changeLanguage": "更換語言"
@@ -16,7 +16,7 @@
     "thisWeek": "本週",
     "thisMonth": "本月"
   },
-  "colleague": {
+  "team": {
     "firstName": "名",
     "lastName": "姓",
     "phoneNumber": "電話"

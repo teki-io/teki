@@ -4,16 +4,18 @@ import { BaseComponent,
 import { Widget }          from '../components/widget/index';
 import { WidgetBody }      from '../components/widget-body/index';
 import { WidgetHeader }    from '../components/widget-header/index';
+import { Row }             from './components/row/index';
+import { Headers }         from './components/headers/index';
 import * as _ from 'lodash';
 
 @BaseComponent({
-  selector: 'teki-colleague',
-  templateUrl: 'app/+colleague/colleague.html',
-  styleUrls: ['app/+colleague/colleague.css'],
-  directives: [Widget, WidgetBody, WidgetHeader]
+  selector: 'teki-team',
+  templateUrl: 'app/+team/team.html',
+  styleUrls: ['app/+team/team.css'],
+  directives: [Widget, WidgetBody, WidgetHeader, Row, Headers]
 })
 
-export class ColleagueComponent {
+export class TeamComponent {
   employees: Array<Employee>;
   adding: boolean = false;
 
