@@ -3,5 +3,6 @@ class EmployeeSerializer < BaseSerializer
              :first_name,
              :last_name,
              :phone_number,
+             :email,
              :admin
 end

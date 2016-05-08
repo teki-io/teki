@@ -1,5 +1,5 @@
 <div>
-  <div class="col-lg-3 table-cell">
+  <div class="col-lg-2 table-cell">
     <input placeholder="{{ 'team.firstName' | translate }}" [(ngModel)]="employee.firstName">
   </div>
   <div class="col-lg-3 table-cell">
@@ -8,7 +8,10 @@
   <div class="col-lg-3 table-cell">
     <input placeholder="{{ 'team.phoneNumber' | translate }}" [(ngModel)]="employee.phoneNumber">
   </div>
-  <div class="col-lg-2">
+  <div class="col-lg-3 table-cell">
+    <input placeholder="{{ 'team.email' | translate }}" [(ngModel)]="employee.email">
+  </div>
+  <div class="col-lg-1">
     <div class="btn btn-sm btn-info" (click)="confirm()">
       <i class="fa fa-check"></i>
     </div>

@@ -24,8 +24,17 @@ RSpec.describe Api::Admin::EmployeesController do
   end
 
   describe 'POST create' do
-    let(:params)  { { employee: { first_name: 'FIRST_NAME', last_name: 'LAST_NAME',  phone_number: '123' } } }
-    before        { post :create, params }
+    let(:params)  do
+      {
+        employee: {
+          first_name: 'FIRST_NAME',
+          last_name: 'LAST_NAME',
+          phone_number: '123',
+          email: 'TEST@EMAIL.COM'
+        }
+      }
+    end
+    before        { post :create, params: params }
 
     it 'responds with success' do
       expect(response.status).to eq 200
@@ -41,7 +50,7 @@ RSpec.describe Api::Admin::EmployeesController do
   describe 'PUT update' do
     let(:employee) { employees.first }
     let(:params)   { { first_name: 'NEW_FIRST_NAME' } }
-    before         { put :update, id: employee.id, employee: params }
+    before         { put :update, params: { id: employee.id, employee: params } }
 
     it 'responds with success' do
       expect(response.status).to eq 200
@@ -54,7 +63,7 @@ RSpec.describe Api::Admin::EmployeesController do
 
   describe 'DELETE destroy' do
     let(:employee) { employees.first }
-    before         { delete :destroy, id: employee.id }
+    before         { delete :destroy, params: { id: employee.id } }
 
     it 'responds with success' do
       expect(response.status).to eq 200

@@ -9,6 +9,9 @@
     "about": "About",
     "contactUs": "Contact Us"
   },
+  "error": {
+    "pleaseSignIn": "Please Sign In"
+  },
   "login": {
     "username": "username",
     "password": "password",
@@ -39,7 +42,8 @@
     "lastName": "Last Name",
     "phoneNumber": "Phone Number",
     "add": "Add",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "email": "Email"
   },
   "shiftSettings": {
     "shiftName": "Shift Name",

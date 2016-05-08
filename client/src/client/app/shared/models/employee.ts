@@ -26,5 +26,6 @@ export class Employee {
     this.phoneNumber  = data.phoneNumber;
     this.admin        = data.admin;
     this.editing      = false;
+    this.email        = data.email;
   }
 }

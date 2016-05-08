@@ -6,7 +6,8 @@ class Api::Admin::EmployeesController < Api::Admin::BaseController
   end
 
   def create
-    employee = employees.create!(after_employee_params)
+    generated_password = Devise.friendly_token.first(8)
+    employee = employees.create!(employee_params.merge(password: generated_password))
     render json: employee,
            root: false,
            serializer: ::EmployeeSerializer
@@ -44,13 +45,8 @@ class Api::Admin::EmployeesController < Api::Admin::BaseController
     params.require(:employee).permit(
         :first_name,
         :last_name,
-        :phone_number
+        :phone_number,
+        :email
     )
-  end
-
-  def after_employee_params
-    employee = employee_params
-    domain = current_company.domain
-    employee.merge(email: "user#{User.last.id}@#{domain}", password: 'P@sswo3d')
   end
 end

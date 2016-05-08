@@ -9,6 +9,9 @@
     "about": "關於",
     "contactUs": "聯絡"
   },
+  "error": {
+    "pleaseSignIn": "請登入"
+  },
   "login": {
     "username": "帳號",
     "password": "密碼",
@@ -39,7 +42,8 @@
     "lastName": "姓",
     "phoneNumber": "電話",
     "add": "新增",
-    "cancel": "取消"
+    "cancel": "取消",
+    "email": "Email"
   },
   "shiftSettings": {
     "shiftName": "班名",
