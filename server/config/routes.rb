@@ -7,4 +7,12 @@ Rails.application.routes.draw do
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
+
+  namespace :api do
+    resource :companies, only: [:update]
+    resources :employees, only: [:index]
+    scope '/admin', as: 'admin', module: 'admin' do
+      resources :employees, only: [:index, :create, :update, :destroy]
+    end
+  end
 end

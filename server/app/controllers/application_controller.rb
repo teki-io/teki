@@ -1,5 +1,5 @@
-class ApplicationController < ActionController::API
-  before_filter :authenticate
+class ApplicationController < ActionController::Base
+  before_action :authenticate
 
   require 'auth_token'
 

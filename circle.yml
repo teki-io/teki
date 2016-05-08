@@ -10,6 +10,8 @@ dependencies:
     - npm install -g npm
   post:
     - cd ~/teki/client && npm install
+    - cd ~/teki/server && bundle
 test:
   override:
     - cd ~/teki/client && npm test
+    - cd ~/teki/server && bundle exec rspec
