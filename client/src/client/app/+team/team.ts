@@ -45,7 +45,7 @@ export class TeamComponent {
   }
 
   private onEmployeeDestroyed(d: Employee) {
-    _.removes(this.employees, {id: d.id});
+    _.remove(this.employees, {id: d.id});
   }
 
   private onEmployeeCreated(d: Employee) {

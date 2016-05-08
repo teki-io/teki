@@ -1,8 +1,11 @@
 machine:
   node:
     version: 6
+  ruby:
+    version: 2.3.0
   environment:
     PATH: ./node_modules/.bin:./bin:$PATH
+
 dependencies:
   cache_directories:
     - ~/teki/client/node_modules
@@ -10,6 +13,15 @@ dependencies:
     - npm install -g npm
   post:
     - cd ~/teki/client && npm install
+    - cd ~/teki/server && bundle
+
+database:
+  override:
+    - cp ~/teki/server/config/database.yml.example ~/teki/server/config/database.yml
+    - cd ~/teki/server && bundle exec rake db:create db:schema:load
+
 test:
   override:
     - cd ~/teki/client && npm test
+    - cp ~/teki/server/config/database.yml.example ~/teki/server/config/database.yml
+    - cd ~/teki/server && bundle exec rspec

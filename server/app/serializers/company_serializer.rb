@@ -1,0 +1,2 @@
+class CompanySerializer < BaseSerializer
+end
