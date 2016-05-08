@@ -1,5 +1,6 @@
 import { BaseComponent,
-         SecurityRouterOutlet } from '../../shared/index';
+         SecurityRouterOutlet,
+         MultilingualService } from '../../shared/index';
 import { CORE_DIRECTIVES }     from 'angular2/common';
 import { ROUTER_DIRECTIVES,
          RouteConfig }         from 'angular2/router';
@@ -7,13 +8,15 @@ import { SchedulerComponent,
          TeamComponent,
          SettingComponent,
          ShiftSettingsComponent,
-         LoginComponent }  from '../../index';
+         LoginComponent,
+         SignupComponent }  from '../../index';
 
 @BaseComponent({
   selector: 'teki-app',
   templateUrl: 'app/components/app/app.html',
   styleUrls: ['app/components/app/app.css'],
-  directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, SecurityRouterOutlet]
+  directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, SecurityRouterOutlet],
+  providers: [MultilingualService]
 })
 
 @RouteConfig([
@@ -27,6 +30,11 @@ import { SchedulerComponent,
     name: 'Login',
     component: LoginComponent,
     useAsDefault: true
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: SignupComponent
   },
   {
     path: '/scheduler',
@@ -50,4 +58,6 @@ import { SchedulerComponent,
   }
 ])
 
-export class AppComponent {}
+export class AppComponent {
+  constructor(private multilang: MultilingualService) {}
+}

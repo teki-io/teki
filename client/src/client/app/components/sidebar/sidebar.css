@@ -1,3 +1,12 @@
 nav a.router-link-active {
   color: #106cc8;
 }
+
+.push-to-bottom {
+  position: absolute;
+  height: 40px;
+  bottom: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}

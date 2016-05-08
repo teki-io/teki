@@ -3,7 +3,23 @@
     "scheduler": "班表",
     "setting": "設定",
     "team": "同事",
-    "shiftSettings": "班表設定"
+    "shiftSettings": "班表設定",
+    "logout": "登出",
+    "login": "登入",
+    "about": "關於",
+    "contactUs": "聯絡"
+  },
+  "login": {
+    "username": "帳號",
+    "password": "密碼",
+    "signIn": "登入",
+    "signUpHere": "創新帳號"
+  },
+  "signup": {
+    "username": "帳號",
+    "password": "密碼",
+    "signUp": "建立帳號",
+    "loginHere": "已經有帳號了嗎? 點這裡登入"
   },
   "setting": {
     "changeLanguage": "更換語言"

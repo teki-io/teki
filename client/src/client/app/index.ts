@@ -3,3 +3,4 @@ export * from './+team/index';
 export * from './+setting/index';
 export * from './+scheduler/index';
 export * from './+login/index';
+export * from './+signup/index';
