@@ -1,15 +1,18 @@
 import { BaseComponent }  from '../shared/core/index';
 import { Calendar } from './components/calendar/index';
 import { Header } from './components/header/index';
+import { PrivatePage } from '../shared/index';
+import { AppLayoutComponent } from '../components/app-layout/index';
 import * as moment from 'moment/moment';
 
 @BaseComponent({
   selector: 'teki-scheduler',
   templateUrl: 'app/+scheduler/schedular.html',
   styleUrls: ['app/+scheduler/schedular.css'],
-  directives: [Calendar, Header]
+  directives: [Calendar, Header, AppLayoutComponent]
 })
 
+@PrivatePage()
 export class SchedulerComponent {
   currentDate: moment.Moment;
   calendarMode: Number;

@@ -7,14 +7,17 @@ import { WidgetHeader }     from '../components/widget-header/index';
 import { Row }              from './components/row/index';
 import { Headers }          from './components/headers/index';
 import { NewRow }           from './components/new-row/index';
+import { PrivatePage } from '../shared/index';
+import { AppLayoutComponent } from '../components/app-layout/index';
 
 @BaseComponent({
   selector: 'teki-shift-settings',
   templateUrl: 'app/+shift-settings/shift-settings.html',
   styleUrls: ['app/+shift-settings/shift-settings.css'],
-  directives: [Widget, WidgetBody, WidgetHeader, Row, Headers, NewRow]
+  directives: [Widget, WidgetBody, WidgetHeader, Row, Headers, NewRow, AppLayoutComponent]
 })
 
+@PrivatePage()
 export class ShiftSettingsComponent {
   templates: Array<ShiftTemplate>;
   adding: boolean = false;
