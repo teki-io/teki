@@ -1,28 +1,37 @@
 import { BaseComponent,
-         MultilingualService } from '../../shared/index';
+         SecurityRouterOutlet } from '../../shared/index';
 import { CORE_DIRECTIVES }     from 'angular2/common';
 import { ROUTER_DIRECTIVES,
          RouteConfig }         from 'angular2/router';
-import { SidebarComponent }    from '../sidebar/index';
 import { SchedulerComponent,
          TeamComponent,
          SettingComponent,
-         ShiftSettingsComponent }  from '../../index';
+         ShiftSettingsComponent,
+         LoginComponent }  from '../../index';
 
 @BaseComponent({
   selector: 'teki-app',
   templateUrl: 'app/components/app/app.html',
   styleUrls: ['app/components/app/app.css'],
-  directives: [ROUTER_DIRECTIVES, SidebarComponent, CORE_DIRECTIVES],
-  providers: [MultilingualService]
+  directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, SecurityRouterOutlet]
 })
 
 @RouteConfig([
   {
+    path: '/',
+    name: 'Home',
+    component: SchedulerComponent
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginComponent,
+    useAsDefault: true
+  },
+  {
     path: '/scheduler',
     name: 'Scheduler',
-    component: SchedulerComponent,
-    useAsDefault: true
+    component: SchedulerComponent
   },
   {
     path: '/team',
@@ -41,13 +50,4 @@ import { SchedulerComponent,
   }
 ])
 
-export class AppComponent {
-  open:boolean = false;
-
-  constructor(private multilang: MultilingualService) {
-  }
-
-  onToggled() {
-    this.open = !this.open;
-  }
-}
+export class AppComponent {}

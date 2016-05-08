@@ -5,3 +5,4 @@ export * from './widget/index';
 export * from './widget-header/index';
 export * from './widget-body/index';
 export * from './widget-footer/index';
+export * from './app-layout/index';

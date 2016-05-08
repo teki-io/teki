@@ -1,8 +1,1 @@
-<div id="page-wrapper" [ngClass]="{ open: open }">
-  <teki-sidebar  (toggled)="onToggled($event)"></teki-sidebar>
-  <div id="content-wrapper">
-    <div class="page-content app-content">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
+<teki-router-outlet></teki-router-outlet>
