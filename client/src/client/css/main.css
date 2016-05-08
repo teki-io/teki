@@ -91,3 +91,6 @@ button:hover {
       }
 }
 
+.clickable {
+  cursor: pointer;
+}

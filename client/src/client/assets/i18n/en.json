@@ -3,7 +3,23 @@
     "scheduler": "Scheduler",
     "setting": "Setting",
     "team": "Team",
-    "shiftSettings": "Shift Settings"
+    "shiftSettings": "Shift Settings",
+    "logout": "Logout",
+    "login": "Sign In",
+    "about": "About",
+    "contactUs": "Contact Us"
+  },
+  "login": {
+    "username": "username",
+    "password": "password",
+    "signIn": "Sign In",
+    "signUpHere": "Click here to sign up"
+  },
+  "signup": {
+    "username": "username",
+    "password": "password",
+    "signUp": "Sign Up",
+    "loginHere": "Already have an acount? Login here"
   },
   "setting": {
     "changeLanguage": "Change Language"

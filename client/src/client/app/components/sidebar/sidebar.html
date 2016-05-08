@@ -27,5 +27,29 @@
         <span class="menu-icon fa fa-cog"></span>
       </a>
     </li>
+
+    <li class="sidebar-list push-to-bottom">
+      <a (click)="logout()">
+        {{ 'headers.logout' | translate }}
+        <span class="menu-icon fa fa-sign-out"></span>
+      </a>
+    </li>
   </ul>
+  <div class="sidebar-footer clickable">
+    <div class="col-xs-4">
+      <a>
+        {{ 'headers.about' | translate }}
+      </a>
+    </div>
+    <div class="col-xs-4">
+      <a>
+        {{ 'headers.contactUs' | translate }}
+      </a>
+    </div>
+    <div class="col-xs-4">
+      <a (click)="logout()">
+        {{ 'headers.logout' | translate }}
+      </a>
+    </div>
+  </div>
 </div>

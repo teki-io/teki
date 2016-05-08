@@ -17,6 +17,16 @@ export class LoginService {
       });
   }
 
+  signup(email: any, password: any):Observable<Response> {
+    let user = { email, password };
+    let body = JSON.stringify({ user });
+
+    return this.http.post(API_ENDPOINTS.CREAT_USER, body, { headers: contentHeaders })
+      .do((response:any) => {
+        localStorage.setItem('jwt', response.json().token);
+      });
+  }
+
   logout():void {
     localStorage.removeItem('jwt');
   }
