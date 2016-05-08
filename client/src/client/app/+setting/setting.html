@@ -1,4 +1,16 @@
 <teki-app-layout>
-  <h2>{{ 'headers.setting' | translate }}</h2>
-  <lang-switcher></lang-switcher>
+  <div class="row">
+    <div class="col-lg-12">
+      <teki-widget>
+        <teki-widget-body>
+          <div class="title pull-left">
+            {{ 'headers.setting' | translate }}
+          </div>
+          <div class="table-responsive">
+            <lang-switcher></lang-switcher>
+          </div>
+        </teki-widget-body>
+      </teki-widget>
+    </div>
+  </div>
 </teki-app-layout>

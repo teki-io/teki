@@ -1,6 +1,8 @@
 import { BaseComponent }  from '../shared/core/index';
 import { Calendar } from './components/calendar/index';
 import { Header } from './components/header/index';
+import { Widget }           from '../components/widget/index';
+import { WidgetBody }       from '../components/widget-body/index';
 import { PrivatePage } from '../shared/index';
 import { AppLayoutComponent } from '../components/app-layout/index';
 import * as moment from 'moment/moment';
@@ -9,7 +11,7 @@ import * as moment from 'moment/moment';
   selector: 'teki-scheduler',
   templateUrl: 'app/+scheduler/schedular.html',
   styleUrls: ['app/+scheduler/schedular.css'],
-  directives: [Calendar, Header, AppLayoutComponent]
+  directives: [Calendar, Header, AppLayoutComponent, Widget, WidgetBody]
 })
 
 @PrivatePage()
