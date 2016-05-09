@@ -1,0 +1,12 @@
+<div>
+  Monthly View
+  <week
+    *ngFor           ="let week of month.weeks"
+    [week]           ="week"
+    [currentDate]    ="week.date"
+    [shifts]         ="week.shifts"
+    [showAll]        ="false"
+    [shiftTemplates] ="shiftTemplates"
+    [employees]      ="employees"
+  ></week>
+</div>

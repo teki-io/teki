@@ -1,0 +1,23 @@
+<div>
+  <div (click)="edit()" *ngIf="!editing">
+    <p>
+      <span class="name">{{shift.name}}</span>
+      <span class="employee">{{shift.employeeName}}</span>
+    </p>
+  </div>
+  <div *ngIf="editing">
+    <div class="btn-group" dropdown keyboardNav="true">
+      <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" dropdownToggle>
+        選擇<span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="simple-btn-keyboard-nav">
+        <li role="menuitem" *ngFor="let employee of employees">
+          <a class="dropdown-item" (click)="select(employee)">{{employee.firstName}}</a>
+        </li>
+      </ul>
+      <div class="btn btn-sm btn-info" (click)="cancel()">
+        <i class="fa fa-times"></i>
+      </div>
+    </div>
+  </div>
+</div>

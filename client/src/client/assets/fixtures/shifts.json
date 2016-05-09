@@ -6,4 +6,20 @@
   "employeeName": "Test",
   "employeeId": 22,
   "shiftTemplateId": 33
+},{
+  "id": 12,
+  "name": "123",
+  "startTime": "2016-06-04T19:00:00.000Z",
+  "endTime": "2016-06-04T19:00:00.000Z",
+  "employeeName": "Test",
+  "employeeId": 22,
+  "shiftTemplateId": 33
+},{
+  "id": 13,
+  "name": "123",
+  "startTime": "2016-06-04T19:00:00.000Z",
+  "endTime": "2016-06-04T19:00:00.000Z",
+  "employeeName": "Test",
+  "employeeId": 22,
+  "shiftTemplateId": 33
 }]
