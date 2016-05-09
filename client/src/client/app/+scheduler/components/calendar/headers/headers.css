@@ -1,0 +1,13 @@
+li {
+  display: table-cell;
+  color: #666;
+  text-align: center;
+  width: 144px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 1px solid #eceeef;
+}
+
+.with-border:not(:last-child) {
+  border-right: 1px solid #e7e7e7;
+}

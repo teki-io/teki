@@ -1,23 +1,17 @@
-<div>
-  <div (click)="edit()" *ngIf="!editing">
-    <p>
-      <span class="name">{{shift.name}}</span>
-      <span class="employee">{{shift.employeeName}}</span>
-    </p>
-  </div>
-  <div *ngIf="editing">
-    <div class="btn-group" dropdown keyboardNav="true">
-      <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" dropdownToggle>
-        選擇<span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="simple-btn-keyboard-nav">
-        <li role="menuitem" *ngFor="let employee of employees">
-          <a class="dropdown-item" (click)="select(employee)">{{employee.firstName}}</a>
-        </li>
-      </ul>
-      <div class="btn btn-sm btn-info" (click)="cancel()">
-        <i class="fa fa-times"></i>
-      </div>
-    </div>
-  </div>
+<div class="shift-info" (click)="edit()" *ngIf="!editing">
+  <span class="name">{{shift.name}}</span>
+  <span class="employee">{{shift.employeeName}}</span>
+</div>
+<div class="btn-group" *ngIf="editing" dropdown keyboardNav="true">
+  <button id="simple-btn-keyboard-nav" type="button" class="btn btm-sm" dropdownToggle>
+    {{ 'scheduler.select' | translate }}<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="simple-btn-keyboard-nav">
+    <li role="menuitem">
+      <a class="dropdown-item" (click)="cancel()">{{ 'scheduler.cancel' | translate }}</a>
+    </li>
+    <li role="menuitem" *ngFor="let employee of employees">
+      <a class="dropdown-item" (click)="select(employee)">{{employee.firstName}}</a>
+    </li>
+  </ul>
 </div>

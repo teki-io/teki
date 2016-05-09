@@ -1,12 +1,10 @@
-<div>
-  Monthly View
-  <week
-    *ngFor           ="let week of month.weeks"
-    [week]           ="week"
-    [currentDate]    ="week.date"
-    [shifts]         ="week.shifts"
-    [showAll]        ="false"
-    [shiftTemplates] ="shiftTemplates"
-    [employees]      ="employees"
-  ></week>
-</div>
+<week
+  class            ="row list-group-item no-bottom-border no-padding"
+  *ngFor           ="let week of month.weeks"
+  [week]           ="week"
+  [currentDate]    ="week.date"
+  [shifts]         ="week.shifts"
+  [showAll]        ="false"
+  [shiftTemplates] ="shiftTemplates"
+  [employees]      ="employees"
+></week>

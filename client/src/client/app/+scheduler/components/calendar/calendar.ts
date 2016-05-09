@@ -9,6 +9,7 @@ import {
   EmployeeService,
   Operator
 } from '../../../shared/index';
+import { Headers } from './headers/index';
 import { Month } from './month/index';
 import { Week } from  './week/index';
 import * as moment from 'moment';
@@ -16,7 +17,8 @@ import * as moment from 'moment';
 @BaseComponent({
   selector: 'calendar',
   templateUrl: 'app/+scheduler/components/calendar/calendar.html',
-  directives: [Month, Week]
+  styleUrls: ['app/+scheduler/components/calendar/calendar.css'],
+  directives: [Month, Week, Headers]
 })
 
 export class Calendar implements OnChanges {

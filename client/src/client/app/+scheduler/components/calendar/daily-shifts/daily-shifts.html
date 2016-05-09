@@ -1,5 +1,4 @@
 <div *ngIf = "!showAll">
-  Daily Shifts View
   <shift
     *ngFor ="let shift of day.shifts | slice:0:showLimit"
     [shifts]="shifts"
@@ -14,7 +13,6 @@
   </div>
 </div>
 <div *ngIf = "showAll">
-  Daily Shifts View
   <shift
     *ngFor ="let shift of day.shifts"
     [shifts]="shifts"

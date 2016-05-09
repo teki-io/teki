@@ -1,0 +1,18 @@
+.week {
+  margin: 0;
+}
+
+.week .day {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  list-style-type: none;
+  display: table-cell;
+  text-align: center;
+  margin-bottom: 5px;
+  color: #777;
+  width: 144px;
+}
+
+.with-border:not(:last-child) {
+  border-right: 1px solid #e7e7e7;
+}

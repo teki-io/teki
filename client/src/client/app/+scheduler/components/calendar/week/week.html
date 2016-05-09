@@ -1,7 +1,6 @@
-<div>
-  Weekly View
-  <div *ngFor ="let day of week.days">
-    <div class="date">{{day.date.format('DD')}}</div>
+<div class="week">
+  <div class="day with-border" *ngFor ="let day of week.days">
+    <span>{{day.date.format('DD')}}</span>
     <daily-shifts
       [showAll]="showAll"
       [day]="day"

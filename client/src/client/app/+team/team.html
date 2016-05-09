@@ -14,15 +14,15 @@
               <i class="fa fa-times"></i>
             </a>
           </div>
-          <div class="table-responsive">
-            <headers></headers>
+          <div class="table-responsive list-group">
+            <headers class="row list-group-item no-bottom-border"></headers>
             <new-row
               *ngIf="adding"
-              class="row"
+              class="row list-group-item no-bottom-border"
               (editCancel)="editCancel($event)"
             ></new-row>
             <row
-              class="row"
+              class="row list-group-item no-bottom-border"
               *ngFor="let employee of employees"
               [employee]="employee">
             </row>

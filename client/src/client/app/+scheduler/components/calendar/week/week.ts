@@ -14,6 +14,7 @@ import { DailyShifts } from '../daily-shifts/index';
 @BaseComponent({
   selector: 'week',
   templateUrl: 'app/+scheduler/components/calendar/week/week.html',
+  styleUrls: ['app/+scheduler/components/calendar/week/week.css'],
   directives: [COMMON_DIRECTIVES, DailyShifts]
 })
 
