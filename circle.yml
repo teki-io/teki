@@ -9,11 +9,12 @@ machine:
 dependencies:
   cache_directories:
     - ~/teki/client/node_modules
+    - ~/teki/server/vendor/bundle
   pre:
     - npm install -g npm
   post:
     - cd ~/teki/client && npm install
-    - cd ~/teki/server && bundle
+    - cd ~/teki/server && bundle install --path vendor/bundle
 
 database:
   override:
