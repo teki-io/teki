@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     scope '/admin', as: 'admin', module: 'admin' do
       resources :employees, only: [:index, :create, :update, :destroy]
       resources :shift_templates, only: [:index, :create, :update, :destroy]
+      resources :shifts, only: [:index, :create, :update]
     end
   end
 end
