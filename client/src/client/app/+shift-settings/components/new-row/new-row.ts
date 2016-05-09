@@ -20,7 +20,7 @@ export class NewRow {
   public hstep:number = 1;
   public mstep:number = 15;
   public startTime: moment.Moment = moment().startOf('hour');
-  public endTime: moment.Moment = moment().startOf('hour');
+  public endTime: moment.Moment = moment().add(1, 'hours').startOf('hour');
 
   constructor(public shiftTemplateService: ShiftTemplateService, private translate: TranslateService) {}
 

@@ -56,7 +56,7 @@ RSpec.describe Api::Admin::EmployeesController do
       expect(response.status).to eq 200
     end
 
-    it 'responds with correct created employee' do
+    it 'responds with correct updated employee' do
       expect(result['firstName']).to eq 'NEW_FIRST_NAME'
     end
   end

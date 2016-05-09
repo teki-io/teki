@@ -2,7 +2,6 @@
   <div *ngIf="!editing" class="col-lg-3 table-cell">{{ shiftTemplate.name }}</div>
   <div *ngIf="!editing" class="col-lg-3 table-cell">{{ shiftTemplate.startTime.local().format('HH:mm a') }}</div>
   <div *ngIf="!editing" class="col-lg-3 table-cell">{{ shiftTemplate.endTime.local().format('HH:mm a') }}</div>
-  <div *ngIf="!editing" class="col-lg-1"></div>
   <div *ngIf="!editing" class="col-lg-1">
     <div *ngIf="!editing" class="btn btn-sm btn-info" (click)="edit()">
       <i class="pull-right fa fa-pencil-square-o"></i>
@@ -31,7 +30,7 @@
       [min]="startTime"
     ></timepicker>
   </div>
-  <div *ngIf="editing" class="col-lg-3">
+  <div *ngIf="editing" class="col-lg-2">
     <div class="btn btn-sm btn-info" (click)="confirm()">
       <i class="fa fa-check"></i>
     </div>
