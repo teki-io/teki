@@ -34,7 +34,16 @@
     "day": "日",
     "today": "本日",
     "thisWeek": "本週",
-    "thisMonth": "本月"
+    "thisMonth": "本月",
+    "monday": "一",
+    "tuesday": "二",
+    "wednesday": "三",
+    "thursday": "四",
+    "friday": "五",
+    "saturday": "六",
+    "sunday":"日",
+    "select": "選擇",
+    "cancel": "取消"
   },
   "team": {
     "nameTaken": "員工名已經存在",

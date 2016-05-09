@@ -94,3 +94,11 @@ button:hover {
 .clickable {
   cursor: pointer;
 }
+
+.no-bottom-border:not(:last-child) {
+  border-bottom: 0px;
+}
+
+.no-padding {
+  padding: 0;
+}

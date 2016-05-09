@@ -34,7 +34,16 @@
     "day": "Day",
     "today": "Today",
     "thisWeek": "This Week",
-    "thisMonth": "This Month"
+    "thisMonth": "This Month",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "select": "Select",
+    "cancel": "Cancel"
   },
   "team": {
     "nameTaken": "Employee Name is already taken",

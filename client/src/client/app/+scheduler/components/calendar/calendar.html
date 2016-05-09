@@ -1,7 +1,8 @@
-<div *ngIf="!fetching">
+<div *ngIf="!fetching" class="calendar-size">
   <div *ngIf="shifts && shiftTemplates">
+    <headers class="row list-group-item no-bottom-border no-padding"></headers>
     <month
-      *ngIf="calendarMode === 3"
+      *ngIf            ="calendarMode === 3"
       [currentDate]    ="currentDate"
       [shifts]         ="shifts"
       [shiftTemplates] ="shiftTemplates"
@@ -9,7 +10,8 @@
     >
     </month>
     <week
-      *ngIf="calendarMode === 2"
+      *ngIf            ="calendarMode === 2"
+      class            ="row list-group-item no-bottom-border no-padding"
       [currentDate]    ="currentDate"
       [shifts]         ="shifts"
       [showAll]        ="true"

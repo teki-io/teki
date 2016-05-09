@@ -8,6 +8,7 @@ import { Week } from '../week/index';
 @BaseComponent({
   selector: 'month',
   templateUrl: 'app/+scheduler/components/calendar/month/month.html',
+  styleUrls: ['app/+scheduler/components/calendar/month/month.css'],
   directives: [Week, COMMON_DIRECTIVES]
 })
 
