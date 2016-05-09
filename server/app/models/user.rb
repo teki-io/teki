@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :company
+  has_many :shifts, dependent: :destroy
 
   def full_name
     first_name + ' ' + last_name
