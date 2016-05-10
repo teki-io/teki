@@ -18,11 +18,11 @@
             <headers class="row list-group-item no-bottom-border"></headers>
             <new-row
               *ngIf="adding"
-              class="row list-group-item no-bottom-border"
+              class="row list-group-item no-bottom-border no-padding"
               (editCancel)="editCancel($event)"
             ></new-row>
             <row
-              class="row list-group-item no-bottom-border"
+              class="row list-group-item no-bottom-border no-padding"
               *ngFor="let employee of employees"
               [employee]="employee">
             </row>

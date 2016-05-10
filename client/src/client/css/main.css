@@ -102,3 +102,7 @@ button:hover {
 .no-padding {
   padding: 0;
 }
+
+.right-border:not(:last-child) {
+  border-right: 1px solid #e7e7e7;
+}

@@ -1,18 +1,17 @@
 <div>
-  <div *ngIf="!editing" class="col-lg-3 table-cell">{{ shiftTemplate.name }}</div>
-  <div *ngIf="!editing" class="col-lg-3 table-cell">{{ shiftTemplate.startTime.local().format('HH:mm a') }}</div>
-  <div *ngIf="!editing" class="col-lg-3 table-cell">{{ shiftTemplate.endTime.local().format('HH:mm a') }}</div>
-  <div *ngIf="!editing" class="col-lg-1">
+  <div *ngIf="!editing" class="col-lg-3 table-cell right-border">{{ shiftTemplate.name }}</div>
+  <div *ngIf="!editing" class="col-lg-3 table-cell right-border">{{ shiftTemplate.startTime.local().format('HH:mm a') }}</div>
+  <div *ngIf="!editing" class="col-lg-3 table-cell right-border">{{ shiftTemplate.endTime.local().format('HH:mm a') }}</div>
+  <div *ngIf="!editing" class="col-lg-1 table-cell right-border">
     <div *ngIf="!editing" class="btn btn-sm btn-info" (click)="edit()">
       <i class="pull-right fa fa-pencil-square-o"></i>
     </div>
   </div>
 
-
-  <div *ngIf="editing" class="col-lg-3 table-cell">
+  <div *ngIf="editing" class="col-lg-3 table-cell right-border">
     <input placeholder="{{ 'shiftSettings.shiftName' | translate }}" [(ngModel)]="shiftTemplate.name">
   </div>
-  <div *ngIf="editing" class="col-lg-3 table-cell">
+  <div *ngIf="editing" class="col-lg-3 table-cell right-border">
     <timepicker
       [(ngModel)]="startTime"
       [hourStep]="hstep"
@@ -21,7 +20,7 @@
       [max]="endTime"
     ></timepicker>
   </div>
-  <div *ngIf="editing" class="col-lg-3 table-cell">
+  <div *ngIf="editing" class="col-lg-3 table-cell right-border">
     <timepicker
       [(ngModel)]="endTime"
       [hourStep]="hstep"
@@ -30,7 +29,7 @@
       [min]="startTime"
     ></timepicker>
   </div>
-  <div *ngIf="editing" class="col-lg-2">
+  <div *ngIf="editing" class="col-lg-2 table-cell right-border">
     <div class="btn btn-sm btn-info" (click)="confirm()">
       <i class="fa fa-check"></i>
     </div>

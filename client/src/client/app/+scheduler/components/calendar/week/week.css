@@ -12,7 +12,3 @@
   color: #777;
   width: 144px;
 }
-
-.with-border:not(:last-child) {
-  border-right: 1px solid #e7e7e7;
-}
