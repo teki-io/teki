@@ -1,3 +1,5 @@
 .table-cell {
   text-align: right;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
