@@ -1,5 +1,5 @@
-import { Input, OnChanges } from 'angular2/core';
-import { COMMON_DIRECTIVES } from 'angular2/common';
+import { Input, OnChanges } from '@angular/core';
+import { COMMON_DIRECTIVES } from '@angular/common';
 import * as moment from 'moment';
 import * as _ from 'lodash';
 import {

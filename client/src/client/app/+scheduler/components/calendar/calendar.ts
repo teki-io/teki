@@ -1,4 +1,4 @@
-import { Input, OnChanges } from 'angular2/core';
+import { Input, OnChanges } from '@angular/core';
 import {
   BaseComponent,
   Shift,

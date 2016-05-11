@@ -1,5 +1,5 @@
 import {BaseComponent}  from '../../../shared/core/index';
-import {Input, Output, EventEmitter} from 'angular2/core';
+import {Input, Output, EventEmitter} from '@angular/core';
 import * as moment from 'moment';
 
 @BaseComponent({

@@ -1,6 +1,6 @@
 // angular
-import {provide} from 'angular2/core';
-import {Http} from 'angular2/http';
+import {provide} from '@angular/core';
+import {Http} from '@angular/http';
 
 // libs
 import {TranslateLoader, TranslateStaticLoader, TranslateService} from 'ng2-translate/ng2-translate';
@@ -11,7 +11,7 @@ import {MultilingualService} from './services/multilingual.service';
 export const MULTILINGUAL_PROVIDERS: any[] = [
   provide(TranslateLoader, {
     deps: [Http],
-    useFactory: (http: Http) => new TranslateStaticLoader(http, 'assets/i18n', '.json')
+    useFactory: (http: any) => new TranslateStaticLoader(http, 'assets/i18n', '.json')
   }),
   TranslateService,
   MultilingualService

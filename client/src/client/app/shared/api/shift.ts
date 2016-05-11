@@ -1,8 +1,8 @@
-import { Injectable } from 'angular2/core';
+import { Injectable } from '@angular/core';
 import { API_ENDPOINTS,
          contentHeaders,
          Shift }  from '../index';
-import { URLSearchParams } from 'angular2/http';
+import { URLSearchParams } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt/angular2-jwt';
 import 'rxjs/Rx';
 import * as moment from 'moment';

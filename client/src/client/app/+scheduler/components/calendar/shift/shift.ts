@@ -1,5 +1,5 @@
-import { Input, Output, EventEmitter } from 'angular2/core';
-import { COMMON_DIRECTIVES } from 'angular2/common';
+import { Input, Output, EventEmitter } from '@angular/core';
+import { COMMON_DIRECTIVES } from '@angular/common';
 import { DROPDOWN_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 import {
   BaseComponent,

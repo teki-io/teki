@@ -1,6 +1,6 @@
 import { Output,
-         EventEmitter }      from 'angular2/core';
-import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
+         EventEmitter }      from '@angular/core';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router-deprecated';
 import { BaseComponent }     from '../../shared/index';
 
 @BaseComponent({

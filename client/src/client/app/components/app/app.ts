@@ -1,9 +1,9 @@
 import { BaseComponent,
          SecurityRouterOutlet,
          MultilingualService } from '../../shared/index';
-import { CORE_DIRECTIVES }     from 'angular2/common';
+import { CORE_DIRECTIVES }     from '@angular/common';
 import { ROUTER_DIRECTIVES,
-         RouteConfig }         from 'angular2/router';
+         RouteConfig }         from '@angular/router-deprecated';
 import { SchedulerComponent,
          TeamComponent,
          SettingComponent,
@@ -28,8 +28,7 @@ import { SchedulerComponent,
   {
     path: '/login',
     name: 'Login',
-    component: LoginComponent,
-    useAsDefault: true
+    component: LoginComponent
   },
   {
     path: '/signup',

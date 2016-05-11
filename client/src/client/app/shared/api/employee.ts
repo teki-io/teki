@@ -1,7 +1,7 @@
 import { API_ENDPOINTS,
          contentHeaders,
          Employee }   from '../index';
-import { Injectable } from 'angular2/core';
+import { Injectable } from '@angular/core';
 import { AuthHttp }   from 'angular2-jwt/angular2-jwt';
 import 'rxjs/Rx';
 

@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
-import { Injectable, Inject } from 'angular2/core';
-import { Http, Response } from 'angular2/http';
+import { Injectable, Inject } from '@angular/core';
+import { Http, Response } from '@angular/http';
 import { API_ENDPOINTS, contentHeaders } from '../constants/index';
 
 @Injectable()

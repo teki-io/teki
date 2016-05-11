@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable, Inject } from 'angular2/core';
+import { EventEmitter, Injectable, Inject } from '@angular/core';
 import { ShiftTemplate } from '../models/index';
 import { ApiShiftTemplate } from '../api/index';
 import { Operator, HttpErrorHandler } from './index';

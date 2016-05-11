@@ -1,6 +1,6 @@
-import { Router } from 'angular2/router';
+import { Router } from '@angular/router-deprecated';
 import { LoginService } from './login';
-import { Injectable, Inject } from 'angular2/core';
+import { Injectable, Inject } from '@angular/core';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
 const toastr = require('toastr');

@@ -1,6 +1,6 @@
 import { BaseComponent }  from '../shared/core/index';
-import { Router, RouterLink } from 'angular2/router';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from 'angular2/common';
+import { Router, RouterLink } from '@angular/router-deprecated';
+import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
 import { LoginService, PublicPage } from '../shared/index';
 const toastr = require('toastr');
 
