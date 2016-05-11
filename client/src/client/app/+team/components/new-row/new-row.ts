@@ -1,4 +1,4 @@
-import { EventEmitter, Output } from 'angular2/core';
+import { EventEmitter, Output } from '@angular/core';
 import { BaseComponent, Employee, EmployeeService } from '../../../shared/index';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 

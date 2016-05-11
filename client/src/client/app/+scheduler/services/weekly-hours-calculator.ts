@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from 'angular2/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Operator, Shift, Employee } from '../../shared/index';
 import { EmployeeStats, IWeek } from '../interfaces/index';
 import * as _ from 'lodash';

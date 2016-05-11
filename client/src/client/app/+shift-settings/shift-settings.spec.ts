@@ -1,13 +1,13 @@
 import {
-  TestComponentBuilder,
   describe,
   expect,
   inject,
   it
-} from 'angular2/testing';
+} from '@angular/core/testing';
+import { TestComponentBuilder } from '@angular/compiler/testing';
 import { BaseComponent } from '../shared/core/index';
-import {DOM} from 'angular2/src/platform/dom/dom_adapter';
-import {ShiftSettingsComponent} from './shift-settings';
+import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
+import { ShiftSettingsComponent } from './shift-settings';
 
 export function main() {
   describe('Shift Settings component', () => {
@@ -17,7 +17,7 @@ export function main() {
           .then((rootTC: any) => {
             let settingDOMEl = rootTC.debugElement.children[0].nativeElement;
 
-            expect(DOM.querySelectorAll(settingDOMEl, 'h2')[0].textContent).toEqual('Shift Settings');
+            expect(getDOM().querySelectorAll(settingDOMEl, 'h2')[0].textContent).toEqual('Shift Settings');
           });
         }));
     });

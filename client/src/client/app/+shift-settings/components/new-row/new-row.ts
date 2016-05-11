@@ -1,5 +1,5 @@
-import { EventEmitter, Output } from 'angular2/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from 'angular2/common';
+import { EventEmitter, Output } from '@angular/core';
+import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
 import { BaseComponent, ShiftTemplate, ShiftTemplateService } from '../../../shared/index';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { TimepickerComponent } from 'ng2-bootstrap/ng2-bootstrap';

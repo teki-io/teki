@@ -1,4 +1,4 @@
-import { Input}          from 'angular2/core';
+import { Input}          from '@angular/core';
 import { BaseComponent } from '../../shared/index';
 
 @BaseComponent({

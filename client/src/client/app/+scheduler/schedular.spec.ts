@@ -1,12 +1,12 @@
 import {
-  TestComponentBuilder,
   describe,
   expect,
   inject,
   it
-} from 'angular2/testing';
+} from '@angular/core/testing';
+import { TestComponentBuilder } from '@angular/compiler/testing';
 import { BaseComponent } from '../shared/core/index';
-import { DOM } from 'angular2/src/platform/dom/dom_adapter';
+import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
 import { SchedulerComponent } from './schedular';
 
 export function main() {
@@ -17,7 +17,7 @@ export function main() {
           .then((rootTC: any) => {
             let schedulerDOMEl = rootTC.debugElement.children[0].nativeElement;
 
-            expect(DOM.querySelectorAll(schedulerDOMEl, 'h2')[0].textContent).toEqual('Features');
+            expect(getDOM().querySelectorAll(schedulerDOMEl, 'h2')[0].textContent).toEqual('Features');
           });
         }));
     });

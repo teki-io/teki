@@ -1,5 +1,5 @@
 // angular
-import {ControlGroup, Control} from 'angular2/common';
+import {ControlGroup, Control} from '@angular/common';
 
 // app
 import {FormComponent, ILang} from '../../core/index';

@@ -1,4 +1,4 @@
-import { Input } from 'angular2/core';
+import { Input } from '@angular/core';
 import { BaseComponent, Employee, EmployeeService } from '../../../shared/index';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 const toastr = require('toastr');

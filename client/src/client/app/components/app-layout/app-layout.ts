@@ -1,5 +1,5 @@
 import { BaseComponent } from '../../shared/index';
-import { CORE_DIRECTIVES }     from 'angular2/common';
+import { CORE_DIRECTIVES }     from '@angular/common';
 import { SidebarComponent }    from '../sidebar/index';
 
 @BaseComponent({
