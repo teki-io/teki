@@ -89,11 +89,16 @@ export class SeedConfig {
       '*': `${this.APP_BASE}node_modules/*`
     },
     packages: {
-      rxjs: { defaultExtension: false }
+      rxjs: { defaultExtension: false },
+      '@ngrx/store' : {
+        main: 'dist/index.js',
+        defaultExtension: 'js'
+      }
     },
     map: {
       'lodash': `${this.APP_BASE}node_modules/lodash/lodash.js`,
-      'toastr': `${this.APP_BASE}node_modules/toastr/toastr.js`
+      'toastr': `${this.APP_BASE}node_modules/toastr/toastr.js`,
+      '@ngrx/store': `${this.APP_BASE}node_modules//@ngrx/store/index.js`
     }
   };
 

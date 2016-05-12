@@ -1,6 +1,5 @@
 import { Input } from '@angular/core';
 import { BaseComponent, Employee, EmployeeService } from '../../../shared/index';
-import { TranslateService } from 'ng2-translate/ng2-translate';
 const toastr = require('toastr');
 
 @BaseComponent({
@@ -14,7 +13,7 @@ export class Row {
   public editing: boolean = false;
   private originEmployee: Employee = null;
 
-  constructor(public employeeService: EmployeeService, private translate: TranslateService) {}
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit() {
     this.originEmployee = _.clone(this.employee);
@@ -30,14 +29,12 @@ export class Row {
   }
 
   confirm() {
-    if (this.employeeService.nameTaken(this.employee)) {
-      this.translate.get('team.nameTaken').subscribe((msg: string) => toastr.error(msg));
-    } else {
-      this.employeeService.update(this.employee)
-        .subscribe(() => {
-          this.editing = false;
-        });
-    }
+    this.employeeService.nameTaken(this.employee)
+      .then(() => {
+        this.employeeService.save(this.employee);
+        this.editing = false;
+      })
+      .catch(error => toastr.error(error.message));
   }
 
   destroy() {

@@ -39,8 +39,9 @@ module.exports = function(config) {
 
       // paths loaded via module imports
       // Angular itself
-      { pattern: 'node_modules/@angular/**/*.js', included: false, watched: true },
+      { pattern: 'node_modules/@angular/**/*.js', included: false, watched: false },
 
+      { pattern: 'node_modules/@ngrx/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/jquery/dist/jquery.js', included: false, watched: false },
       { pattern: 'node_modules/ng2-translate/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/ng2-bootstrap/**/*.js', included: false, watched: false },

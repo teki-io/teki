@@ -6,7 +6,7 @@
       [currentDate]    ="currentDate"
       [shifts]         ="shifts"
       [shiftTemplates] ="shiftTemplates"
-      [employees]      ="employees"
+      [employees]      ="employees | async"
     >
     </month>
     <week
@@ -16,7 +16,7 @@
       [shifts]         ="shifts"
       [showAll]        ="true"
       [shiftTemplates] ="shiftTemplates"
-      [employees]      ="employees"
+      [employees]      ="employees | async"
     >
     </week>
   </div>

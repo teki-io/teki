@@ -23,7 +23,7 @@ export class ApiEmployee {
     let data = JSON.stringify({ employee: employee });
     return this.authHttp.post(API_ENDPOINTS.EMPLOYEES, data, { headers: contentHeaders })
       .map(res => res.json())
-      .map((employee) => { return this.parse(employee); });
+      .map(employee => this.parse(employee));
   }
 
   update(employee: Employee) {

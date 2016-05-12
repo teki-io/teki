@@ -1,35 +1,33 @@
-import { BaseComponent,
-         Employee,
-         EmployeeService }  from '../shared/index';
+import { ChangeDetectionStrategy } from '@angular/core';
+import { BaseComponent, PrivatePage, AppStore, Employee, EmployeeService }  from '../shared/index';
+import { AppLayoutComponent } from '../components/app-layout/index';
 import { Widget }           from '../components/widget/index';
 import { WidgetBody }       from '../components/widget-body/index';
 import { WidgetHeader }     from '../components/widget-header/index';
 import { Row }              from './components/row/index';
 import { Headers }          from './components/headers/index';
 import { NewRow }           from './components/new-row/index';
-import { PrivatePage } from '../shared/index';
-import { AppLayoutComponent } from '../components/app-layout/index';
+import { Store }            from '@ngrx/store';
+import { Observable }       from 'rxjs/Observable';
 
 @BaseComponent({
   selector: 'teki-team',
   templateUrl: 'app/+team/team.html',
   styleUrls: ['app/+team/team.css'],
-  directives: [Widget, WidgetBody, WidgetHeader, Row, Headers, NewRow, AppLayoutComponent]
+  directives: [Widget, WidgetBody, WidgetHeader, Row, Headers, NewRow, AppLayoutComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 @PrivatePage()
 export class TeamComponent {
-  employees: Array<Employee>;
+  employees: Observable<Array<Employee>>;
   adding: boolean = false;
 
-  constructor(public employeeService: EmployeeService) {
-    this.employeeService.getAll()
-      .subscribe((employees: Array<Employee>) => {
-        this.employees = _.filter(employees, (d: Employee) => !d.admin);
-      });
-    this.employeeService.created.subscribe((d: Employee) => this.onEmployeeCreated(d));
-    this.employeeService.destroyed.subscribe((d: Employee) => this.onEmployeeDestroyed(d));
-    this.employeeService.init();
+  constructor(private employeeService: EmployeeService, private store: Store<AppStore>) {}
+
+  ngOnInit() {
+    this.employees = this.employeeService.employees;
+    this.employeeService.load();
   }
 
   add() {
@@ -41,14 +39,6 @@ export class TeamComponent {
   }
 
   editCancel() {
-    this.cancel();
-  }
-
-  private onEmployeeDestroyed(d: Employee) {
-    _.remove(this.employees, {id: d.id});
-  }
-
-  private onEmployeeCreated(d: Employee) {
     this.adding = false;
   }
 }

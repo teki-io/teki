@@ -33,7 +33,8 @@ System.config({
     '@angular': 'node_modules/@angular',
     'jquery': 'node_modules/jquery/dist/jquery.js',
     'lodash': 'node_modules/lodash/lodash.js',
-    'toastr': 'node_modules/toastr/toastr.js'
+    'toastr': 'node_modules/toastr/toastr.js',
+    '@ngrx/store': 'node_modules/@ngrx/store/index.js'
   },
   packages: {
     '@angular/core': {
@@ -69,6 +70,10 @@ System.config({
       defaultExtension: 'js'
     },
     'rxjs': {
+      defaultExtension: 'js'
+    },
+    '@ngrx/store' : {
+      main: 'dist/index.js',
       defaultExtension: 'js'
     }
   }

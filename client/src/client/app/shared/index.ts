@@ -19,6 +19,10 @@ export * from './models/index';
 export * from './constants/index';
 export * from './api/index';
 
+export * from './interfaces/index';
+export * from './actions/index';
+export * from './reducers/index';
+
 export const APP_PROVIDERS: any[] = [
   MULTILINGUAL_PROVIDERS,
   LoginService,
