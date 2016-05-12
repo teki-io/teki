@@ -17,11 +17,12 @@ export class NewRow {
   constructor(public employeeService: EmployeeService, private translate: TranslateService) {}
 
   confirm() {
-    if (this.employeeService.nameTaken(this.employee)) {
-      this.translate.get('team.nameTaken').subscribe((msg: string) => toastr.error(msg));
-    } else {
-      this.employeeService.create(this.employee);
-    }
+    this.employeeService.nameTaken(this.employee)
+      .then(() => {
+        this.employeeService.save(this.employee);
+        this.editCancel.emit({});
+      })
+      .catch(error => toastr.error(error.message));
   }
 
   cancel() {

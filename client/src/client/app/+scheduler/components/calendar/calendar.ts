@@ -13,6 +13,7 @@ import { Headers } from './headers/index';
 import { Month } from './month/index';
 import { Week } from  './week/index';
 import * as moment from 'moment';
+import { Observable }       from 'rxjs/Observable';
 
 @BaseComponent({
   selector: 'calendar',
@@ -27,7 +28,7 @@ export class Calendar implements OnChanges {
   shiftTemplates: Array<ShiftTemplate>;
   shifts: Array<Shift>;
   fetching: boolean = true;
-  employees: Array<Employee>;
+  employees: Observable<Employee[]>;
 
   constructor(
     public shiftService: ShiftService,
@@ -37,13 +38,13 @@ export class Calendar implements OnChanges {
     this.shiftService.getAll().subscribe((shifts: Shift[]) => this.onShiftsFetched(shifts));
     this.shiftService.created.subscribe((shift: Shift) => this.onShiftAdded(shift));
     this.shiftService.updated.subscribe((shift: Shift) => this.onShiftAdded(shift));
-    this.employeeService.getAll().subscribe((employees: Employee[]) => this.onEmployeesFetched(employees));
     this.apiShiftTemplate.getAll().subscribe((shiftTemplates: ShiftTemplate[]) => this.onShiftTemplatesFetched(shiftTemplates));
   }
 
   ngOnInit() {
     this.shiftService.init(this.currentDate);
-    this.employeeService.init();
+    this.employees = this.employeeService.employees;
+    this.employeeService.load();
   }
 
   ngOnChanges(changes: any) {
@@ -59,10 +60,6 @@ export class Calendar implements OnChanges {
 
   private onShiftTemplatesFetched(shiftTemplates: ShiftTemplate[]) {
     this.shiftTemplates = shiftTemplates;
-  }
-
-  private onEmployeesFetched(employees: Employee[]) {
-    this.employees = employees;
   }
 
   private onShiftsFetched(shifts: Shift[]) {
