@@ -4,7 +4,7 @@ export const contentHeaders = new Headers();
 contentHeaders.append('Accept', 'application/json');
 contentHeaders.append('Content-Type', 'application/json');
 
-const BASE_API = 'http://127.0.0.1:3000';
+const BASE_API = 'http://localhost:3000';
 const SHIFT_ENDPOINT = '/api/admin/shifts';
 const EMPLOYEE_ENDPOINT = '/api/admin/employees';
 const SHIFT_TEMPLATE_ENDPOINT = '/api/admin/shift_templates';

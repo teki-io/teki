@@ -9,18 +9,17 @@
     </div>
   </div>
 
-
   <div *ngIf="editing" class="col-lg-2 table-cell right-border">
-    <input placeholder="{{ 'team.firstName' | translate }}" [(ngModel)]="employee.firstName">
+    <input placeholder="{{ 'team.firstName' | translate }}" [(ngModel)]="tmpEmployee.firstName">
   </div>
   <div *ngIf="editing" class="col-lg-3 table-cell right-border">
-    <input placeholder="{{ 'team.lastName' | translate }}" [(ngModel)]="employee.lastName">
+    <input placeholder="{{ 'team.lastName' | translate }}" [(ngModel)]="tmpEmployee.lastName">
   </div>
   <div *ngIf="editing" class="col-lg-3 table-cell right-border">
-    <input placeholder="{{ 'team.phoneNumber' | translate }}" [(ngModel)]="employee.phoneNumber">
+    <input placeholder="{{ 'team.phoneNumber' | translate }}" [(ngModel)]="tmpEmployee.phoneNumber">
   </div>
   <div *ngIf="editing" class="col-lg-3 table-cell right-border">
-    <input placeholder="{{ 'team.email' | translate }}" [(ngModel)]="employee.email">
+    <input placeholder="{{ 'team.email' | translate }}" [(ngModel)]="tmpEmployee.email">
   </div>
   <div *ngIf="editing" class="col-lg-1 table-cell right-border">
     <div class="btn btn-sm btn-info" (click)="confirm()">

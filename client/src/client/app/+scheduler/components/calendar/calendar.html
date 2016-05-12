@@ -5,7 +5,7 @@
       *ngIf            ="calendarMode === 3"
       [currentDate]    ="currentDate"
       [shifts]         ="shifts"
-      [shiftTemplates] ="shiftTemplates"
+      [shiftTemplates] ="shiftTemplates | async"
       [employees]      ="employees | async"
     >
     </month>
@@ -15,7 +15,7 @@
       [currentDate]    ="currentDate"
       [shifts]         ="shifts"
       [showAll]        ="true"
-      [shiftTemplates] ="shiftTemplates"
+      [shiftTemplates] ="shiftTemplates | async"
       [employees]      ="employees | async"
     >
     </week>

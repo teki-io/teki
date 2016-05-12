@@ -1,7 +1,8 @@
-import { Router } from '@angular/router-deprecated';
-import { LoginService } from './login';
+import { Router }             from '@angular/router-deprecated';
+import { LoginService }       from './login';
 import { Injectable, Inject } from '@angular/core';
-import { TranslateService } from 'ng2-translate/ng2-translate';
+import { TranslateService }   from 'ng2-translate/ng2-translate';
+import { Observable }         from 'rxjs/Observable';
 
 const toastr = require('toastr');
 toastr.options.preventDuplicates = true;
@@ -23,5 +24,6 @@ export class HttpErrorHandler {
       let msg:string = _.chain(error.json()).values().first().value();
       toastr.error(msg);
     }
+    return Observable.throw('Server error');
   }
 }

@@ -9,7 +9,7 @@
   </div>
 
   <div *ngIf="editing" class="col-lg-3 table-cell right-border">
-    <input placeholder="{{ 'shiftSettings.shiftName' | translate }}" [(ngModel)]="shiftTemplate.name">
+    <input placeholder="{{ 'shiftSettings.shiftName' | translate }}" [(ngModel)]="tmpShiftTemplate.name">
   </div>
   <div *ngIf="editing" class="col-lg-3 table-cell right-border">
     <timepicker

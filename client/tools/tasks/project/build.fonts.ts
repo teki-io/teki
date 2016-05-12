@@ -4,4 +4,4 @@ import * as gulp from 'gulp';
 export = () => {
   return gulp.src(FONTS_DEPENDENCIES)
     .pipe(gulp.dest(FONTS_DEST));
-}
+};

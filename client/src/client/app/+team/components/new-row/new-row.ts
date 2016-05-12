@@ -1,8 +1,5 @@
 import { EventEmitter, Output } from '@angular/core';
 import { BaseComponent, Employee, EmployeeService } from '../../../shared/index';
-import { TranslateService } from 'ng2-translate/ng2-translate';
-
-const toastr = require('toastr');
 
 @BaseComponent({
   selector: 'new-row',
@@ -14,15 +11,11 @@ export class NewRow {
   public employee: Employee = new Employee({});
   @Output() editCancel:EventEmitter<any> = new EventEmitter();
 
-  constructor(public employeeService: EmployeeService, private translate: TranslateService) {}
+  constructor(public employeeService: EmployeeService) {}
 
   confirm() {
-    this.employeeService.nameTaken(this.employee)
-      .then(() => {
-        this.employeeService.save(this.employee);
-        this.editCancel.emit({});
-      })
-      .catch(error => toastr.error(error.message));
+    this.employeeService.save(this.employee);
+    this.editCancel.emit({});
   }
 
   cancel() {

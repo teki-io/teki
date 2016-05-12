@@ -1,10 +1,8 @@
 import { EventEmitter, Output } from '@angular/core';
 import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
 import { BaseComponent, ShiftTemplate, ShiftTemplateService } from '../../../shared/index';
-import { TranslateService } from 'ng2-translate/ng2-translate';
 import { TimepickerComponent } from 'ng2-bootstrap/ng2-bootstrap';
 import * as moment from 'moment';
-const toastr = require('toastr');
 
 @BaseComponent({
   selector: 'new-row',
@@ -22,16 +20,13 @@ export class NewRow {
   public startTime: moment.Moment = moment().startOf('hour');
   public endTime: moment.Moment = moment().add(1, 'hours').startOf('hour');
 
-  constructor(public shiftTemplateService: ShiftTemplateService, private translate: TranslateService) {}
+  constructor(public shiftTemplateService: ShiftTemplateService) {}
 
   confirm() {
     this.shiftTemplate.startTime = moment(this.startTime);
     this.shiftTemplate.endTime = moment(this.endTime);
-    if (this.shiftTemplateService.nameTaken(this.shiftTemplate)) {
-      this.translate.get('shiftSettings.nameTaken').subscribe((msg: string) => toastr.error(msg));
-    } else {
-      this.shiftTemplateService.create(this.shiftTemplate);
-    }
+    this.shiftTemplateService.save(this.shiftTemplate);
+    this.editCancel.emit({});
   }
 
   cancel() {
