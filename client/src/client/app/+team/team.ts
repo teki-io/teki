@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy } from '@angular/core';
-import { BaseComponent, PrivatePage, AppStore, Employee, EmployeeService }  from '../shared/index';
+import { BaseComponent, PrivatePage, Employee, EmployeeService }  from '../shared/index';
 import { AppLayoutComponent } from '../components/app-layout/index';
 import { Widget }           from '../components/widget/index';
 import { WidgetBody }       from '../components/widget-body/index';
@@ -7,7 +7,6 @@ import { WidgetHeader }     from '../components/widget-header/index';
 import { Row }              from './components/row/index';
 import { Headers }          from './components/headers/index';
 import { NewRow }           from './components/new-row/index';
-import { Store }            from '@ngrx/store';
 import { Observable }       from 'rxjs/Observable';
 
 @BaseComponent({
@@ -23,7 +22,7 @@ export class TeamComponent {
   employees: Observable<Array<Employee>>;
   adding: boolean = false;
 
-  constructor(private employeeService: EmployeeService, private store: Store<AppStore>) {}
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit() {
     this.employees = this.employeeService.employees;

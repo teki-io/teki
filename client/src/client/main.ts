@@ -3,7 +3,7 @@ import { provide, enableProdMode } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { APP_BASE_HREF } from '@angular/common';
-import { APP_PROVIDERS, employeeReducer } from './app/shared/index';
+import { APP_PROVIDERS, APP_STORE } from './app/shared/index';
 import { AppComponent } from './app/components/index';
 import { AuthConfig, AuthHttp } from 'angular2-jwt/angular2-jwt';
 import { provideStore } from '@ngrx/store';
@@ -13,10 +13,7 @@ if ('<%= ENV %>' === 'prod') { enableProdMode(); }
 bootstrap(AppComponent, [
   HTTP_PROVIDERS,
   ROUTER_PROVIDERS,
-  APP_PROVIDERS,
-  provideStore({
-    employees: employeeReducer
-  }),
+  provideStore(APP_STORE),
   provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' }),
   provide(AuthHttp, {
     useFactory: (http: Http) => {
@@ -26,7 +23,8 @@ bootstrap(AppComponent, [
       }), http);
     },
     deps: [Http]
-  })
+  }),
+  APP_PROVIDERS
 ]).catch(err => console.error(err));
 
 // In order to start the Service Worker located at "./worker.js"

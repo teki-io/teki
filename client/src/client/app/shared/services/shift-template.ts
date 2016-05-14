@@ -1,76 +1,68 @@
-import { EventEmitter, Injectable, Inject } from '@angular/core';
-import { ShiftTemplate } from '../models/index';
-import { ApiShiftTemplate } from '../api/index';
-import { Operator, HttpErrorHandler } from './index';
+import { Injectable, Inject }    from '@angular/core';
+import { ShiftTemplate }         from '../models/index';
+import { ShiftTemplateAction }   from '../actions/index';
+import { AppStore }              from '../interfaces/index';
+import { ApiShiftTemplate }      from '../api/index';
+import { Observable }            from 'rxjs/Observable';
+import { Store }                 from '@ngrx/store';
+import { TranslateService }      from 'ng2-translate/ng2-translate';
+import { HttpErrorHandler }      from './index';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ShiftTemplateService {
-  public all: EventEmitter<ShiftTemplate[]> = new EventEmitter<ShiftTemplate[]>();
-  public created: EventEmitter<ShiftTemplate> = new EventEmitter<ShiftTemplate>();
-  public updated: EventEmitter<ShiftTemplate> = new EventEmitter<ShiftTemplate>();
-  public destroyed: EventEmitter<ShiftTemplate> = new EventEmitter<ShiftTemplate>();
-  public shiftTemplates: ShiftTemplate[] = [];
-  private initialized:  boolean = false;
+  shiftTemplates:  Observable<ShiftTemplate[]>;
 
   constructor(@Inject(ApiShiftTemplate) public api: ApiShiftTemplate,
-              @Inject(HttpErrorHandler) public errorHandler: HttpErrorHandler) {}
-
-  public init() {
-    if (this.initialized) {
-      this.all.emit(this.shiftTemplates);
-    } else {
-      this.api.getAll()
-        .subscribe((emplooyees: Array<ShiftTemplate>) => {
-          this.shiftTemplates = emplooyees;
-          this.initialized = true;
-          this.all.emit(this.shiftTemplates);
-        }, e => this.errorHandler.handle(e));
-    }
+              private store: Store<AppStore>,
+              private translate: TranslateService,
+              private errorHandler: HttpErrorHandler) {
+    this.shiftTemplates = store.select('shiftTemplates');
   }
 
-  public update(shiftTemplate: ShiftTemplate): EventEmitter<ShiftTemplate> {
-    this.api.update(shiftTemplate)
-      .subscribe((shiftTemplate: ShiftTemplate) => {
-        this.updateShiftTemplate(shiftTemplate);
-        this.updated.emit(shiftTemplate);
-      }, e => this.errorHandler.handle(e));
-    return this.updated;
-  }
-
-  public create(shiftTemplate: ShiftTemplate): EventEmitter<ShiftTemplate> {
-    this.api.create(shiftTemplate)
-      .subscribe((shiftTemplate: ShiftTemplate) => {
-        this.updateShiftTemplate(shiftTemplate);
-        this.created.emit(shiftTemplate);
-      }, e => this.errorHandler.handle(e));
-    return this.created;
-  }
-
-  public getAll(): EventEmitter<ShiftTemplate[]> {
-    return this.all;
-  }
-
-  public nameTaken(newTemplate: ShiftTemplate): boolean {
-    let shiftTemplate = _.find(this.shiftTemplates, (template) => {
-      return template.name === newTemplate.name && template.id !== newTemplate.id;
+  nameTaken(template: ShiftTemplate): Promise<Boolean> {
+    return new Promise((resolve, reject) => {
+      this.shiftTemplates.subscribe((templates: ShiftTemplate[]) => {
+        let result = _.find(templates, (d) => template.name === template.name && template.id !== template.id);
+        if (_.isEmpty(result)) {
+          resolve(true);
+        } else {
+          this.translate.get('shiftSettings.nameTaken').subscribe((msg: string) => reject(new Error(msg)));
+        }
+      });
     });
-    return _.isEmpty(shiftTemplate) ? false: true;
   }
 
-  public destroy(d: ShiftTemplate): EventEmitter<ShiftTemplate> {
-    this.api.destroy(d)
-      .subscribe((d: ShiftTemplate) => {
-        this.remove(d);
-        this.destroyed.emit(d);
-      }, e => this.errorHandler.handle(e));
-    return this.destroyed;
+  load() {
+    this.api.getAll()
+      .map(payload => ({ type: ShiftTemplateAction.ADD, payload }))
+      .subscribe(action => this.store.dispatch(action));
   }
 
-  private remove(d: ShiftTemplate) {
-    _.remove(this.shiftTemplates, { id: d.id });
+  save(template: ShiftTemplate) {
+    (template.id) ? this.update(template) : this.create(template);
   }
 
-  private updateShiftTemplate(shift: ShiftTemplate) {
-    Operator.update(this.shiftTemplates, shift);
+  destroy(template: ShiftTemplate) {
+    this.api.destroy(template)
+      .subscribe(action => this.store.dispatch({ type: ShiftTemplateAction.DELETE, payload: template }));
+  }
+
+  private create(template: ShiftTemplate) {
+    this.api.create(template)
+      .map(payload => ({ type: ShiftTemplateAction.CREATE, payload }))
+      .subscribe(
+        (action) => this.store.dispatch(action),
+        (e) => this.errorHandler.handle(e)
+      );
+  }
+
+  private update(template: ShiftTemplate) {
+    this.api.update(template)
+      .map(payload => ({ type: ShiftTemplateAction.UPDATE, payload }))
+      .subscribe(
+        (action) => this.store.dispatch(action),
+        (e) => this.errorHandler.handle(e)
+      );
   }
 }

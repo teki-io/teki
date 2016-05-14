@@ -1,6 +1,5 @@
 import { Input } from '@angular/core';
 import { BaseComponent, Employee, EmployeeService } from '../../../shared/index';
-const toastr = require('toastr');
 
 @BaseComponent({
   selector: 'row',
@@ -11,33 +10,30 @@ const toastr = require('toastr');
 export class Row {
   @Input()  employee: Employee;
   public editing: boolean = false;
-  private originEmployee: Employee = null;
+  public tmpEmployee: Employee = null;
 
   constructor(private employeeService: EmployeeService) {}
 
   ngOnInit() {
-    this.originEmployee = _.clone(this.employee);
+    this.tmpEmployee = _.clone(this.employee);
   }
 
   edit() {
     this.editing = !this.editing;
+    if (!this.editing) {
+      this.tmpEmployee = _.clone(this.employee);
+    }
   }
 
   cancel() {
     this.editing = false;
-    this.employee = this.originEmployee;
   }
 
   confirm() {
-    this.employeeService.nameTaken(this.employee)
-      .then(() => {
-        this.employeeService.save(this.employee);
-        this.editing = false;
-      })
-      .catch(error => toastr.error(error.message));
+    this.employeeService.save(this.tmpEmployee);
   }
 
   destroy() {
-    this.employeeService.destroy(this.employee);
+    this.employeeService.destroy(this.tmpEmployee);
   }
 }

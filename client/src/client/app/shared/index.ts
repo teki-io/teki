@@ -1,12 +1,23 @@
-import { ShiftService,
-         HttpErrorHandler,
-         EmployeeService,
-         ShiftTemplateService,
-         LoginService,
-         AuthenticationService } from './services/index';
-import { ApiShift,
-         ApiEmployee,
-         ApiShiftTemplate } from './api/index';
+import {
+  ShiftService,
+  HttpErrorHandler,
+  EmployeeService,
+  ShiftTemplateService,
+  LoginService,
+  AuthenticationService
+} from './services/index';
+
+import {
+  ApiShift,
+  ApiEmployee,
+  ApiShiftTemplate
+} from './api/index';
+
+import {
+  employeeReducer,
+  shiftTemplateReducer
+} from './reducers/index';
+
 import { MULTILINGUAL_PROVIDERS } from './i18n/index';
 
 export * from './services/index';
@@ -35,3 +46,8 @@ export const APP_PROVIDERS: any[] = [
   EmployeeService,
   ShiftTemplateService
 ];
+
+export const APP_STORE:any = {
+  employees: employeeReducer,
+  shiftTemplates: shiftTemplateReducer
+};

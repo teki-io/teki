@@ -1,10 +1,8 @@
 import { Input } from '@angular/core';
 import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
 import { BaseComponent, ShiftTemplate, ShiftTemplateService } from '../../../shared/index';
-import { TranslateService } from 'ng2-translate/ng2-translate';
 import { TimepickerComponent } from 'ng2-bootstrap/ng2-bootstrap';
 import * as moment from 'moment';
-const toastr = require('toastr');
 
 @BaseComponent({
   selector: 'row',
@@ -20,12 +18,12 @@ export class Row {
   public mstep:number = 15;
   public startTime: moment.Moment;
   public endTime: moment.Moment;
-  private originShiftTemplate: ShiftTemplate = null;
+  public tmpShiftTemplate: ShiftTemplate = null;
 
-  constructor(public shiftTemplateService: ShiftTemplateService, private translate: TranslateService) {}
+  constructor(public shiftTemplateService: ShiftTemplateService) {}
 
   ngOnInit() {
-    this.originShiftTemplate = _.clone(this.shiftTemplate);
+    this.tmpShiftTemplate = _.clone(this.shiftTemplate);
     this.startTime = this.shiftTemplate.startTime;
     this.endTime = this.shiftTemplate.endTime;
   }
@@ -37,31 +35,24 @@ export class Row {
   cancel() {
     this.reset();
     this.editing = false;
-    this.shiftTemplate = this.originShiftTemplate;
+    this.shiftTemplate = this.tmpShiftTemplate;
   }
 
   confirm() {
-    this.shiftTemplate.startTime = moment(this.startTime);
-    this.shiftTemplate.endTime = moment(this.endTime);
-    if (this.shiftTemplateService.nameTaken(this.shiftTemplate)) {
-      this.translate.get('shiftSettings.nameTaken').subscribe((msg: string) => toastr.error(msg));
-    } else {
-      this.shiftTemplateService.update(this.shiftTemplate)
-        .subscribe(() => {
-          this.editing = false;
-        });
-    }
+    this.tmpShiftTemplate.startTime = moment(this.startTime);
+    this.tmpShiftTemplate.endTime = moment(this.endTime);
+    this.shiftTemplateService.save(this.tmpShiftTemplate);
   }
 
   destroy() {
-    this.shiftTemplateService.destroy(this.shiftTemplate);
+    this.shiftTemplateService.destroy(this.tmpShiftTemplate);
   }
 
   private reset() {
-    this.shiftTemplate.name = this.originShiftTemplate.name;
-    this.shiftTemplate.startTime = this.originShiftTemplate.startTime;
-    this.shiftTemplate.endTime = this.originShiftTemplate.endTime;
-    this.startTime = this.originShiftTemplate.startTime;
-    this.endTime = this.originShiftTemplate.endTime;
+    this.tmpShiftTemplate.name = this.shiftTemplate.name;
+    this.tmpShiftTemplate.startTime = this.shiftTemplate.startTime;
+    this.tmpShiftTemplate.endTime = this.shiftTemplate.endTime;
+    this.startTime = this.shiftTemplate.startTime;
+    this.endTime = this.shiftTemplate.endTime;
   }
 }

@@ -8,4 +8,4 @@ export = () => {
       '!' + join(APP_SRC, '**', '*.ts')
     ])
     .pipe(gulp.dest(APP_DEST));
-}
+};
