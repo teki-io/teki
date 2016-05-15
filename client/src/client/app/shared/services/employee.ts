@@ -74,19 +74,19 @@ export class EmployeeService {
 
   private _create(employee: Employee) {
     return this.api.create(employee)
-      .map(payload => ({ type: EmployeeAction.CREATED, payload }))
+      .do(payload => this.store.dispatch({ type: EmployeeAction.CREATED, payload }))
       .catch(error => this.errorHandler.handle(error));
   }
 
   private _update(employee: Employee): Observable<Action> {
     return this.api.update(employee)
-      .map(payload => ({ type: EmployeeAction.UPDATED, payload }))
+      .do(payload => this.store.dispatch({ type: EmployeeAction.UPDATED, payload }))
       .catch(error => this.errorHandler.handle(error));
   }
 
   private _destroy(employee: Employee): Observable<Action> {
     return this.api.destroy(employee)
-      .map(payload => ({ type: EmployeeAction.DELETED, payload }))
+      .do(payload => this.store.dispatch({ type: EmployeeAction.DELETED, payload }))
       .catch(error => this.errorHandler.handle(error));
   }
 }

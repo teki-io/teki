@@ -1,3 +1,4 @@
+import { ChangeDetectionStrategy } from '@angular/core';
 import { Input, OnChanges } from '@angular/core';
 import {
   BaseComponent,
@@ -6,8 +7,7 @@ import {
   ShiftTemplate,
   ShiftService,
   EmployeeService,
-  ShiftTemplateService,
-  Operator
+  ShiftTemplateService
 } from '../../../shared/index';
 import { Headers } from './headers/index';
 import { Month } from './month/index';
@@ -19,14 +19,15 @@ import { Observable }       from 'rxjs/Observable';
   selector: 'calendar',
   templateUrl: 'app/+scheduler/components/calendar/calendar.html',
   styleUrls: ['app/+scheduler/components/calendar/calendar.css'],
-  directives: [Month, Week, Headers]
+  directives: [Month, Week, Headers],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class Calendar implements OnChanges {
   @Input() currentDate: moment.Moment;
   @Input() calendarMode: Number;
   shiftTemplates: Observable<ShiftTemplate[]>;
-  shifts: Array<Shift>;
+  shifts: Observable<Shift[]>;
   fetching: boolean = true;
   employees: Observable<Employee[]>;
 
@@ -35,16 +36,14 @@ export class Calendar implements OnChanges {
     public shiftTemplateService: ShiftTemplateService,
     public employeeService: EmployeeService
   ) {
-    this.shiftService.getAll().subscribe((shifts: Shift[]) => this.onShiftsFetched(shifts));
-    this.shiftService.created.subscribe((shift: Shift) => this.onShiftAdded(shift));
-    this.shiftService.updated.subscribe((shift: Shift) => this.onShiftAdded(shift));
+    this.employees = this.employeeService.employees;
+    this.shiftTemplates = this.shiftTemplateService.shiftTemplates;
+    this.shifts = this.shiftService.shifts;
   }
 
   ngOnInit() {
-    this.shiftService.init(this.currentDate);
-    this.employees = this.employeeService.employees;
+    this.shiftService.load(this.currentDate);
     this.employeeService.load();
-    this.shiftTemplates = this.shiftTemplateService.shiftTemplates;
     this.shiftTemplateService.load();
   }
 
@@ -53,14 +52,5 @@ export class Calendar implements OnChanges {
       this.fetching = true;
       this.shiftService.fetch(this.currentDate);
     }
-  }
-
-  private onShiftAdded(shift: Shift) {
-    Operator.update(this.shifts, shift);
-  }
-
-  private onShiftsFetched(shifts: Shift[]) {
-    this.shifts = shifts;
-    this.fetching = false;
   }
 }

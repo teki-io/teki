@@ -1,15 +1,14 @@
+import { API_ENDPOINTS, Shift } from '../index';
+import { ApiBase }    from './base';
 import { Injectable } from '@angular/core';
-import { API_ENDPOINTS,
-         contentHeaders,
-         Shift }  from '../index';
+import { AuthHttp }   from 'angular2-jwt/angular2-jwt';
 import { URLSearchParams } from '@angular/http';
-import { AuthHttp } from 'angular2-jwt/angular2-jwt';
-import 'rxjs/Rx';
 import * as moment from 'moment';
 
 @Injectable()
-export class ApiShift {
-  constructor(public authHttp: AuthHttp) {}
+export class ApiShift extends ApiBase<Shift> {
+  baseRoute: string = API_ENDPOINTS.SHIFTS;
+  constructor(authHttp: AuthHttp) { super(authHttp); };
 
   getAll(from: moment.Moment = null, to: moment.Moment = null) {
     let params: URLSearchParams = new URLSearchParams();
@@ -23,21 +22,9 @@ export class ApiShift {
       });
   }
 
-  create(shift: Shift) {
-    let data = { shift: shift };
-    return this.authHttp.post(API_ENDPOINTS.SHIFTS, JSON.stringify(data), { headers: contentHeaders })
-      .map(res => res.json())
-      .map((shift) => { return this.parse(shift); });
-  }
+  stringifyParmas(data: Shift):string { return JSON.stringify({ shift: data }); };
 
-  update(shift: Shift) {
-    let data = { shift: shift };
-    return this.authHttp.put(`${API_ENDPOINTS.SHIFTS}/${shift.id}`, JSON.stringify(data), { headers: contentHeaders })
-      .map(res => res.json())
-      .map((shift) => { return this.parse(shift); });
-  }
-
-  private parse(data: any): Shift {
+  parse(data: any): Shift {
     return new Shift(data);
   }
 }

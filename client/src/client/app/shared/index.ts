@@ -15,7 +15,8 @@ import {
 
 import {
   employeeReducer,
-  shiftTemplateReducer
+  shiftTemplateReducer,
+  shiftReducer
 } from './reducers/index';
 
 import { MULTILINGUAL_PROVIDERS } from './i18n/index';
@@ -49,5 +50,6 @@ export const APP_PROVIDERS: any[] = [
 
 export const APP_STORE:any = {
   employees: employeeReducer,
-  shiftTemplates: shiftTemplateReducer
+  shiftTemplates: shiftTemplateReducer,
+  shifts: shiftReducer
 };
