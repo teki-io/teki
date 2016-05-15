@@ -6,12 +6,13 @@ import {
   BaseComponent,
   Shift,
   ShiftTemplate,
-  Employee,
-  ShiftService
+  Employee
 } from '../../../../shared/index';
 import { IDay, IWeek } from '../../../interfaces/index';
 import { DailyShifts } from '../daily-shifts/index';
 import { WeeklyHoursCalculator } from '../../../services/index';
+import { Action, Dispatcher } from '@ngrx/store';
+import { ShiftAction } from '../../../../shared/index';
 
 @BaseComponent({
   selector: 'week',
@@ -31,9 +32,14 @@ export class Week implements OnChanges {
   private addSub:any = null;
   private updateSub:any = null;
 
-  constructor(public calculatorService: WeeklyHoursCalculator, public shiftService: ShiftService) {
-    this.addSub = this.shiftService.created.subscribe((shift: Shift) => this.onShiftAdded(shift));
-    this.updateSub = this.shiftService.updated.subscribe((shift: Shift) => this.onShiftUpdated(shift));
+  constructor(private calculatorService: WeeklyHoursCalculator, private dispatcher: Dispatcher<Action>) {
+    this.addSub = dispatcher
+      .filter(({type}: Action) => type === ShiftAction.CREATED)
+      .subscribe(({payload}: Action) => this.onShiftAdded(payload));
+
+    this.updateSub = dispatcher
+      .filter(({type}: Action) => type === ShiftAction.UPDATED)
+      .subscribe(({payload}: Action) => this.onShiftUpdated(payload));
   }
 
   ngOnInit() {
@@ -55,7 +61,7 @@ export class Week implements OnChanges {
   }
 
   initializeWeek() {
-    let shifts = this.week.shifts || this.shifts;
+    let shifts = this.shifts;
     let weekStart = this.currentDate.clone().startOf('week');
     let weekEnd = this.currentDate.clone().endOf('week');
     let weeklyShifts = _.filter(shifts, (shift: Shift) => {

@@ -10,6 +10,8 @@ import {
 } from '../../../../shared/index';
 import * as _ from 'lodash';
 const toastr = require('toastr');
+import { Action, Dispatcher } from '@ngrx/store';
+import { ShiftAction } from '../../../../shared/index';
 
 @BaseComponent({
   selector: 'shift',
@@ -24,24 +26,34 @@ export class ShiftComponent {
   @Input() employees: Array<Employee>;
   @Input() canEdit: boolean;
   @Output() onEmployeeAssigned: EventEmitter<any> = new EventEmitter<any>();
-  sub:any = null;
+  addSub:any = null;
+  updateSub:any = null;
   editing: boolean = false;
 
-  constructor(public shiftService: ShiftService) {}
+  constructor(public shiftService: ShiftService, private dispatcher: Dispatcher<Action>) {}
 
   edit() {
-    if (this.canEdit) this.editing = true;
+    if (this.canEdit) {
+      this.editing = true;
+      this.addSub = this.dispatcher
+        .filter(({type}: Action) => type === ShiftAction.CREATED)
+        .subscribe(({payload}: Action) => this.onAdded(payload));
+
+      this.updateSub = this.dispatcher
+        .filter(({type}: Action) => type === ShiftAction.UPDATED)
+        .subscribe(({payload}: Action) => this.onAdded(payload));
+    }
   }
 
   select(employee: Employee) {
     if (this.alreadyAssigned(employee)) return;
     if (this.shift.id) {
       let tmp = new Shift({id: this.shift.id, employeeId: employee.id});
-      this.sub = this.shiftService.update(tmp).subscribe((shift: Shift) => this.onAdded(shift));
+      this.shiftService.update(tmp);
     } else {
       let shift = _.clone(this.shift);
       shift.employeeId = employee.id;
-      this.sub = this.shiftService.create(shift).subscribe((shift: Shift) => this.onAdded(shift));
+      this.shiftService.create(shift);
     }
   }
 
@@ -49,12 +61,21 @@ export class ShiftComponent {
     this.editing = false;
   }
 
+  ngOnDestroy() {
+    this.cleanUp();
+  }
+
+  private cleanUp() {
+    if (this.updateSub) this.updateSub.unsubscribe();
+    if (this.addSub) this.addSub.unsubscribe();
+  }
+
   private onAdded(shift: Shift) {
     this.shift = shift;
     this.editing = false;
-    this.sub.unsubscribe();
     Operator.update(this.shifts, shift);
     this.onEmployeeAssigned.emit({});
+    this.cleanUp();
   }
 
   private alreadyAssigned(employee: Employee): boolean {

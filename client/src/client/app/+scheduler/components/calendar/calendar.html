@@ -1,10 +1,13 @@
-<div *ngIf="!fetching" class="calendar-size">
+<div *ngIf="!(employeeService.loading | async) &&
+            !(shiftTemplateService.loading | async) &&
+            !(shiftService.loading | async)"
+     class="calendar-size">
   <div *ngIf="shifts && shiftTemplates">
     <headers class="row list-group-item no-bottom-border no-padding"></headers>
     <month
       *ngIf            ="calendarMode === 3"
       [currentDate]    ="currentDate"
-      [shifts]         ="shifts"
+      [shifts]         ="shifts | async"
       [shiftTemplates] ="shiftTemplates | async"
       [employees]      ="employees | async"
     >
@@ -13,7 +16,7 @@
       *ngIf            ="calendarMode === 2"
       class            ="row list-group-item no-bottom-border no-padding"
       [currentDate]    ="currentDate"
-      [shifts]         ="shifts"
+      [shifts]         ="shifts | async"
       [showAll]        ="true"
       [shiftTemplates] ="shiftTemplates | async"
       [employees]      ="employees | async"
@@ -21,4 +24,7 @@
     </week>
   </div>
 </div>
-<div *ngIf="fetching" class="spinner"></div>
+<div *ngIf="(employeeService.loading | async) ||
+            (shiftTemplateService.loading | async) ||
+            (shiftService.loading | async)"
+     class="spinner"></div>

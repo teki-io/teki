@@ -74,19 +74,19 @@ export class ShiftTemplateService {
 
   private _create(shiftTemplate: ShiftTemplate) {
     return this.api.create(shiftTemplate)
-      .map(payload => ({ type: ShiftTemplateAction.CREATED, payload }))
+      .do(payload => this.store.dispatch(({ type: ShiftTemplateAction.CREATED, payload })))
       .catch(error => this.errorHandler.handle(error));
   }
 
   private _update(shiftTemplate: ShiftTemplate): Observable<Action> {
     return this.api.update(shiftTemplate)
-      .map(payload => ({ type: ShiftTemplateAction.UPDATED, payload }))
+      .do(payload => this.store.dispatch(({ type: ShiftTemplateAction.UPDATED, payload })))
       .catch(error => this.errorHandler.handle(error));
   }
 
   private _destroy(shiftTemplate: ShiftTemplate): Observable<Action> {
     return this.api.destroy(shiftTemplate)
-      .map(payload => ({ type: ShiftTemplateAction.DELETED, payload }))
+      .do(payload => this.store.dispatch(({ type: ShiftTemplateAction.DELETED, payload })))
       .catch(error => this.errorHandler.handle(error));
   }
 }

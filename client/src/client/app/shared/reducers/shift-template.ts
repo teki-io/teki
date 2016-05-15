@@ -14,19 +14,19 @@ export const shiftTemplateReducer: Reducer<any> = (state = initialState, action:
     case ShiftTemplateAction.LOADING:
       return Object.assign({}, state, { loading: true });
     case ShiftTemplateAction.LOADED:
-      return Object.assign({}, state, { shiftTemplates: action.payload });
+      return Object.assign({}, state, { shiftTemplates: action.payload, loading: false });
     case ShiftTemplateAction.CREATING:
       return Object.assign({}, state, { creating: true });
     case ShiftTemplateAction.CREATED:
-      return Object.assign({}, state, { shiftTemplates: [...state.shiftTemplates, action.payload] });
+      return Object.assign({}, state, { shiftTemplates: [...state.shiftTemplates, action.payload], creating: false });
     case ShiftTemplateAction.UPDATING:
-      return Object.assign({}, state, { loading: true });
+      return state;
     case ShiftTemplateAction.UPDATED:
       return Object.assign({}, state, { shiftTemplates: state.shiftTemplates.map((item:ShiftTemplate) => {
         return item.id === action.payload.id ? Object.assign({}, item, action.payload) : item;
       })});
     case ShiftTemplateAction.DELETING:
-      return Object.assign({}, state, { loading: true });
+      return state;
     case ShiftTemplateAction.DELETED:
       return Object.assign({}, state, { shiftTemplates: state.shiftTemplates.filter((item:ShiftTemplate) => {
         return item.id !== action.payload.id;
