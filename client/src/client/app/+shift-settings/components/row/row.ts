@@ -20,7 +20,7 @@ export class Row {
   public endTime: moment.Moment;
   public tmpShiftTemplate: ShiftTemplate = null;
 
-  constructor(public shiftTemplateService: ShiftTemplateService) {}
+  constructor(private shiftTemplateService: ShiftTemplateService) {}
 
   ngOnInit() {
     this.tmpShiftTemplate = _.clone(this.shiftTemplate);
@@ -41,7 +41,7 @@ export class Row {
   confirm() {
     this.tmpShiftTemplate.startTime = moment(this.startTime);
     this.tmpShiftTemplate.endTime = moment(this.endTime);
-    this.shiftTemplateService.save(this.tmpShiftTemplate);
+    this.shiftTemplateService.update(this.tmpShiftTemplate);
   }
 
   destroy() {

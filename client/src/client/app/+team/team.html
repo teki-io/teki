@@ -23,7 +23,7 @@
             ></new-row>
             <row
               class="row list-group-item no-bottom-border no-padding"
-              *ngFor="let employee of employees | async"
+              *ngFor="let employee of employeeService.employees | async"
               [employee]="employee">
             </row>
           </div>

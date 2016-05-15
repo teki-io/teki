@@ -11,10 +11,10 @@ export class NewRow {
   public employee: Employee = new Employee({});
   @Output() editCancel:EventEmitter<any> = new EventEmitter();
 
-  constructor(public employeeService: EmployeeService) {}
+  constructor(private employeeService: EmployeeService) {}
 
   confirm() {
-    this.employeeService.save(this.employee);
+    this.employeeService.create(this.employee);
     this.editCancel.emit({});
   }
 

@@ -30,7 +30,7 @@ export class Row {
   }
 
   confirm() {
-    this.employeeService.save(this.tmpEmployee);
+    this.employeeService.update(this.tmpEmployee);
   }
 
   destroy() {
