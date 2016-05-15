@@ -23,7 +23,7 @@
             ></new-row>
             <row
               class="row list-group-item no-bottom-border no-padding"
-              *ngFor="let shiftTemplate of templates | async"
+              *ngFor="let shiftTemplate of shiftTemplateService.shiftTemplates | async"
               [shiftTemplate]="shiftTemplate">
             </row>
           </div>

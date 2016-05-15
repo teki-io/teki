@@ -20,12 +20,12 @@ export class NewRow {
   public startTime: moment.Moment = moment().startOf('hour');
   public endTime: moment.Moment = moment().add(1, 'hours').startOf('hour');
 
-  constructor(public shiftTemplateService: ShiftTemplateService) {}
+  constructor(private shiftTemplateService: ShiftTemplateService) {}
 
   confirm() {
     this.shiftTemplate.startTime = moment(this.startTime);
     this.shiftTemplate.endTime = moment(this.endTime);
-    this.shiftTemplateService.save(this.shiftTemplate);
+    this.shiftTemplateService.create(this.shiftTemplate);
     this.editCancel.emit({});
   }
 
