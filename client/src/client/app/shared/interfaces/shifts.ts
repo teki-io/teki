@@ -4,4 +4,5 @@ export interface IShifts {
   shifts: Shift[];
   creating: boolean;
   loading: boolean;
+  selected: Shift;
 }

@@ -80,6 +80,10 @@ export class ShiftService {
     this.actions.next({type: ShiftAction.DELETE, payload: shift});
   }
 
+  editing(shift: Shift) {
+    this.store.dispatch({type: ShiftAction.EDITING, payload: shift});
+  }
+
   private getMaxDateFromShifts(shifts: Shift[]): any {
     let dates = _.map(shifts, 'startTime');
     return _.max(dates);

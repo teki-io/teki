@@ -1,4 +1,5 @@
 export class ShiftAction {
+  static EDITING  = 'ShiftAction.EDITING';
   static LOAD     = 'ShiftAction.LOAD';
   static LOADING  = 'ShiftAction.LOADING';
   static LOADED   = 'ShiftAction.LOADED';

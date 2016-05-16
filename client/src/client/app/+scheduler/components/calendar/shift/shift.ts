@@ -28,6 +28,7 @@ export class ShiftComponent {
   @Output() onEmployeeAssigned: EventEmitter<any> = new EventEmitter<any>();
   addSub:any = null;
   updateSub:any = null;
+  editingSub:any = null;
   editing: boolean = false;
 
   constructor(public shiftService: ShiftService, private dispatcher: Dispatcher<Action>) {}
@@ -42,6 +43,12 @@ export class ShiftComponent {
       this.updateSub = this.dispatcher
         .filter(({type}: Action) => type === ShiftAction.UPDATED)
         .subscribe(({payload}: Action) => this.onAdded(payload));
+
+      this.editingSub = this.dispatcher
+        .filter(({type}: Action) => type === ShiftAction.EDITING)
+        .subscribe(({payload}: Action) => this.onEditing(payload));
+
+      this.shiftService.editing(this.shift);
     }
   }
 
@@ -68,6 +75,14 @@ export class ShiftComponent {
   private cleanUp() {
     if (this.updateSub) this.updateSub.unsubscribe();
     if (this.addSub) this.addSub.unsubscribe();
+    if (this.editingSub) this.editingSub.unsubscribe();
+  }
+
+  private onEditing(shift: Shift) {
+    if (!_.isEqual(shift, this.shift)) {
+      this.editing = false;
+      this.cleanUp();
+    }
   }
 
   private onAdded(shift: Shift) {
