@@ -6,11 +6,14 @@ import { IShifts }      from '../interfaces/index';
 var initialState: IShifts = {
   shifts: [],
   creating: false,
-  loading: false
+  loading: false,
+  selected: null
 };
 
 export const shiftReducer: Reducer<any> = (state = initialState, action: Action) => {
   switch (action.type) {
+    case ShiftAction.EDITING:
+      return Object.assign({}, state, { selected: action.payload });
     case ShiftAction.LOADING:
       return Object.assign({}, state, { loading: true });
     case ShiftAction.LOADED:
