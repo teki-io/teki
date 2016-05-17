@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy } from '@angular/core';
-import { Input, OnChanges } from '@angular/core';
+import { Input, OnChanges, ElementRef } from '@angular/core';
 import {
   BaseComponent,
   Shift,
@@ -30,11 +30,13 @@ export class Calendar implements OnChanges {
   shifts: Observable<Shift[]>;
   fetching: boolean = true;
   employees: Observable<Employee[]>;
+  width: number;
 
   constructor(
-    public shiftService: ShiftService,
-    public shiftTemplateService: ShiftTemplateService,
-    public employeeService: EmployeeService
+    private shiftService: ShiftService,
+    private shiftTemplateService: ShiftTemplateService,
+    private employeeService: EmployeeService,
+    private ref: ElementRef
   ) {
     this.employees = this.employeeService.employees;
     this.shiftTemplates = this.shiftTemplateService.shiftTemplates;
@@ -47,10 +49,21 @@ export class Calendar implements OnChanges {
     this.shiftTemplateService.load();
   }
 
+  ngAfterViewInit() {
+    let innerWidth = this.ref.nativeElement.getBoundingClientRect().width;
+    this.width = innerWidth > 1000 ? innerWidth : 1000;
+  }
+
   ngOnChanges(changes: any) {
     if (!_.isEmpty(changes.currentDate.previousValue) && changes.currentDate) {
       this.fetching = true;
       this.shiftService.fetch(this.currentDate);
+    }
+  }
+
+  onResize(event) {
+    if (event.target.innerWidth > 1000) {
+      this.width = event.target.innerWidth;
     }
   }
 }
