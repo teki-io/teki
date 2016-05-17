@@ -29,6 +29,8 @@ export class Week implements OnChanges {
   @Input() showAll: boolean;
   @Input() shiftTemplates: Array<ShiftTemplate>;
   @Input() employees: Array<Employee>;
+  @Input() width: number;
+  dailyWidth: number;
   private addSub:any = null;
   private updateSub:any = null;
 
@@ -50,6 +52,9 @@ export class Week implements OnChanges {
     if (changes.currentDate) {
       this.week = <IWeek> { date: this.currentDate, days: <IDay[]>[], shifts: <Shift[]>[] };
       this.week.days = this.getDays(this.shifts);
+    }
+    if (changes.width) {
+      this.dailyWidth = this.width / 7;
     }
   }
 
