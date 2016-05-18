@@ -1,8 +1,9 @@
 <div class="week">
   <div class="day right-border"
+       [style.max-width.px]="dailyWidth"
        [style.width.px]="dailyWidth"
        *ngFor ="let day of week.days">
-    <span>{{day.date.format('DD')}}</span>
+    <span class="calendar-date">{{day.date.format('DD')}}</span>
     <daily-shifts
       [showAll]="showAll"
       [day]="day"
