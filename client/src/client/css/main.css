@@ -106,3 +106,9 @@ button:hover {
 .right-border:not(:last-child) {
   border-right: 1px solid #e7e7e7;
 }
+
+.text-overflowed {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

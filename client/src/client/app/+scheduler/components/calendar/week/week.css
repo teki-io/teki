@@ -7,7 +7,18 @@
   padding-bottom: 5px;
   list-style-type: none;
   display: table-cell;
-  text-align: center;
   margin-bottom: 5px;
   color: #777;
+  text-align: left;
+}
+
+.calendar-date {
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  color: #3b5998;
+  width: inherit;
+  text-align: left;
 }

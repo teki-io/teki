@@ -1,3 +1,23 @@
 .shift-info {
   height: inherit;
+  padding: 5px;
+  margin: 5px;
+}
+
+.unassigned {
+  border-top: 1px solid #dbdfe6;
+  background-color: rgba(229, 229, 229, 0.58);
+}
+
+.assigned {
+  border-top: 1px solid rgba(2, 117, 216, 0.3);
+  background-color: rgba(2, 117, 216, 0.2);
+}
+
+.name {
+  width: inherit;
+}
+
+.employee {
+  width: inherit;
 }
