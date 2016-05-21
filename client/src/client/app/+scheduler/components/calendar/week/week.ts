@@ -1,5 +1,4 @@
 import { Input, OnChanges } from '@angular/core';
-import { COMMON_DIRECTIVES } from '@angular/common';
 import * as moment from 'moment';
 import * as _ from 'lodash';
 import {
@@ -9,7 +8,7 @@ import {
   Employee
 } from '../../../../shared/index';
 import { IDay, IWeek } from '../../../interfaces/index';
-import { DailyShifts } from '../daily-shifts/index';
+import { WeekDay } from '../week-day/index';
 import { WeeklyHoursCalculator } from '../../../services/index';
 import { Action, Dispatcher } from '@ngrx/store';
 import { ShiftAction } from '../../../../shared/index';
@@ -19,7 +18,7 @@ import { ShiftAction } from '../../../../shared/index';
   templateUrl: 'app/+scheduler/components/calendar/week/week.html',
   styleUrls: ['app/+scheduler/components/calendar/week/week.css'],
   bindings: [WeeklyHoursCalculator],
-  directives: [COMMON_DIRECTIVES, DailyShifts]
+  directives: [WeekDay]
 })
 
 export class Week implements OnChanges {

@@ -1,14 +1,12 @@
 <div class="week">
-  <div class="day right-border"
-       [style.max-width.px]="dailyWidth"
-       [style.width.px]="dailyWidth"
-       *ngFor ="let day of week.days">
-    <span class="calendar-date">{{day.date.format('DD')}}</span>
-    <daily-shifts
-      [showAll]="showAll"
-      [day]="day"
-      [shiftTemplates]="shiftTemplates"
-      [employees]="employees"
-    ></daily-shifts>
-  </div>
+  <week-day
+    class="day right-border"
+    [style.max-width.px]="dailyWidth"
+    [style.width.px]="dailyWidth"
+    *ngFor ="let day of week.days"
+    [showAll]="showAll"
+    [day]="day"
+    [shiftTemplates]="shiftTemplates"
+    [employees]="employees">
+  </week-day>
 </div>

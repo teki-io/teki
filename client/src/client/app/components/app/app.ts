@@ -10,12 +10,15 @@ import { SchedulerComponent,
          ShiftSettingsComponent,
          LoginComponent,
          SignupComponent }  from '../../index';
+import { ViewContainerRef } from '@angular/core';
+import { Modal, BS_MODAL_PROVIDERS } from 'angular2-modal/plugins/bootstrap/index';
 
 @BaseComponent({
   selector: 'teki-app',
   templateUrl: 'app/components/app/app.html',
   styleUrls: ['app/components/app/app.css'],
   directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, SecurityRouterOutlet],
+  viewProviders: [ ...BS_MODAL_PROVIDERS ],
   providers: [MultilingualService]
 })
 
@@ -58,5 +61,7 @@ import { SchedulerComponent,
 ])
 
 export class AppComponent {
-  constructor(private multilang: MultilingualService) {}
+  constructor(private multilang: MultilingualService, public modal: Modal, viewContainer: ViewContainerRef) {
+    modal.defaultViewContainer = viewContainer;
+  }
 }
