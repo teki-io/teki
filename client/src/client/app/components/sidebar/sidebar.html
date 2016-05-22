@@ -6,7 +6,13 @@
     <li class="sidebar-list" router-active>
       <a [routerLink]=" ['Scheduler'] " router-active>
         {{ 'headers.scheduler' | translate }}
-        <span class="menu-icon fa fa-table"></span>
+        <span class="menu-icon fa fa-calendar-check-o"></span>
+      </a>
+    </li>
+    <li class="sidebar-list" router-active>
+      <a [routerLink]=" ['Schedule'] " router-active>
+        {{ 'headers.schedule' | translate }}
+        <span class="menu-icon fa fa-calendar"></span>
       </a>
     </li>
     <li class="sidebar-list" router-active>

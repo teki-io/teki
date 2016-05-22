@@ -1,15 +1,22 @@
-import { BaseComponent,
-         SecurityRouterOutlet,
-         MultilingualService } from '../../shared/index';
-import { CORE_DIRECTIVES }     from '@angular/common';
-import { ROUTER_DIRECTIVES,
-         RouteConfig }         from '@angular/router-deprecated';
-import { SchedulerComponent,
-         TeamComponent,
-         SettingComponent,
-         ShiftSettingsComponent,
-         LoginComponent,
-         SignupComponent }  from '../../index';
+import {
+  BaseComponent,
+  SecurityRouterOutlet,
+  MultilingualService
+} from '../../shared/index';
+import { CORE_DIRECTIVES } from '@angular/common';
+import {
+  ROUTER_DIRECTIVES,
+  RouteConfig
+} from '@angular/router-deprecated';
+import {
+  SchedulerComponent,
+  TeamComponent,
+  SettingComponent,
+  ShiftSettingsComponent,
+  LoginComponent,
+  SignupComponent,
+  ScheduleComponent
+}  from '../../index';
 import { ViewContainerRef } from '@angular/core';
 import { Modal, BS_MODAL_PROVIDERS } from 'angular2-modal/plugins/bootstrap/index';
 
@@ -57,6 +64,11 @@ import { Modal, BS_MODAL_PROVIDERS } from 'angular2-modal/plugins/bootstrap/inde
     path: '/shift-settings',
     name: 'ShiftSettings',
     component: ShiftSettingsComponent
+  },
+  {
+    path: '/schedule',
+    name: 'Schedule',
+    component: ScheduleComponent
   }
 ])
 
