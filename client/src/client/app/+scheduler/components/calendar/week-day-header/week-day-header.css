@@ -1,0 +1,28 @@
+.week-day-title {
+    width: inherit;
+}
+
+.calendar-date {
+    font-size: 15px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    color: #3b5998;
+    text-align: left;
+}
+
+.create-button {
+    font-size: 13px;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-right: 10px;
+    color: #3b5998;
+    text-align: right;
+    float: right;
+}
+
+.create-button .text {
+    position: relative;
+    top: -1px;
+}

@@ -7,12 +7,14 @@ import { APP_PROVIDERS, APP_STORE } from './app/shared/index';
 import { AppComponent } from './app/components/index';
 import { AuthConfig, AuthHttp } from 'angular2-jwt/angular2-jwt';
 import { provideStore } from '@ngrx/store';
+import { MODAL_BROWSER_PROVIDERS } from 'angular2-modal/platform-browser/index';
 
 if ('<%= ENV %>' === 'prod') { enableProdMode(); }
 
 bootstrap(AppComponent, [
   HTTP_PROVIDERS,
   ROUTER_PROVIDERS,
+  MODAL_BROWSER_PROVIDERS,
   provideStore(APP_STORE),
   provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' }),
   provide(AuthHttp, {

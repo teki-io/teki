@@ -61,7 +61,7 @@ export class Calendar implements OnChanges {
     }
   }
 
-  onResize(event) {
+  onResize(event: any) {
     if (event.target.innerWidth > 1000) {
       this.width = event.target.innerWidth;
     }

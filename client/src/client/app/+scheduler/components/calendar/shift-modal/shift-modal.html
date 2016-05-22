@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <div>New Shift</div>
+</div>
+<div class="row modal-body">
+  <form [ngFormModel]="shiftForm"
+        (ngSubmit)="onSubmit(newShift)">
+    <p>Name: <input ngControl="name" [(ngModel)]="newShift.name" required></p>
+    <p>
+      Start Time:
+      <timepicker
+        [(ngModel)]="startTime"
+        [hourStep]="hstep"
+        [minuteStep]="mstep"
+        [showMeridian]="ismeridian"
+        [max]="endTime"
+      ></timepicker>
+    </p>
+    <p>
+      End Time:
+      <timepicker
+        [(ngModel)]="endTime"
+        [hourStep]="hstep"
+        [minuteStep]="mstep"
+        [showMeridian]="ismeridian"
+        [min]="startTime"
+      ></timepicker>
+    </p>
+    <button class="btn btn-primary" type="submit"> Add </button>
+    <button class="btn btn-primary" (click)="cancel()">Cancel</button>
+  </form>
+</div>
