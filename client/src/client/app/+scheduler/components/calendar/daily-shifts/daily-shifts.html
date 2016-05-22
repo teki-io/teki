@@ -1,6 +1,7 @@
 <div *ngIf = "!showAll">
   <shift
     *ngFor ="let shift of day.shifts | slice:0:showLimit"
+    class="clickable"
     [shifts]="shifts"
     [shift]="shift"
     [employees]="availabeEmployees"
@@ -15,6 +16,7 @@
 <div *ngIf = "showAll">
   <shift
     *ngFor ="let shift of day.shifts"
+    class="clickable"
     [shifts]="shifts"
     [shift]="shift"
     [employees]="availabeEmployees"

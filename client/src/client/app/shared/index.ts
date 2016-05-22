@@ -35,6 +35,9 @@ export * from './interfaces/index';
 export * from './actions/index';
 export * from './reducers/index';
 
+
+import { WeekHelper } from '../index';
+
 export const APP_PROVIDERS: any[] = [
   MULTILINGUAL_PROVIDERS,
   LoginService,
@@ -45,7 +48,8 @@ export const APP_PROVIDERS: any[] = [
   HttpErrorHandler,
   ShiftService,
   EmployeeService,
-  ShiftTemplateService
+  ShiftTemplateService,
+  WeekHelper
 ];
 
 export const APP_STORE:any = {

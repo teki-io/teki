@@ -1,24 +1,25 @@
 import { Input, OnChanges } from '@angular/core';
 import * as moment from 'moment';
-import * as _ from 'lodash';
 import {
   BaseComponent,
   Shift,
   ShiftTemplate,
   Employee
 } from '../../../../shared/index';
-import { IDay, IWeek } from '../../../interfaces/index';
+import { IWeek } from '../../../interfaces/index';
 import { WeekDay } from '../week-day/index';
 import { WeeklyHoursCalculator } from '../../../services/index';
 import { Action, Dispatcher } from '@ngrx/store';
 import { ShiftAction } from '../../../../shared/index';
+import { WeekHelper } from './services/index';
 
 @BaseComponent({
   selector: 'week',
   templateUrl: 'app/+scheduler/components/calendar/week/week.html',
   styleUrls: ['app/+scheduler/components/calendar/week/week.css'],
   bindings: [WeeklyHoursCalculator],
-  directives: [WeekDay]
+  directives: [WeekDay],
+  providers: [WeekHelper]
 })
 
 export class Week implements OnChanges {
@@ -33,7 +34,10 @@ export class Week implements OnChanges {
   private addSub:any = null;
   private updateSub:any = null;
 
-  constructor(private calculatorService: WeeklyHoursCalculator, private dispatcher: Dispatcher<Action>) {
+  constructor(
+    private calculatorService: WeeklyHoursCalculator,
+    private dispatcher: Dispatcher<Action>,
+    private weekHelper: WeekHelper) {
     this.addSub = dispatcher
       .filter(({type}: Action) => type === ShiftAction.CREATED)
       .subscribe(({payload}: Action) => this.onShiftAdded(payload));
@@ -49,8 +53,8 @@ export class Week implements OnChanges {
 
   ngOnChanges(changes: any) {
     if (changes.currentDate) {
-      this.week = <IWeek> { date: this.currentDate, days: <IDay[]>[], shifts: <Shift[]>[] };
-      this.week.days = this.getDays(this.shifts);
+      this.week = this.weekHelper.newWeek(this.currentDate);
+      this.week = this.weekHelper.getWeekWithShifts(this.week, this.shifts);
     }
     if (changes.width) {
       this.dailyWidth = this.width / 7;
@@ -65,15 +69,8 @@ export class Week implements OnChanges {
   }
 
   initializeWeek() {
-    let shifts = this.shifts;
-    let weekStart = this.currentDate.clone().startOf('week');
-    let weekEnd = this.currentDate.clone().endOf('week');
-    let weeklyShifts = _.filter(shifts, (shift: Shift) => {
-      return weekStart <= shift.startTime && shift.endTime <= weekEnd;
-    });
-    this.week = this.week || <IWeek> { date: this.currentDate, days: <IDay[]>[], shifts: <Shift[]>[] };
-    this.week.shifts = weeklyShifts;
-    this.week.days = this.getDays(weeklyShifts);
+    this.week = this.week || this.weekHelper.newWeek(this.currentDate);
+    this.week = this.weekHelper.getWeekWithShifts(this.week, this.shifts);
     this.calculatorService.init(this.employees, this.week);
   }
 
@@ -83,27 +80,5 @@ export class Week implements OnChanges {
 
   private onShiftAdded(shift: Shift) {
     this.calculatorService.addShift(shift);
-  }
-
-  private getDays(shifts: Array<Shift>):Array<IDay> {
-    let days = this.initDays(this.week.date);
-    let groups = _.groupBy(shifts, (shift) => {
-      return moment(shift.startTime).startOf('day').format('YYYYMMDD');
-    });
-    _.forEach(days, (day: IDay) => {
-      day.shifts = groups[day.date.startOf('day').format('YYYYMMDD')] || [];
-    });
-    return days;
-  }
-
-  private initDays(weekStart: moment.Moment) {
-    let result = [
-      <IDay>{date: weekStart, shifts: []}
-    ];
-    for (let x = 1; x < 7; x ++ ) {
-      let day = <IDay> {date: weekStart.clone().add(x, 'days'), shifts: []};
-      result.push(day);
-    }
-    return result;
   }
 }
