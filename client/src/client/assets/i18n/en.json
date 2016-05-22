@@ -1,6 +1,7 @@
 {
   "headers": {
     "scheduler": "Scheduler",
+    "schedule": "My Schedule",
     "setting": "Setting",
     "team": "Team",
     "shiftSettings": "Shift Settings",

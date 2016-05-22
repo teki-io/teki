@@ -1,0 +1,18 @@
+<teki-app-layout>
+  <div class="row">
+    <div class="col-lg-12">
+      <teki-widget>
+        <teki-widget-body>
+          <header
+            *ngIf          ="currentDate !== undefined"
+            [calendarMode] ="calendarMode"
+            [currentDate]  ="currentDate"
+            (dateChanged)  ="onDateChanged($event)"
+            (modeChanged)  ="onModeChanged($event)"
+          >
+          </header>
+        </teki-widget-body>
+      </teki-widget>
+    </div>
+  </div>
+</teki-app-layout>

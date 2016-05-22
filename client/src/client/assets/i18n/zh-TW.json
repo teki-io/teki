@@ -1,6 +1,7 @@
 {
   "headers" : {
     "scheduler": "班表",
+    "schedule": "我的班表",
     "setting": "設定",
     "team": "同事",
     "shiftSettings": "班表設定",

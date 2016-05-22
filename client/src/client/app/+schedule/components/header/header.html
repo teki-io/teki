@@ -1,0 +1,21 @@
+<div class="title">
+  <span *ngIf="calendarMode === 3">
+    {{currentDate.format('MMMM')}}
+  </span>
+  <span *ngIf="calendarMode === 2">
+    {{currentDate.clone().startOf('week').format('M/D')}} - {{currentDate.clone().add(7, 'days').format('M/D')}}
+  </span>
+  {{ 'scheduler.schedule' | translate }}
+
+  <div class="pull-right">
+    <div class="btn-group">
+      <label class="btn btn-secondary btn-sm" (click)="back()"><i class="fa fa-angle-left"></i></label>
+      <label class="btn btn-secondary btn-sm" (click)="selectToday()">
+        <span *ngIf="calendarMode === 1 ">{{ 'scheduler.today' | translate }}</span>
+        <span *ngIf="calendarMode === 2 ">{{ 'scheduler.thisWeek' | translate }}</span>
+        <span *ngIf="calendarMode === 3 ">{{ 'scheduler.thisMonth' | translate }}</span>
+      </label>
+      <label class="btn btn-secondary btn-sm" (click)="next()"><i class="fa fa-angle-right"></i></label>
+    </div>
+  </div>
+</div>
