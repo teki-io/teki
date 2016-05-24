@@ -1,5 +1,6 @@
 import { EventEmitter, Output } from '@angular/core';
-import { BaseComponent, Employee, EmployeeService } from '../../../shared/index';
+import { BaseComponent, Model } from '../../../shared/index';
+import * as Service from '../../../shared/services/index';
 
 @BaseComponent({
   selector: 'new-row',
@@ -8,10 +9,10 @@ import { BaseComponent, Employee, EmployeeService } from '../../../shared/index'
 })
 
 export class NewRow {
-  public employee: Employee = new Employee({});
+  public employee: Model.Admin.Employee = new Model.Admin.Employee({});
   @Output() editCancel:EventEmitter<any> = new EventEmitter();
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: Service.Admin.Employee) {}
 
   confirm() {
     this.employeeService.create(this.employee);

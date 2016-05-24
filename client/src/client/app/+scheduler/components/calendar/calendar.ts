@@ -1,19 +1,12 @@
 import { ChangeDetectionStrategy } from '@angular/core';
 import { Input, OnChanges, ElementRef } from '@angular/core';
-import {
-  BaseComponent,
-  Shift,
-  Employee,
-  ShiftTemplate,
-  ShiftService,
-  EmployeeService,
-  ShiftTemplateService
-} from '../../../shared/index';
+import { BaseComponent, Model } from '../../../shared/index';
 import { Headers } from './headers/index';
 import { Month } from './month/index';
 import { Week } from  './week/index';
 import * as moment from 'moment';
 import { Observable }       from 'rxjs/Observable';
+import * as Service from '../../../shared/services/index';
 
 @BaseComponent({
   selector: 'calendar',
@@ -26,16 +19,16 @@ import { Observable }       from 'rxjs/Observable';
 export class Calendar implements OnChanges {
   @Input() currentDate: moment.Moment;
   @Input() calendarMode: Number;
-  shiftTemplates: Observable<ShiftTemplate[]>;
-  shifts: Observable<Shift[]>;
+  shiftTemplates: Observable<Model.Admin.ShiftTemplate[]>;
+  shifts: Observable<Model.Admin.Shift[]>;
   fetching: boolean = true;
-  employees: Observable<Employee[]>;
+  employees: Observable<Model.Admin.Employee[]>;
   width: number;
 
   constructor(
-    private shiftService: ShiftService,
-    private shiftTemplateService: ShiftTemplateService,
-    private employeeService: EmployeeService,
+    private shiftService: Service.Admin.Shift,
+    private shiftTemplateService: Service.Admin.ShiftTemplate,
+    private employeeService: Service.Admin.Employee,
     private ref: ElementRef
   ) {
     this.employees = this.employeeService.employees;

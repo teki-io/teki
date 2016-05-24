@@ -1,7 +1,7 @@
 import { Input, OnChanges } from '@angular/core';
 import { COMMON_DIRECTIVES } from '@angular/common';
 import * as moment from 'moment';
-import { BaseComponent, Shift, ShiftTemplate, Employee } from '../../../../shared/index';
+import { BaseComponent, Model } from '../../../../shared/index';
 import { IMonth, IWeek } from '../../../interfaces/index';
 import { Week } from '../week/index';
 
@@ -13,10 +13,10 @@ import { Week } from '../week/index';
 })
 
 export class Month implements OnChanges {
-  @Input() shifts: Array<Shift>;
-  @Input() shiftTemplates: Array<ShiftTemplate>;
+  @Input() shifts: Model.Admin.Shift[];
+  @Input() shiftTemplates: Model.Admin.ShiftTemplate[];
   @Input() currentDate: moment.Moment;
-  @Input() employees: Array<Employee>;
+  @Input() employees: Model.Admin.Employee[];
   month:  IMonth;
   weeks:  Array<IWeek>;
 

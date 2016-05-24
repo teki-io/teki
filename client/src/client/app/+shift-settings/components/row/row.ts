@@ -1,8 +1,9 @@
 import { Input } from '@angular/core';
 import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import { BaseComponent, ShiftTemplate, ShiftTemplateService } from '../../../shared/index';
+import { BaseComponent, Model } from '../../../shared/index';
 import { TimepickerComponent } from 'ng2-bootstrap/ng2-bootstrap';
 import * as moment from 'moment';
+import * as Service from '../../../shared/services/index';
 
 @BaseComponent({
   selector: 'row',
@@ -12,15 +13,15 @@ import * as moment from 'moment';
 })
 
 export class Row {
-  @Input()  shiftTemplate: ShiftTemplate;
+  @Input()  shiftTemplate: Model.Admin.ShiftTemplate;
   public editing: boolean = false;
   public hstep:number = 1;
   public mstep:number = 15;
   public startTime: moment.Moment;
   public endTime: moment.Moment;
-  public tmpShiftTemplate: ShiftTemplate = null;
+  public tmpShiftTemplate: Model.Admin.ShiftTemplate = null;
 
-  constructor(private shiftTemplateService: ShiftTemplateService) {}
+  constructor(private shiftTemplateService: Service.Admin.ShiftTemplate) {}
 
   ngOnInit() {
     this.tmpShiftTemplate = _.clone(this.shiftTemplate);

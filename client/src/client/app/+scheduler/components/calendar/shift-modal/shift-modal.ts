@@ -1,8 +1,10 @@
-import { BaseComponent, Shift, ShiftService } from '../../../../shared/index';
+import { BaseComponent, Model } from '../../../../shared/index';
 import { DialogRef, ModalComponent } from 'angular2-modal/angular2-modal';
 import { BSModalContext } from 'angular2-modal/plugins/bootstrap/index';
 import { ControlGroup, FormBuilder, Validators, FORM_PROVIDERS, FORM_DIRECTIVES } from '@angular/common';
 import { TimepickerComponent } from 'ng2-bootstrap/ng2-bootstrap';
+import * as Service from '../../../../shared/services/index';
+
 import * as moment from 'moment';
 
 export class ShiftModalWindowData extends BSModalContext {
@@ -22,7 +24,7 @@ export class ShiftModalWindowData extends BSModalContext {
 export class ShiftModalWindow implements ModalComponent<ShiftModalWindowData> {
   public context: ShiftModalWindowData;
   public shiftForm: ControlGroup;
-  public newShift: Shift = new Shift({});
+  public newShift: Model.Admin.Shift = new Model.Admin.Shift({});
   public hstep:number = 1;
   public mstep:number = 15;
   public startTime: moment.Moment = moment().startOf('hour');
@@ -31,7 +33,7 @@ export class ShiftModalWindow implements ModalComponent<ShiftModalWindowData> {
   public wrongAnswer: boolean;
 
   constructor(private dialog: DialogRef<ShiftModalWindowData>,
-              private shiftService: ShiftService,
+              private shiftService: Service.Admin.Shift,
               builder: FormBuilder) {
     this.context = dialog.context;
     this.wrongAnswer = true;
@@ -56,7 +58,7 @@ export class ShiftModalWindow implements ModalComponent<ShiftModalWindowData> {
     this.dialog.close();
   }
 
-  onSubmit(shift: Shift): boolean {
+  onSubmit(shift: Model.Admin.Shift): boolean {
     this.newShift.startTime = moment(this.startTime);
     this.newShift.endTime = moment(this.endTime);
     this.shiftService.create(this.newShift);

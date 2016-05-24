@@ -1,12 +1,12 @@
-import { API_ENDPOINTS, Shift } from '../index';
-import { ApiBase }    from './base';
+import { API_ENDPOINTS, Model } from '../../index';
+import { ApiBase }    from './../base';
 import { Injectable } from '@angular/core';
 import { AuthHttp }   from 'angular2-jwt/angular2-jwt';
 import { URLSearchParams } from '@angular/http';
 import * as moment from 'moment';
 
 @Injectable()
-export class ApiShift extends ApiBase<Shift> {
+export class Shift extends ApiBase<Model.Admin.Shift> {
   baseRoute: string = API_ENDPOINTS.SHIFTS;
   constructor(authHttp: AuthHttp) { super(authHttp); };
 
@@ -22,9 +22,9 @@ export class ApiShift extends ApiBase<Shift> {
       });
   }
 
-  stringifyParmas(data: Shift):string { return JSON.stringify({ shift: data }); };
+  stringifyParam(data: Model.Admin.Shift):string { return JSON.stringify({ shift: data }); };
 
-  parse(data: any): Shift {
-    return new Shift(data);
+  parse(data: any): Model.Admin.Shift {
+    return new Model.Admin.Shift(data);
   }
 }

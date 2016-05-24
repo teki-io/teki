@@ -1,7 +1,7 @@
 import { Action, Reducer } from '@ngrx/store';
-import { Shift }        from '../models/index';
-import { ShiftAction }  from '../actions/index';
-import { IShifts }      from '../interfaces/index';
+import * as Model          from '../../models/index';
+import * as Actions        from '../../actions/index';
+import { IShifts }         from '../../interfaces/index';
 
 var initialState: IShifts = {
   shifts: [],
@@ -10,28 +10,28 @@ var initialState: IShifts = {
   selected: null
 };
 
-export const shiftReducer: Reducer<any> = (state = initialState, action: Action) => {
+export const Shift: Reducer<any> = (state = initialState, action: Action) => {
   switch (action.type) {
-    case ShiftAction.EDITING:
+    case Actions.Admin.Shift.EDITING:
       return Object.assign({}, state, { selected: action.payload });
-    case ShiftAction.LOADING:
+    case Actions.Admin.Shift.LOADING:
       return Object.assign({}, state, { loading: true });
-    case ShiftAction.LOADED:
+    case Actions.Admin.Shift.LOADED:
       return Object.assign({}, state, { shifts: [...state.shifts, ...action.payload], loading: false });
-    case ShiftAction.CREATING:
+    case Actions.Admin.Shift.CREATING:
       return Object.assign({}, state, { creating: true });
-    case ShiftAction.CREATED:
+    case Actions.Admin.Shift.CREATED:
       return Object.assign({}, state, { shifts: [...state.shifts, action.payload], creating: false });
-    case ShiftAction.UPDATING:
+    case Actions.Admin.Shift.UPDATING:
       return state;
-    case ShiftAction.UPDATED:
-      return Object.assign({}, state, { shifts: state.shifts.map((item:Shift) => {
+    case Actions.Admin.Shift.UPDATED:
+      return Object.assign({}, state, { shifts: state.shifts.map((item:Model.Admin.Shift) => {
         return item.id === action.payload.id ? Object.assign({}, item, action.payload) : item;
       })});
-    case ShiftAction.DELETING:
+    case Actions.Admin.Shift.DELETING:
       return state;
-    case ShiftAction.DELETED:
-      return Object.assign({}, state, { shifts: state.shifts.filter((item:Shift) => {
+    case Actions.Admin.Shift.DELETED:
+      return Object.assign({}, state, { shifts: state.shifts.filter((item:Model.Admin.Shift) => {
         return item.id !== action.payload.id;
       })});
     default:

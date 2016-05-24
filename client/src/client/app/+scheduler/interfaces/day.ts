@@ -1,7 +1,7 @@
 import * as moment from 'moment';
-import { Shift } from '../../shared/index';
+import { Model } from '../../shared/index';
 
 export interface IDay {
   date:    moment.Moment;
-  shifts:  Array<Shift>;
+  shifts:  Array<Model.Admin.Shift>;
 }

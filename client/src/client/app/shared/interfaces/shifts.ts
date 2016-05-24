@@ -1,8 +1,8 @@
-import { Shift } from '../models/index';
+import { Model } from '../index';
 
 export interface IShifts {
-  shifts: Shift[];
+  shifts: Model.Admin.Shift[];
   creating: boolean;
   loading: boolean;
-  selected: Shift;
+  selected: Model.Admin.Shift;
 }

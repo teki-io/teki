@@ -1,9 +1,9 @@
 import * as moment from 'moment';
-import { Shift } from '../../shared/index';
+import { Model } from '../../shared/index';
 import { IWeek } from './index';
 
 export interface IMonth {
   date:    moment.Moment;
-  shifts:  Array<Shift>;
+  shifts:  Array<Model.Admin.Shift>;
   weeks:    Array<IWeek>;
 }

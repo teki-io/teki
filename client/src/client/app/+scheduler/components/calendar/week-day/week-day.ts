@@ -1,8 +1,7 @@
 import { Input } from '@angular/core';
 import {
   BaseComponent,
-  ShiftTemplate,
-  Employee
+  Model
 } from '../../../../shared/index';
 import { IDay } from '../../../interfaces/index';
 import { DailyShifts } from '../daily-shifts/index';
@@ -17,7 +16,7 @@ import { WeekDayHeader } from '../week-day-header/index';
 
 export class WeekDay {
   @Input() day:    IDay;
-  @Input() shiftTemplates: Array<ShiftTemplate>;
-  @Input() employees: Array<Employee>;
-  @Input() showAll:boolean = false;
+  @Input() shiftTemplates: Model.Admin.ShiftTemplate[];
+  @Input() employees: Model.Admin.Employee[];
+  @Input() showAll: boolean = false;
 }
