@@ -1,23 +1,14 @@
 import {
-  ShiftService,
   HttpErrorHandler,
-  EmployeeService,
-  ShiftTemplateService,
   LoginService,
   AuthenticationService
 } from './services/index';
 
-import {
-  ApiShift,
-  ApiEmployee,
-  ApiShiftTemplate
-} from './api/index';
-
-import {
-  employeeReducer,
-  shiftTemplateReducer,
-  shiftReducer
-} from './reducers/index';
+import * as Api from './api/index';
+import * as Reducer from './reducers/index';
+import * as Model from './models/index';
+import * as Actions from './actions/index';
+import * as Service from './services/index';
 
 import { MULTILINGUAL_PROVIDERS } from './i18n/index';
 
@@ -27,33 +18,38 @@ export * from './directives/index';
 export * from './core/index';
 export * from './i18n/index';
 
-export * from './models/index';
 export * from './constants/index';
-export * from './api/index';
 
 export * from './interfaces/index';
-export * from './actions/index';
-export * from './reducers/index';
 
 
 import { WeekHelper } from '../index';
 
-export const APP_PROVIDERS: any[] = [
+const APP_PROVIDERS: any[] = [
   MULTILINGUAL_PROVIDERS,
   LoginService,
-  ApiShift,
-  ApiEmployee,
-  ApiShiftTemplate,
+  Api.Admin.Shift,
+  Api.Admin.Employee,
+  Api.Admin.ShiftTemplate,
   AuthenticationService,
   HttpErrorHandler,
-  ShiftService,
-  EmployeeService,
-  ShiftTemplateService,
+  Service.Admin.Shift,
+  Service.Admin.Employee,
+  Service.Admin.ShiftTemplate,
   WeekHelper
 ];
 
-export const APP_STORE:any = {
-  employees: employeeReducer,
-  shiftTemplates: shiftTemplateReducer,
-  shifts: shiftReducer
+const APP_STORE: any = {
+  employees: Reducer.Admin.Employee,
+  shiftTemplates: Reducer.Admin.ShiftTemplate,
+  shifts: Reducer.Admin.Shift
+};
+
+export {
+  Model,
+  Reducer,
+  Api,
+  Actions,
+  APP_STORE,
+  APP_PROVIDERS
 };

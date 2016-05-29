@@ -1,5 +1,6 @@
 import { Input } from '@angular/core';
-import { BaseComponent, Employee, EmployeeService } from '../../../shared/index';
+import { BaseComponent, Model } from '../../../shared/index';
+import * as Service from '../../../shared/services/index';
 
 @BaseComponent({
   selector: 'row',
@@ -8,11 +9,11 @@ import { BaseComponent, Employee, EmployeeService } from '../../../shared/index'
 })
 
 export class Row {
-  @Input()  employee: Employee;
+  @Input()  employee: Model.Admin.Employee;
   public editing: boolean = false;
-  public tmpEmployee: Employee = null;
+  public tmpEmployee: Model.Admin.Employee = null;
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: Service.Admin.Employee) {}
 
   ngOnInit() {
     this.tmpEmployee = _.clone(this.employee);

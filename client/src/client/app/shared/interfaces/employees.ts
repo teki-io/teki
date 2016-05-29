@@ -1,7 +1,7 @@
-import { Employee } from '../models/index';
+import { Model } from '../index';
 
 export interface IEmployees {
-  employees: Employee[];
+  employees: Model.Admin.Employee[];
   creating: boolean;
   loading: boolean;
 }

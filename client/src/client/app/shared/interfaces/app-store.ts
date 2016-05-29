@@ -1,7 +1,7 @@
-import { Employee, ShiftTemplate, Shift } from '../models/index';
+import { Model } from '../index';
 
 export interface AppStore {
-  employees: Employee[];
-  shiftTemplates: ShiftTemplate[];
-  shifts: Shift[];
+  employees: Model.Admin.Employee[];
+  shiftTemplates: Model.Admin.ShiftTemplate[];
+  shifts: Model.Admin.Shift[];
 }

@@ -6,5 +6,5 @@ export interface IApi<T> {
   create(data: T): Observable<T>;
   update(data: T): Observable<T>;
   destroy(data: T): Observable<T>;
-  stringifyParmas(data: T):string;
+  stringifyParam(data: T):string;
 }

@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Operator, Shift, Employee } from '../../shared/index';
-import { EmployeeStats, IWeek } from '../interfaces/index';
+import { Operator, Model }          from '../../shared/index';
+import { EmployeeStats, IWeek }     from '../interfaces/index';
 import * as _ from 'lodash';
 const toastr = require('toastr');
 
@@ -10,7 +10,7 @@ export class WeeklyHoursCalculator {
   private employeeStatsList: EmployeeStats[] = [];
   private week: IWeek;
 
-  public updateShift(shift: Shift): void {
+  public updateShift(shift: Model.Admin.Shift): void {
     if (this.shiftInThisWeek(shift)) {
       let existingShift = _.find(this.week.shifts, { id: shift.id });
       let previousEmployeeStats = _.find(this.employeeStatsList, { id: existingShift.employeeId });
@@ -22,7 +22,7 @@ export class WeeklyHoursCalculator {
     }
   }
 
-  public addShift(shift: Shift): void {
+  public addShift(shift: Model.Admin.Shift): void {
     if (this.shiftInThisWeek(shift)) {
       let stats = _.find(this.employeeStatsList, { id: shift.employeeId });
       if (stats) {
@@ -33,7 +33,7 @@ export class WeeklyHoursCalculator {
     }
   }
 
-  public init(employees: Employee[], week: IWeek) {
+  public init(employees: Model.Admin.Employee[], week: IWeek) {
     this.week = week;
     this.employeeStatsList = _.map(employees, (d) => {
       let _shifts = _.filter(week.shifts, { employeeId: d.id });
@@ -52,11 +52,11 @@ export class WeeklyHoursCalculator {
     this.week = null;
   }
 
-  private updateShiftInWeek(shift: Shift) {
+  private updateShiftInWeek(shift: Model.Admin.Shift) {
     Operator.update(this.week.shifts, shift);
   }
 
-  private shiftInThisWeek(shift: Shift): boolean {
+  private shiftInThisWeek(shift: Model.Admin.Shift): boolean {
     let weekStart = this.week.date.clone().startOf('week');
     let weekEnd = this.week.date.clone().endOf('week');
     return weekStart <= shift.startTime && shift.endTime <= weekEnd;

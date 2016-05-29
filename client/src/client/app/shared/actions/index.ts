@@ -1,3 +1,5 @@
-export * from './employee';
-export * from './shift-template';
-export * from './shift';
+import * as Admin from './admin/index';
+
+export {
+  Admin
+};

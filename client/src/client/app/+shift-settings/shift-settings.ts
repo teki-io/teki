@@ -1,9 +1,5 @@
 import { ChangeDetectionStrategy } from '@angular/core';
-import {
-  BaseComponent,
-  ShiftTemplateService,
-  PrivatePage
-}  from '../shared/index';
+import { BaseComponent, PrivatePage } from '../shared/index';
 import { AppLayoutComponent } from '../components/app-layout/index';
 import { Widget }             from '../components/widget/index';
 import { WidgetBody }         from '../components/widget-body/index';
@@ -11,6 +7,7 @@ import { WidgetHeader }       from '../components/widget-header/index';
 import { Row }                from './components/row/index';
 import { Headers }            from './components/headers/index';
 import { NewRow }             from './components/new-row/index';
+import * as Service           from '../shared/services/index';
 
 @BaseComponent({
   selector: 'teki-shift-settings',
@@ -24,7 +21,7 @@ import { NewRow }             from './components/new-row/index';
 export class ShiftSettingsComponent {
   adding: boolean = false;
 
-  constructor(private shiftTemplateService: ShiftTemplateService) {}
+  constructor(private shiftTemplateService: Service.Admin.ShiftTemplate) {}
 
   ngOnInit() {
     this.shiftTemplateService.load();

@@ -1,16 +1,11 @@
 import { Input, OnChanges } from '@angular/core';
 import * as moment from 'moment';
-import {
-  BaseComponent,
-  Shift,
-  ShiftTemplate,
-  Employee
-} from '../../../../shared/index';
+import { BaseComponent, Model } from '../../../../shared/index';
 import { IWeek } from '../../../interfaces/index';
 import { WeekDay } from '../week-day/index';
 import { WeeklyHoursCalculator } from '../../../services/index';
 import { Action, Dispatcher } from '@ngrx/store';
-import { ShiftAction } from '../../../../shared/index';
+import * as Actions from '../../../../shared/actions/index';
 import { WeekHelper } from './services/index';
 
 @BaseComponent({
@@ -24,11 +19,11 @@ import { WeekHelper } from './services/index';
 
 export class Week implements OnChanges {
   @Input() week:    IWeek;
-  @Input() shifts:  Array<Shift>;
+  @Input() shifts:  Array<Model.Admin.Shift>;
   @Input() currentDate:    moment.Moment;
   @Input() showAll: boolean;
-  @Input() shiftTemplates: Array<ShiftTemplate>;
-  @Input() employees: Array<Employee>;
+  @Input() shiftTemplates: Array<Model.Admin.ShiftTemplate>;
+  @Input() employees: Array<Model.Admin.Employee>;
   @Input() width: number;
   dailyWidth: number;
   private addSub:any = null;
@@ -39,11 +34,11 @@ export class Week implements OnChanges {
     private dispatcher: Dispatcher<Action>,
     private weekHelper: WeekHelper) {
     this.addSub = dispatcher
-      .filter(({type}: Action) => type === ShiftAction.CREATED)
+      .filter(({type}: Action) => type === Actions.Admin.Shift.CREATED)
       .subscribe(({payload}: Action) => this.onShiftAdded(payload));
 
     this.updateSub = dispatcher
-      .filter(({type}: Action) => type === ShiftAction.UPDATED)
+      .filter(({type}: Action) => type === Actions.Admin.Shift.UPDATED)
       .subscribe(({payload}: Action) => this.onShiftUpdated(payload));
   }
 
@@ -74,11 +69,11 @@ export class Week implements OnChanges {
     this.calculatorService.init(this.employees, this.week);
   }
 
-  private onShiftUpdated(shift: Shift) {
+  private onShiftUpdated(shift: Model.Admin.Shift) {
     this.calculatorService.updateShift(shift);
   }
 
-  private onShiftAdded(shift: Shift) {
+  private onShiftAdded(shift: Model.Admin.Shift) {
     this.calculatorService.addShift(shift);
   }
 }

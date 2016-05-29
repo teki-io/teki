@@ -1,11 +1,6 @@
 import { Input } from '@angular/core';
 import { COMMON_DIRECTIVES } from '@angular/common';
-import {
-  BaseComponent,
-  Shift,
-  ShiftTemplate,
-  Employee
-} from '../../../../shared/index';
+import { BaseComponent, Model } from '../../../../shared/index';
 import { IDay } from '../../../interfaces/index';
 import { ShiftComponent } from '../shift/index';
 import * as _ from 'lodash';
@@ -19,14 +14,14 @@ import * as moment from 'moment';
 })
 
 export class DailyShifts {
-  @Input() day:IDay;
-  @Input() shiftTemplates: Array<ShiftTemplate> = [];
-  @Input() employees: Array<Employee>;
-  @Input() showAll:boolean = false;
-  @Input() availabeEmployees: Array<Employee> = [];
+  @Input() day: IDay;
+  @Input() shiftTemplates: Model.Admin.ShiftTemplate[] = [];
+  @Input() employees: Model.Admin.Employee[];
+  @Input() showAll: boolean = false;
+  @Input() availabeEmployees: Model.Admin.Employee[] = [];
 
-  public  showLimit:Number           = 6;
-  private shifts:Array<Shift>        = [];
+  public  showLimit: Number           = 6;
+  private shifts: Model.Admin.Shift[] = [];
 
   ngOnInit() {
     this.init();
@@ -50,8 +45,8 @@ export class DailyShifts {
     this.onEmployeeAssigned();
   }
 
-  private mergeShiftWithShiftTemplate(): Array<Shift> {
-    let results = <Shift[]>[];
+  private mergeShiftWithShiftTemplate(): Array<Model.Admin.Shift> {
+    let results = <Model.Admin.Shift[]>[];
     let tmpShifts = _.clone(this.shifts);
     this.shiftTemplates = _.sortBy(this.shiftTemplates, 'sort');
     _.forEach(this.shiftTemplates, (template) => {
@@ -66,8 +61,8 @@ export class DailyShifts {
     return results;
   }
 
-  private generateShiftFromTemplate(template: ShiftTemplate, today: moment.Moment): Shift {
-    let shift = new Shift({});
+  private generateShiftFromTemplate(template: Model.Admin.ShiftTemplate, today: moment.Moment): Model.Admin.Shift {
+    let shift = new Model.Admin.Shift({});
     shift.name = template.name;
     shift.shiftTemplateId = template.id;
     shift.startTime = moment(today.format('YYYY-MM-DDT') + template.startTime.format('HH:mm'), 'YYYY-MM-DDTHH:mm');

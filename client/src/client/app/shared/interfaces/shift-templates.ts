@@ -1,7 +1,7 @@
-import { ShiftTemplate } from '../models/index';
+import { Model } from '../index';
 
 export interface IShiftTemplates {
-  shiftTemplates: ShiftTemplate[];
+  shiftTemplates: Model.Admin.ShiftTemplate[];
   creating: boolean;
   loading: boolean;
 }
