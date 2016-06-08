@@ -1,5 +1,5 @@
 <div id="page-wrapper" [ngClass]="{ open: open }">
-  <teki-sidebar  (toggled)="onToggled($event)"></teki-sidebar>
+  <teki-sidebar  (toggled)="onToggled($event)" [open]="open"></teki-sidebar>
   <div id="content-wrapper">
     <div class="page-content app-content">
       <ng-content></ng-content>

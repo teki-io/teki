@@ -1,5 +1,8 @@
-import { Output,
-         EventEmitter }      from '@angular/core';
+import {
+  Output,
+  Input,
+  EventEmitter
+}      from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router-deprecated';
 import { BaseComponent }     from '../../shared/index';
 
@@ -11,6 +14,7 @@ import { BaseComponent }     from '../../shared/index';
 })
 export class SidebarComponent {
   @Output() toggled:EventEmitter<any> = new EventEmitter();
+  @Input()  open:boolean = false;
   jwt: string;
 
   constructor (public router: Router) {

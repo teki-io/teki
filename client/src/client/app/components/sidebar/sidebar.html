@@ -1,7 +1,14 @@
 <div id="sidebar-wrapper">
   <ul class="sidebar">
     <li class="sidebar-main">
-      <a (click)="toggle()">Teki<span class="menu-icon fa fa-bars"></span></a>
+      <a (click)="toggle()">
+        <img class="logo" src="assets/img/teki.svg">
+        Teki
+        <span class="menu-icon fa fa-bars" *ngIf="open"></span>
+        <span class="menu-icon" *ngIf="!open">
+          <img class="menu-logo" src="assets/img/teki.svg">
+        </span>
+      </a>
     </li>
     <li class="sidebar-list" router-active>
       <a [routerLink]=" ['Scheduler'] " router-active>
@@ -48,7 +55,7 @@
       </a>
     </div>
     <div class="col-xs-4">
-      <a>
+      <a href="mailto:neil@teki.io?Subject=Learn%20more%20about%20Teki" target="_top">
         {{ 'headers.contactUs' | translate }}
       </a>
     </div>
