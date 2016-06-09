@@ -1,4 +1,5 @@
-# Teki
+
+# ![](https://avatars1.githubusercontent.com/u/18756030?v=3&s=26) Teki
 [![Stories in Ready](https://badge.waffle.io/teki-io/teki.png?label=ready&title=Ready)](https://waffle.io/teki-io/teki)
 [![Circle CI](https://circleci.com/gh/teki-io/teki.svg?style=svg)](https://circleci.com/gh/teki-io/teki)
 
@@ -16,7 +17,28 @@ Got a question? Send us a note a [neil@teki.io](neil@teki.io)
 
 ![](https://cloud.githubusercontent.com/assets/746239/15346474/71f7857c-1c86-11e6-8a02-5f93dbe0b879.png)
 
-# Features
+# Run Locally
+
+```
+
+# Start rails server
+$ git clone https://github.com/teki-io/teki.git
+$ cd teki/server
+teki/server$ bundle install
+teki/server$ rake db:create
+teki/server$ rake db:migrate
+teki/server$ rake db:seed
+teki/server$ rails s
+
+# Start
+$ cd teki/client
+teki/client$ npm install
+teki/client$ npm start
+# login with seed account: user@test.com / password: 12345678
+
+```
+
+# Features/Upcoming Features
 
 - Scheduler
 	- Manager to assign shifts to employees
@@ -30,6 +52,7 @@ Got a question? Send us a note a [neil@teki.io](neil@teki.io)
 	- Employee to see assigned shifts only in the calendar view
 - Request
 	- Employee to request shift swap with another colleague
+
 
 # License
 
