@@ -32,7 +32,7 @@ export class ShiftModalWindow implements ModalComponent<ShiftModalWindowData> {
 
   public wrongAnswer: boolean;
 
-  constructor(private dialog: DialogRef<ShiftModalWindowData>,
+  constructor(public dialog: DialogRef<ShiftModalWindowData>,
               private shiftService: Service.Admin.Shift,
               builder: FormBuilder) {
     this.context = dialog.context;

@@ -1,4 +1,4 @@
-import { Model } from '../index';
+import { Model } from '../../index';
 
 export interface IShiftTemplates {
   shiftTemplates: Model.Admin.ShiftTemplate[];

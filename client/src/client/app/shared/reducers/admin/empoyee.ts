@@ -1,9 +1,9 @@
 import { Action, Reducer } from '@ngrx/store';
 import * as Model          from '../../models/index';
 import * as Actions        from '../../actions/index';
-import { IEmployees }      from '../../interfaces/index';
+import * as Interface      from '../../interfaces/index';
 
-var initialState: IEmployees = {
+var initialState: Interface.Admin.IEmployees = {
   employees: [],
   creating: false,
   loading: false
