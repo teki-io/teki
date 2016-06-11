@@ -44,7 +44,8 @@ const APP_PROVIDERS: any[] = [
 const APP_STORE: any = {
   'admin.employees': Reducer.Admin.Employee,
   'admin.shiftTemplates': Reducer.Admin.ShiftTemplate,
-  'admin.shifts': Reducer.Admin.Shift
+  'admin.shifts': Reducer.Admin.Shift,
+  'shifts': Reducer.Shift
 };
 
 export {

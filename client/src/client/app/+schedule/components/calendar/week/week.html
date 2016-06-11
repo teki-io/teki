@@ -1,0 +1,9 @@
+<div class="week">
+  <week-day
+    class="day right-border"
+    [style.max-width.px]="dailyWidth"
+    [style.width.px]="dailyWidth"
+    *ngFor ="let day of week.days"
+    [day]="day">
+  </week-day>
+</div>

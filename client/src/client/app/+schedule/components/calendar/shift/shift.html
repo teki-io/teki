@@ -1,0 +1,6 @@
+<div class="shift-info text-overflowed assigned" *ngIf="shift">
+  <span class="name">{{shift.name}}</span>
+  <br>
+  <span class="time">{{shift.startTime.clone().format('HH:MM')}} - {{shift.endTime.clone().format('HH:MM')}}</span>
+</div>
+<div *ngIf="!shift"></div>

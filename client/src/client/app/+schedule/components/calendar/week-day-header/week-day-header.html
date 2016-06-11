@@ -1,0 +1,9 @@
+<div class="week-day-title">
+  <span class="calendar-date">{{date.format('DD')}}</span>
+  <span *ngIf="showCreateButton"
+        (click)="promptShift()"
+        class="create-button clickable">
+    <i class="fa fa-plus"></i>
+    <span class="text">create</span>
+  </span>
+</div>

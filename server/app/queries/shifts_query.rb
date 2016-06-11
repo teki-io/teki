@@ -12,8 +12,6 @@ class ShiftsQuery < QueryBase
   end
 
   def query
-    result = scope.shifts
-    result = result.where(start_time: from..to) if with_params
-    result
+    scope.shifts.where(start_time: from..to) if with_params
   end
 end

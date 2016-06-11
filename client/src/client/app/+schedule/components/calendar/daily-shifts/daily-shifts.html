@@ -1,0 +1,4 @@
+<div>
+  <shift *ngFor ="let shift of day.shifts" [shift]="shift"></shift>
+  <shift *ngIf ="day.shifts.length == 0"></shift>
+</div>

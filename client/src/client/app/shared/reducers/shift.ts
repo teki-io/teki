@@ -1,15 +1,8 @@
 import { Action, Reducer } from '@ngrx/store';
-import * as Model          from '../models/index';
 import * as Actions        from '../actions/index';
+import * as Interface      from '../interfaces/index';
 
-interface IShifts {
-  shifts: Model.Shift[];
-  creating: boolean;
-  loading: boolean;
-  selected: Model.Shift;
-}
-
-var initialState: IShifts = {
+var initialState: Interface.IShifts = {
   shifts: [],
   creating: false,
   loading: false,

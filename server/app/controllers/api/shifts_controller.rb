@@ -12,6 +12,6 @@ class Api::ShiftsController < Api::BaseController
   end
 
   def shifts
-    @shifts ||= ::ShiftsQuery.query(current_user, query_params)
+    @shifts ||= ::ShiftsQuery.query(current_user, query_params) || []
   end
 end
