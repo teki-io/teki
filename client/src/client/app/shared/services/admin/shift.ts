@@ -56,7 +56,7 @@ export class Shift {
   }
 
   fetch(date: moment.Moment) {
-    let shifts = <Model.Admin.Shift[]>this.store.value['admin.employees'].shifts;
+    let shifts = <Model.Admin.Shift[]>this.store.value['admin.shifts'].shifts;
     let from:moment.Moment = date;
     let to:moment.Moment   = date;
     let max:moment.Moment  = this.getMaxDateFromShifts(shifts);
