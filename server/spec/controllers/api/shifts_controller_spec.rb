@@ -11,14 +11,28 @@ RSpec.describe Api::ShiftsController do
   end
 
   describe 'GET index' do
-    before { get :index }
+    context 'without params' do
+      before { get :index }
 
-    it 'responds with success' do
-      expect(response.status).to eq 200
+      it 'responds with success' do
+        expect(response.status).to eq 200
+      end
+
+      it 'responds with correct shifts count' do
+        expect(result.count).to eq 0
+      end
     end
 
-    it 'responds with correct shift templates count' do
-      expect(result.count).to eq 10
+    context 'with params' do
+      before { get :index, params: { from: DateTime.now - 10, to: DateTime.now + 10} }
+
+      it 'responds with success' do
+        expect(response.status).to eq 200
+      end
+
+      it 'responds with correct shifts count' do
+        expect(result.count).to eq 10
+      end
     end
   end
 end

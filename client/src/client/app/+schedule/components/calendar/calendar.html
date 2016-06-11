@@ -1,0 +1,17 @@
+<div *ngIf="!(shiftService.loading | async)"
+     class="calendar-size"
+     (window:resize)="onResize($event)">
+  <div>
+    <headers class="row list-group-item no-bottom-border no-padding"
+             [width]="width">
+    </headers>
+    <month
+      *ngIf            ="calendarMode === 3"
+      [currentDate]    ="currentDate"
+      [shifts]         ="shifts | async"
+      [width]          ="width"
+    >
+    </month>
+  </div>
+</div>
+<div *ngIf="shiftService.loading | async" class="spinner"></div>

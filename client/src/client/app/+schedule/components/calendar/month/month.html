@@ -1,0 +1,8 @@
+<week
+  class            ="row list-group-item no-bottom-border no-padding week"
+  *ngFor           ="let week of month.weeks"
+  [week]           ="week"
+  [currentDate]    ="week.date"
+  [shifts]         ="week.shifts"
+  [width]          ="width"
+></week>

@@ -1,0 +1,8 @@
+li {
+  display: table-cell;
+  color: #666;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 1px solid #eceeef;
+}

@@ -1,0 +1,14 @@
+.week {
+  margin: 0;
+}
+
+.week .day {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  list-style-type: none;
+  display: table-cell;
+  margin-bottom: 5px;
+  color: #777;
+  text-align: left;
+  height: 140px;
+}

@@ -19,7 +19,7 @@ RSpec.describe Api::Admin::ShiftsController do
       expect(response.status).to eq 200
     end
 
-    it 'responds with correct shift templates count' do
+    it 'responds with correct shifts count' do
       expect(result.count).to eq 10
     end
   end

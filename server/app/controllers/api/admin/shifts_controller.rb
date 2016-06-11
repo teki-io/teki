@@ -53,6 +53,7 @@ class Api::Admin::ShiftsController < Api::Admin::BaseController
     params.permit(:from, :to)
   end
 
+  # TODO: use form instead
   def shift_params
     params.require(:shift).permit(
       :employee_id,
