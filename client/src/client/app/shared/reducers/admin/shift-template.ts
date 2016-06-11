@@ -1,9 +1,9 @@
-import { Action, Reducer }    from '@ngrx/store';
-import * as Model             from '../../models/index';
-import * as Actions           from '../../actions/index';
-import { IShiftTemplates }    from '../../interfaces/index';
+import { Action, Reducer }  from '@ngrx/store';
+import * as Model           from '../../models/index';
+import * as Actions         from '../../actions/index';
+import * as Interface       from '../../interfaces/index';
 
-var initialState: IShiftTemplates = {
+var initialState: Interface.Admin.IShiftTemplates = {
   shiftTemplates: [],
   creating: false,
   loading: false

@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import * as Api               from '../../api/index';
 import * as Model             from '../../models/index';
 import * as Actions           from '../../actions/index';
-import { AppStore, IEmployees } from '../../interfaces/index';
+import * as Interface         from '../../interfaces/index';
 import { Observable }         from 'rxjs/Observable';
 import { Store, Action }      from '@ngrx/store';
 import { HttpErrorHandler }   from './../index';
@@ -17,12 +17,12 @@ export class Employee {
   private actions = new BehaviorSubject<Action>({type: null, payload: null});
 
   constructor(@Inject(Api.Admin.Employee) public api: Api.Admin.Employee,
-              private store: Store<AppStore>,
+              private store: Store<Interface.AppStore>,
               private errorHandler: HttpErrorHandler) {
 
-    const store$ = store.select<IEmployees>('employees');
-    this.employees = store$.map(({employees}: IEmployees) => employees);
-    this.loading  = store$.map(({loading}: IEmployees) => loading);
+    const store$ = store.select<Interface.Admin.IEmployees>('admin.employees');
+    this.employees = store$.map(({employees}: Interface.Admin.IEmployees) => employees);
+    this.loading  = store$.map(({loading}: Interface.Admin.IEmployees) => loading);
 
 
     let loadEmployees = this.actions

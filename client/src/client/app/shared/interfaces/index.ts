@@ -1,5 +1,11 @@
-export * from './app-store';
-export * from './api';
-export * from './employees';
-export * from './shift-templates';
-export * from './shifts';
+import * as Admin from './admin/index';
+import { AppStore } from './app-store';
+import { IShifts } from './shift';
+import { IApi } from './api';
+
+export {
+  Admin,
+  IShifts,
+  AppStore,
+  IApi
+};

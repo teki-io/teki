@@ -31,18 +31,20 @@ const APP_PROVIDERS: any[] = [
   Api.Admin.Shift,
   Api.Admin.Employee,
   Api.Admin.ShiftTemplate,
+  Api.Shift,
   AuthenticationService,
   HttpErrorHandler,
   Service.Admin.Shift,
   Service.Admin.Employee,
   Service.Admin.ShiftTemplate,
+  Service.Shift,
   WeekHelper
 ];
 
 const APP_STORE: any = {
-  employees: Reducer.Admin.Employee,
-  shiftTemplates: Reducer.Admin.ShiftTemplate,
-  shifts: Reducer.Admin.Shift
+  'admin.employees': Reducer.Admin.Employee,
+  'admin.shiftTemplates': Reducer.Admin.ShiftTemplate,
+  'admin.shifts': Reducer.Admin.Shift
 };
 
 export {

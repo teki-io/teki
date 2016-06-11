@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import * as Api               from '../../api/index';
 import * as Model             from '../../models/index';
 import * as Actions           from '../../actions/index';
-import { AppStore, IShifts }  from '../../interfaces/index';
+import * as Interface         from '../../interfaces/index';
 import { Observable }         from 'rxjs/Observable';
 import { Store, Action }      from '@ngrx/store';
 import { HttpErrorHandler }   from './../index';
@@ -17,12 +17,12 @@ export class Shift {
   private actions = new BehaviorSubject<Action>({type: null, payload: null});
 
   constructor(@Inject(Api.Admin.Shift) private api: Api.Admin.Shift,
-              private store: Store<AppStore>,
+              private store: Store<Interface.AppStore>,
               private errorHandler: HttpErrorHandler) {
 
-    const store$ = store.select<IShifts>('shifts');
-    this.shifts = store$.map(({shifts}: IShifts) => shifts);
-    this.loading  = store$.map(({loading}: IShifts) => loading);
+    const store$ = store.select<Interface.Admin.IShifts>('admin.shifts');
+    this.shifts = store$.map(({shifts}: Interface.Admin.IShifts) => shifts);
+    this.loading  = store$.map(({loading}: Interface.Admin.IShifts) => loading);
 
     let loadShifts = this.actions
       .filter(({type}: Action) => type === Actions.Admin.Shift.LOAD)

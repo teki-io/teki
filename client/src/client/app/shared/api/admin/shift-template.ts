@@ -5,7 +5,7 @@ import { AuthHttp }   from 'angular2-jwt/angular2-jwt';
 
 @Injectable()
 export class ShiftTemplate extends ApiBase<Model.Admin.ShiftTemplate> {
-  baseRoute: string = API_ENDPOINTS.SHIFT_TEMPLATES;
+  baseRoute: string = API_ENDPOINTS.ADMIN.SHIFT_TEMPLATES;
 
   constructor(authHttp: AuthHttp) { super(authHttp); };
 

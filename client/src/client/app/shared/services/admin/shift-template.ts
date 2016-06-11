@@ -1,12 +1,12 @@
-import { Injectable, Inject }        from '@angular/core';
-import * as Api                      from '../../api/index';
-import * as Model                    from '../../models/index';
-import * as Actions                  from '../../actions/index';
-import { AppStore, IShiftTemplates } from '../../interfaces/index';
-import { Observable }                from 'rxjs/Observable';
-import { Store, Action }             from '@ngrx/store';
-import { HttpErrorHandler }          from '../index';
-import { BehaviorSubject }           from 'rxjs/Rx';
+import { Injectable, Inject } from '@angular/core';
+import * as Api               from '../../api/index';
+import * as Model             from '../../models/index';
+import * as Actions           from '../../actions/index';
+import * as Interface         from '../../interfaces/index';
+import { Observable }         from 'rxjs/Observable';
+import { Store, Action }      from '@ngrx/store';
+import { HttpErrorHandler }   from '../index';
+import { BehaviorSubject }    from 'rxjs/Rx';
 
 import 'rxjs/add/operator/map';
 
@@ -17,12 +17,12 @@ export class ShiftTemplate {
   private actions = new BehaviorSubject<Action>({type: null, payload: null});
 
   constructor(@Inject(Api.Admin.ShiftTemplate) public api: Api.Admin.ShiftTemplate,
-              private store: Store<AppStore>,
+              private store: Store<Interface.AppStore>,
               private errorHandler: HttpErrorHandler) {
 
-    const store$ = store.select<IShiftTemplates>('shiftTemplates');
-    this.shiftTemplates = store$.map(({shiftTemplates}: IShiftTemplates) => shiftTemplates);
-    this.loading  = store$.map(({loading}: IShiftTemplates) => loading);
+    const store$ = store.select<Interface.Admin.IShiftTemplates>('admin.shiftTemplates');
+    this.shiftTemplates = store$.map(({shiftTemplates}: Interface.Admin.IShiftTemplates) => shiftTemplates);
+    this.loading  = store$.map(({loading}: Interface.Admin.IShiftTemplates) => loading);
 
 
     let loadShiftTemplates = this.actions

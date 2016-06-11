@@ -5,7 +5,7 @@ import { AuthHttp }   from 'angular2-jwt/angular2-jwt';
 
 @Injectable()
 export class Employee extends ApiBase<Model.Admin.Employee> {
-  baseRoute:string = API_ENDPOINTS.EMPLOYEES;
+  baseRoute:string = API_ENDPOINTS.ADMIN.EMPLOYEES;
 
   constructor(authHttp: AuthHttp) {
     super(authHttp);

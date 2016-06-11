@@ -1,10 +1,15 @@
-import { BaseComponent,
-  PrivatePage }        from '../shared/index';
+import {
+  BaseComponent,
+  PrivatePage,
+  Model
+} from '../shared/index';
 import { Header }             from './components/header/index';
 import { Widget }             from '../components/widget/index';
 import { WidgetBody }         from '../components/widget-body/index';
 import { AppLayoutComponent } from '../components/app-layout/index';
 import * as moment from 'moment';
+import * as Service from '../shared/services/index';
+import { Observable }       from 'rxjs/Observable';
 
 @BaseComponent({
   selector: 'schedule',
@@ -17,10 +22,16 @@ import * as moment from 'moment';
 export class ScheduleComponent {
   currentDate: moment.Moment;
   calendarMode: Number;
+  shifts: Observable<Model.Shift[]>;
+
+  constructor(private shiftService: Service.Shift) {
+    this.shifts = this.shiftService.shifts;
+  }
 
   ngOnInit() {
     this.currentDate = moment();
     this.calendarMode = 3;
+    this.shiftService.load(this.currentDate);
   }
 
   onDateChanged(newDate: moment.Moment) {
