@@ -11,19 +11,25 @@
     "contactUs": "Contact Us"
   },
   "error": {
-    "pleaseSignIn": "Please Sign In"
+    "pleaseSignIn": "Please Sign In",
+    "required": "Required",
+    "invalidCreditCard": "Is invalid credit card number",
+    "invalidEmailAddress": "Invalid email address",
+    "invalidPassword": "Invalid password. Password must be at least 6 characters long, and contain a number."
   },
   "login": {
     "username": "username",
     "password": "password",
     "signIn": "Sign In",
-    "signUpHere": "Click here to sign up"
+    "signUpHere": "Click here to sign up",
+    "loginToAccount": "Login to your account"
   },
   "signup": {
     "username": "username",
     "password": "password",
     "signUp": "Sign Up",
-    "loginHere": "Already have an acount? Login here"
+    "loginHere": "Already have an acount? Login here",
+    "signUpAccount": "Sign up your new account"
   },
   "setting": {
     "changeLanguage": "Change Language"

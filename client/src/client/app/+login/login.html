@@ -1,18 +1,29 @@
-<div class="container jumbotron">
+<div class="container login">
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
+      <a class="brand" href="http://teki.io"><img class="logo" src="assets/img/teki.svg">Teki</a>
       <div class="login-panel panel panel-default">
-        <div class="panel-body">
-          <form role="form" (submit)="login($event, username.value, password.value)">
-            <div class="form-group">
-              <input type="text" #username class="form-control" id="username" placeholder="{{ 'login.username' | translate }}">
-            </div>
-            <div class="form-group">
-              <input type="password" #password class="form-control" id="password" placeholder="{{ 'login.password' | translate }}">
-            </div>
-            <button type="submit" class="btn btn-lg btn-success btn-block">{{ 'login.signIn' | translate }}</button>
-            <a href="/signup"> {{ 'login.signUpHere' | translate }}</a>
-          </form>
+        <div class="module form-module">
+          <div class="toggle"></div>
+          <div class="form">
+            <h2>{{ 'login.loginToAccount' | translate }}</h2>
+            <form [ngFormModel]="loginForm" (ngSubmit)="login()" #f="ngForm">
+              <div class="form-group">
+                <input ngControl="username"
+                       type="text"
+                       placeholder="{{ 'login.username' | translate }}" required>
+                <!--<control-messages control="username"></control-messages>-->
+              </div>
+              <div class="form-group">
+                <input ngControl="password"
+                       type="password"
+                       placeholder="{{ 'login.password' | translate }}" required>
+                <!--<control-messages control="password"></control-messages>-->
+              </div>
+              <button type="submit" [disabled]="!f.form.valid">{{ 'login.signIn' | translate }}</button>
+            </form>
+          </div>
+          <div class="cta"><a href="/signup">{{ 'login.signUpHere' | translate }}</a></div>
         </div>
       </div>
     </div>

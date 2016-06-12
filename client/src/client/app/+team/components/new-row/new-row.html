@@ -1,22 +1,39 @@
 <div>
-  <div class="col-lg-2 table-cell">
-    <input placeholder="{{ 'team.firstName' | translate }}" [(ngModel)]="employee.firstName">
-  </div>
-  <div class="col-lg-3 table-cell">
-    <input placeholder="{{ 'team.lastName' | translate }}" [(ngModel)]="employee.lastName">
-  </div>
-  <div class="col-lg-3 table-cell">
-    <input placeholder="{{ 'team.phoneNumber' | translate }}" [(ngModel)]="employee.phoneNumber">
-  </div>
-  <div class="col-lg-3 table-cell">
-    <input placeholder="{{ 'team.email' | translate }}" [(ngModel)]="employee.email">
-  </div>
-  <div class="col-lg-1">
-    <div class="btn btn-sm btn-info" (click)="confirm()">
-      <i class="fa fa-check"></i>
+  <form novalidate [ngFormModel]="form" (ngSubmit)="confirm()" #f="ngForm">
+    <div class="col-lg-2 table-cell right-border">
+      <input ngControl="firstName"
+             placeholder="{{ 'team.firstName' | translate }}"
+             [(ngModel)]="employee.firstName"
+             required>
+      <control-messages control="firstName"></control-messages>
     </div>
-    <div class="btn btn-sm btn-info" (click)="cancel()">
-      <i class="fa fa-times"></i>
+    <div class="col-lg-2 table-cell right-border">
+      <input ngControl="lastName"
+             placeholder="{{ 'team.lastName' | translate }}"
+             [(ngModel)]="employee.lastName"
+             required>
+      <control-messages control="lastName"></control-messages>
     </div>
-  </div>
+    <div class="col-lg-3 table-cell right-border">
+      <input ngControl="phoneNumber"
+             placeholder="{{ 'team.phoneNumber' | translate }}"
+             [(ngModel)]="employee.phoneNumber">
+    </div>
+    <div class="col-lg-3 table-cell right-border">
+      <input ngControl="email"
+             placeholder="{{ 'team.email' | translate }}"
+             [(ngModel)]="employee.email"
+             type="email"
+             required>
+      <control-messages control="email"></control-messages>
+    </div>
+    <div  class="col-lg-2 table-cell right-border">
+      <button class="btn btn-sm btn-info" type="submit">
+        <i class="fa fa-check"></i>
+      </button>
+      <button class="btn btn-sm btn-info" (click)="cancel()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </form>
 </div>

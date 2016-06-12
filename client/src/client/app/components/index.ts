@@ -6,6 +6,7 @@ export * from './widget-header/index';
 export * from './widget-body/index';
 export * from './widget-footer/index';
 export * from './app-layout/index';
+export * from './control-messages/index';
 
 import { Widget }           from './widget/index';
 import { WidgetBody }       from './widget-body/index';

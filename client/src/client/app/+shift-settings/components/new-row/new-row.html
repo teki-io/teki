@@ -1,31 +1,43 @@
 <div>
-  <div class="col-lg-3 table-cell">
-    <input placeholder="{{ 'shiftSettings.shiftName' | translate }}" [(ngModel)]="shiftTemplate.name">
-  </div>
-  <div class="col-lg-3 table-cell">
-    <timepicker
-      [(ngModel)]="startTime"
-      [hourStep]="hstep"
-      [minuteStep]="mstep"
-      [showMeridian]="ismeridian"
-      [max]="endTime"
-    ></timepicker>
-  </div>
-  <div class="col-lg-3 table-cell">
-    <timepicker
-      [(ngModel)]="endTime"
-      [hourStep]="hstep"
-      [minuteStep]="mstep"
-      [showMeridian]="ismeridian"
-      [min]="startTime"
-    ></timepicker>
-  </div>
-  <div class="col-lg-2">
-    <div class="btn btn-sm btn-info" (click)="confirm()">
-      <i class="fa fa-check"></i>
+  <form [ngFormModel]="templateForm" (ngSubmit)="confirm()" #f="ngForm">
+    <div class="col-lg-3 table-cell right-border editing">
+      <div class="vcenter">
+        <input ngControl="name"
+               placeholder="{{ 'shiftSettings.shiftName' | translate }}"
+               [(ngModel)]="shiftTemplate.name"
+               required>
+        <control-messages control="name"></control-messages>
+      </div>
     </div>
-    <div class="btn btn-sm btn-info" (click)="cancel()">
-      <i class="fa fa-times"></i>
+    <div class="col-lg-3 table-cell right-border editing">
+      <timepicker
+        class="timepicker"
+        [(ngModel)]="startTime"
+        [hourStep]="hstep"
+        [minuteStep]="mstep"
+        [showMeridian]="ismeridian"
+        [max]="endTime"
+      ></timepicker>
     </div>
-  </div>
+    <div class="col-lg-3 table-cell right-border editing">
+      <timepicker
+        class="timepicker"
+        [(ngModel)]="endTime"
+        [hourStep]="hstep"
+        [minuteStep]="mstep"
+        [showMeridian]="ismeridian"
+        [min]="startTime"
+      ></timepicker>
+    </div>
+    <div class="col-lg-3 table-cell right-border editing">
+      <div class="vcenter">
+        <button class="btn btn-sm btn-info" type="submit" [disabled]="!f.form.valid">
+          <i class="fa fa-check"></i>
+        </button>
+        <button class="btn btn-sm btn-info" (click)="cancel()">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
