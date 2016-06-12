@@ -9,7 +9,11 @@ import * as Service from '../../../shared/services/index';
   selector: 'row',
   templateUrl: 'app/+shift-settings/components/row/row.html',
   styleUrls: ['app/+shift-settings/components/row/row.css'],
-  directives: [TimepickerComponent, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  directives: [TimepickerComponent, CORE_DIRECTIVES, FORM_DIRECTIVES],
+  host: {
+    '(mouseenter)': 'onMouseEnter()',
+    '(mouseleave)': 'onMouseLeave()'
+  }
 })
 
 export class Row {
@@ -20,8 +24,12 @@ export class Row {
   public startTime: moment.Moment;
   public endTime: moment.Moment;
   public tmpShiftTemplate: Model.Admin.ShiftTemplate = null;
+  public showEditButton: boolean = false;
 
   constructor(private shiftTemplateService: Service.Admin.ShiftTemplate) {}
+
+  onMouseEnter() { this.showEditButton = true; }
+  onMouseLeave() { this.showEditButton = false; }
 
   ngOnInit() {
     this.tmpShiftTemplate = _.clone(this.shiftTemplate);

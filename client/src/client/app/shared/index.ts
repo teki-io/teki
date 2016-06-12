@@ -31,12 +31,14 @@ const APP_PROVIDERS: any[] = [
   Api.Admin.Shift,
   Api.Admin.Employee,
   Api.Admin.ShiftTemplate,
+  Api.Admin.Company,
   Api.Shift,
   AuthenticationService,
   HttpErrorHandler,
   Service.Admin.Shift,
   Service.Admin.Employee,
   Service.Admin.ShiftTemplate,
+  Service.Admin.Company,
   Service.Shift,
   WeekHelper
 ];
@@ -45,6 +47,7 @@ const APP_STORE: any = {
   'admin.employees': Reducer.Admin.Employee,
   'admin.shiftTemplates': Reducer.Admin.ShiftTemplate,
   'admin.shifts': Reducer.Admin.Shift,
+  'admin.companies': Reducer.Admin.Company,
   'shifts': Reducer.Shift
 };
 

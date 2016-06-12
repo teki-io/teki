@@ -19,7 +19,7 @@
           </div>
           <div class="table-responsive list-group shift-setting-container"
                [dragula]='"shift-settings"'
-               [dragulaModel]="shiftTemplateService.shiftTemplates | async">
+               [dragulaModel]="shiftTemplates | async">
             <new-row
               *ngIf="adding"
               class="row list-group-item no-bottom-border no-padding"
@@ -27,7 +27,7 @@
             ></new-row>
             <row
               class="row list-group-item no-bottom-border no-padding"
-              *ngFor="let shiftTemplate of shiftTemplateService.shiftTemplates | async"
+              *ngFor="let shiftTemplate of shiftTemplates | async"
               [shiftTemplate]="shiftTemplate">
             </row>
           </div>
