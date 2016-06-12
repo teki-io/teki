@@ -14,11 +14,13 @@ export class ProjectConfig extends SeedConfig {
       { src: 'moment/locale/zh-tw', inject: 'libs' },
       { src: 'toastr/build/toastr.min', inject: 'libs' },
       { src: 'ng2-bootstrap/bundles/ng2-bootstrap', inject: 'libs'},
+      { src: 'dragula/dist/dragula', inject: 'libs' },
 
       { src: 'bootstrap/dist/css/bootstrap.css', inject: true },
       { src: 'font-awesome/css/font-awesome.min.css', inject: true },
       { src: 'rdash-ui/dist/css/rdash.css', inject: true },
-      { src: 'toastr/build/toastr.min.css', inject: true }
+      { src: 'toastr/build/toastr.min.css', inject: true },
+      { src: 'dragula/dist/dragula.min.css', inject: true }
     ];
 
     const seedDependencies = this.NPM_DEPENDENCIES;

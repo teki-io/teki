@@ -16,6 +16,10 @@
           </div>
           <div class="table-responsive list-group">
             <headers class="row list-group-item no-bottom-border"></headers>
+          </div>
+          <div class="table-responsive list-group shift-setting-container"
+               [dragula]='"shift-settings"'
+               [dragulaModel]="shiftTemplateService.shiftTemplates | async">
             <new-row
               *ngIf="adding"
               class="row list-group-item no-bottom-border no-padding"

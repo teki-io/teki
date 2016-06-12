@@ -98,7 +98,9 @@ export class SeedConfig {
     map: {
       'lodash': `${this.APP_BASE}node_modules/lodash/lodash.js`,
       'toastr': `${this.APP_BASE}node_modules/toastr/toastr.js`,
-      '@ngrx/store': `${this.APP_BASE}node_modules//@ngrx/store/index.js`
+      '@ngrx/store': `${this.APP_BASE}node_modules//@ngrx/store/index.js`,
+      'dragula': `${this.APP_BASE}node_modules/dragula/dist/dragula.js`,
+      'ng2-dragula/ng2-dragula': `${this.APP_BASE}node_modules/ng2-dragula/ng2-dragula.js`
     }
   };
 
