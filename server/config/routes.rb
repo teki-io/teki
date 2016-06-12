@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   # mount ActionCable.server => '/cable'
 
   namespace :api do
-    resource :companies, only: [:update]
     resources :employees, only: [:index]
     resources :shifts, only: [:index]
     scope '/admin', as: 'admin', module: 'admin' do
       resources :employees, only: [:index, :create, :update, :destroy]
       resources :shift_templates, only: [:index, :create, :update, :destroy]
       resources :shifts, only: [:index, :create, :update]
+      resource :companies, only: [:update]
     end
   end
 end

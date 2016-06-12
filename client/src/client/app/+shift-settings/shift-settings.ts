@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy } from '@angular/core';
-import { BaseComponent, PrivatePage } from '../shared/index';
+import { BaseComponent, PrivatePage, Model } from '../shared/index';
 import { AppLayoutComponent } from '../components/app-layout/index';
 import { Widget }             from '../components/widget/index';
 import { WidgetBody }         from '../components/widget-body/index';
@@ -9,8 +9,8 @@ import { Headers }            from './components/headers/index';
 import { NewRow }             from './components/new-row/index';
 import * as Service           from '../shared/services/index';
 import { Dragula, DragulaService } from 'ng2-dragula/ng2-dragula';
-import { TimerWrapper } from 'angular2/src/facade/async';
-
+import { DragulaServiceHelper } from './services/dragula-service-helper';
+import { Observable }         from 'rxjs/Observable';
 
 @BaseComponent({
   selector: 'teki-shift-settings',
@@ -18,18 +18,24 @@ import { TimerWrapper } from 'angular2/src/facade/async';
   styleUrls: ['app/+shift-settings/shift-settings.css'],
   directives: [Widget, WidgetBody, WidgetHeader, Row, Headers, NewRow, AppLayoutComponent, Dragula],
   viewProviders: [DragulaService],
+  providers: [DragulaServiceHelper],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 @PrivatePage()
 export class ShiftSettingsComponent {
   adding: boolean = false;
+  shiftTemplates: Observable<Model.Admin.ShiftTemplate[]>;
 
   constructor(
+    private companyService: Service.Admin.Company,
     private shiftTemplateService: Service.Admin.ShiftTemplate,
-    private dragulaService: DragulaService) {
-    dragulaService.drag.subscribe((value: any) => this.onDrag(value.slice(1)));
-    dragulaService.drop.subscribe((value: any) => this.onDrop(value.slice(1)));
+    private dragulaService: DragulaService,
+    private dragulaHelper: DragulaServiceHelper) {
+    this.shiftTemplates = shiftTemplateService.shiftTemplates;
+    dragulaService.drag.subscribe((value: any) => dragulaHelper.onDrag(value.slice(1)));
+    dragulaService.drop.subscribe((value: any) => dragulaHelper.onDrop(value.slice(1)));
+    dragulaService.dropModel.subscribe(() => this.onDropModel());
   }
 
   ngOnInit() {
@@ -48,32 +54,7 @@ export class ShiftSettingsComponent {
     this.cancel();
   }
 
-  private hasClass(el: any, name: string): boolean {
-    return el.className.indexOf(name) > 0;
-  }
-
-  private addClass(el: any, name: string) {
-    if (!this.hasClass(el, name)) {
-      el.className = el.className ? [el.className, name].join(' ') : name;
-    }
-  }
-
-  private removeClass(el: any, name: string) {
-    if (this.hasClass(el, name)) {
-      el.className = el.className.replace(name, '');
-    }
-  }
-
-  private onDrag(args) {
-    let [e] = args;
-    this.removeClass(e, 'ex-moved');
-  }
-
-  private onDrop(args) {
-    let [e] = args;
-    this.addClass(e, 'ex-moved');
-    TimerWrapper.setTimeout(() => {
-      this.removeClass(e, 'ex-moved');
-    }, 200);
+  private onDropModel() {
+    this.shiftTemplates.subscribe((templates) => this.companyService.update_templates(templates));
   }
 }

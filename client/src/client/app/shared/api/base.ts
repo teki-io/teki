@@ -26,7 +26,7 @@ export class ApiBase<TModel> implements IApi<TModel> {
 
   update(data: any): Observable<TModel> {
     let str = this.stringifyParam(data);
-    return this.authHttp.put(`${this.baseRoute}/${data.id}`, str, { headers: contentHeaders })
+    return this.authHttp.put(`${this.baseRoute}/${data.id || ''}`, str, { headers: contentHeaders })
       .map(res => res.json())
       .map(employee => this.parse(employee));
   }

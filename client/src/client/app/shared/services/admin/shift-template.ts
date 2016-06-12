@@ -68,7 +68,10 @@ export class ShiftTemplate {
 
   private _load(): Observable<Action> {
     return this.api.getAll()
-      .do(payload => this.store.dispatch({type: Actions.Admin.ShiftTemplate.LOADED, payload }))
+      .do(payload => {
+        let sortedPayload = _.sortBy(payload, 'sort');
+        this.store.dispatch({type: Actions.Admin.ShiftTemplate.LOADED, payload: sortedPayload});
+      })
       .catch(error => this.errorHandler.handle(error));
   }
 
