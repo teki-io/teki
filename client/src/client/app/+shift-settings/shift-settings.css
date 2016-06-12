@@ -15,3 +15,38 @@ headers {
   background: #fafafa;
   padding: 0;
 }
+
+.shift-setting-container div,
+.gu-mirror {
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(153, 153, 153, 0.46);
+  transition: opacity 0.4s ease-in-out;
+}
+
+.shift-setting-container div,
+.gu-transit {
+  opacity: 0.1;
+  background-color: #f2f2f2;
+  filter: alpha(opacity=20);
+}
+
+.shift-setting-container div {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.shift-setting-container .ex-moved {
+  background-color:  rgba(153, 153, 153, 0.46);
+  -webkit-transition: background-color 200ms linear;
+  -moz-transition: background-color 200ms linear;
+  -o-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+}
+
+.shift-setting-container .ex-over {
+  background-color: #f2f2f2;
+}
