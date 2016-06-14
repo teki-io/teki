@@ -4,12 +4,15 @@ import { BaseComponent, Model } from '../../../shared/index';
 import { TimepickerComponent } from 'ng2-bootstrap/ng2-bootstrap';
 import * as moment from 'moment';
 import * as Service from '../../../shared/services/index';
+import { FormBuilder, Validators, ControlGroup } from '@angular/common';
+import { ControlMessages } from '../../../components/control-messages/index';
 
 @BaseComponent({
   selector: 'row',
   templateUrl: 'app/+shift-settings/components/row/row.html',
   styleUrls: ['app/+shift-settings/components/row/row.css'],
-  directives: [TimepickerComponent, CORE_DIRECTIVES, FORM_DIRECTIVES],
+  directives: [TimepickerComponent, CORE_DIRECTIVES, FORM_DIRECTIVES, ControlMessages],
+  providers: [FormBuilder],
   host: {
     '(mouseenter)': 'onMouseEnter()',
     '(mouseleave)': 'onMouseLeave()'
@@ -25,8 +28,13 @@ export class Row {
   public endTime: moment.Moment;
   public tmpShiftTemplate: Model.Admin.ShiftTemplate = null;
   public showEditButton: boolean = false;
+  public templateForm: ControlGroup;
 
-  constructor(private shiftTemplateService: Service.Admin.ShiftTemplate) {}
+  constructor(private shiftTemplateService: Service.Admin.ShiftTemplate, fb: FormBuilder) {
+    this.templateForm = fb.group({
+      name: ['', Validators.required]
+    });
+  }
 
   onMouseEnter() { this.showEditButton = true; }
   onMouseLeave() { this.showEditButton = false; }

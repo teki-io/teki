@@ -7,12 +7,12 @@
             {{ 'headers.shiftSettings' | translate }}
           </div>
           <div class="pull-right">
-            <a class="btn btn-sm btn-info" (click)="add()" *ngIf="!adding">
+            <button class="btn btn-sm btn-info" (click)="add()" *ngIf="!adding">
               <i class="fa fa-plus"></i>
-            </a>
-            <a class="btn btn-sm btn-info" (click)="cancel()" *ngIf="adding">
+            </button>
+            <button class="btn btn-sm btn-info" (click)="cancel()" *ngIf="adding">
               <i class="fa fa-times"></i>
-            </a>
+            </button>
           </div>
           <div class="table-responsive list-group">
             <headers class="row list-group-item no-bottom-border"></headers>

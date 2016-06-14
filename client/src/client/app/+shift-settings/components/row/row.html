@@ -3,44 +3,56 @@
   <div *ngIf="!editing" class="col-lg-3 table-cell right-border">{{ shiftTemplate.startTime.local().format('HH:mm a') }}</div>
   <div *ngIf="!editing" class="col-lg-3 table-cell right-border">{{ shiftTemplate.endTime.local().format('HH:mm a') }}</div>
   <div *ngIf="!editing" class="col-lg-3 table-cell right-border">
-    <div *ngIf="showEditButton" class="btn btn-sm btn-info" (click)="edit()">
+    <button *ngIf="showEditButton" class="btn btn-sm btn-info" (click)="edit()">
       <i class="pull-right fa fa-pencil-square-o"></i>
-    </div>
+    </button>
     <div class="btn btn-sm drag-icon">
       <i class="pull-right fa fa-bars"></i>
     </div>
   </div>
 
-  <div *ngIf="editing" class="col-lg-3 table-cell right-border">
-    <input placeholder="{{ 'shiftSettings.shiftName' | translate }}" [(ngModel)]="tmpShiftTemplate.name">
-  </div>
-  <div *ngIf="editing" class="col-lg-3 table-cell right-border">
-    <timepicker
-      [(ngModel)]="startTime"
-      [hourStep]="hstep"
-      [minuteStep]="mstep"
-      [showMeridian]="ismeridian"
-      [max]="endTime"
-    ></timepicker>
-  </div>
-  <div *ngIf="editing" class="col-lg-3 table-cell right-border">
-    <timepicker
-      [(ngModel)]="endTime"
-      [hourStep]="hstep"
-      [minuteStep]="mstep"
-      [showMeridian]="ismeridian"
-      [min]="startTime"
-    ></timepicker>
-  </div>
-  <div *ngIf="editing" class="col-lg-3 table-cell right-border">
-    <div class="btn btn-sm btn-info" (click)="confirm()">
-      <i class="fa fa-check"></i>
+  <form [ngFormModel]="templateForm" (ngSubmit)="confirm()" #f="ngForm">
+    <div *ngIf="editing" class="col-lg-3 table-cell right-border editing">
+      <div class="vcenter">
+        <input ngControl="name"
+               placeholder="{{ 'shiftSettings.shiftName' | translate }}"
+               [(ngModel)]="tmpShiftTemplate.name"
+               required>
+        <control-messages control="name"></control-messages>
+      </div>
     </div>
-    <div class="btn btn-sm btn-info" (click)="editing = false">
-      <i class="fa fa-times"></i>
+    <div *ngIf="editing" class="col-lg-3 table-cell right-border editing">
+      <timepicker
+        class="timepicker"
+        [(ngModel)]="startTime"
+        [hourStep]="hstep"
+        [minuteStep]="mstep"
+        [showMeridian]="ismeridian"
+        [max]="endTime"
+      ></timepicker>
     </div>
-    <div class="btn btn-sm btn-info" (click)="destroy()">
-      <i class="fa fa-trash-o"></i>
+    <div *ngIf="editing" class="col-lg-3 table-cell right-border editing">
+      <timepicker
+        class="timepicker"
+        [(ngModel)]="endTime"
+        [hourStep]="hstep"
+        [minuteStep]="mstep"
+        [showMeridian]="ismeridian"
+        [min]="startTime"
+      ></timepicker>
     </div>
-  </div>
+    <div *ngIf="editing" class="col-lg-3 table-cell right-border editing">
+      <div class="vcenter">
+        <button class="btn btn-sm btn-info" type="submit" [disabled]="!f.form.valid">
+          <i class="fa fa-check"></i>
+        </button>
+        <button class="btn btn-sm btn-info" (click)="editing = false">
+          <i class="fa fa-times"></i>
+        </button>
+        <button class="btn btn-sm btn-info" (click)="destroy()">
+          <i class="fa fa-trash-o"></i>
+        </button>
+      </div>
+    </div>
+  </form>
 </div>

@@ -10,3 +10,16 @@
   position: relative;
   top: 3px;
 }
+
+.editing {
+  height: 110px;
+}
+
+.editing .vcenter {
+  padding-top: 33px;
+}
+
+.editing .timepicker {
+  width: 160px;
+  float: right;
+}

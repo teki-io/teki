@@ -11,19 +11,25 @@
     "contactUs": "聯絡"
   },
   "error": {
-    "pleaseSignIn": "請登入"
+    "pleaseSignIn": "請登入",
+    "required": "不行空白",
+    "invalidCreditCard": "信用卡號不符合格式",
+    "invalidEmailAddress": "電子信箱不符合格式",
+    "invalidPassword": "密碼不符合. 請輸入至少6個字母, 和一個數字."
   },
   "login": {
     "username": "帳號",
     "password": "密碼",
     "signIn": "登入",
-    "signUpHere": "創新帳號"
+    "signUpHere": "創新帳號",
+    "loginToAccount": "登入帳號"
   },
   "signup": {
     "username": "帳號",
     "password": "密碼",
-    "signUp": "建立帳號",
-    "loginHere": "已經有帳號了嗎? 點這裡登入"
+    "signUp": "建立",
+    "loginHere": "已經有帳號了嗎? 點這裡登入",
+    "signUpAccount": "建立新的帳號"
   },
   "setting": {
     "changeLanguage": "更換語言"
