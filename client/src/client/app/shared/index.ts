@@ -33,6 +33,7 @@ const APP_PROVIDERS: any[] = [
   Api.Admin.ShiftTemplate,
   Api.Admin.Company,
   Api.Shift,
+  Api.Profile,
   AuthenticationService,
   HttpErrorHandler,
   Service.Admin.Shift,
@@ -40,6 +41,7 @@ const APP_PROVIDERS: any[] = [
   Service.Admin.ShiftTemplate,
   Service.Admin.Company,
   Service.Shift,
+  Service.Profile,
   WeekHelper
 ];
 
@@ -48,7 +50,8 @@ const APP_STORE: any = {
   'admin.shiftTemplates': Reducer.Admin.ShiftTemplate,
   'admin.shifts': Reducer.Admin.Shift,
   'admin.companies': Reducer.Admin.Company,
-  'shifts': Reducer.Shift
+  'shifts': Reducer.Shift,
+  'profile': Reducer.Profile
 };
 
 export {

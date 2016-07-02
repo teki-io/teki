@@ -9,6 +9,7 @@ export const API_ENDPOINTS = {
     COMPANIES: `${BASE_API}/api/admin/companies`
   },
   SHIFTS: `${BASE_API}/api/shifts`,
+  PROFILE: `${BASE_API}/api/profile`,
   USER_SIGNIN: `${BASE_API}/users/sign_in.json`,
   CREAT_USER: `${BASE_API}/users.json`
 };

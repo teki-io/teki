@@ -31,8 +31,10 @@
     "loginHere": "Already have an acount? Login here",
     "signUpAccount": "Sign up your new account"
   },
-  "setting": {
-    "changeLanguage": "Change Language"
+  "settings": {
+    "changeLanguage": "Change Language",
+    "firstName": "First Name",
+    "lastName": "Last Name"
   },
   "scheduler": {
     "schedule": "Schedule",

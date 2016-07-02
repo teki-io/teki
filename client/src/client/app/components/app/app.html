@@ -1,1 +1,2 @@
-<teki-router-outlet></teki-router-outlet>
+<teki-router-outlet *ngIf="!(profileService.loading | async)"></teki-router-outlet>
+<div *ngIf="(profileService.loading | async)" class="spinner"></div>

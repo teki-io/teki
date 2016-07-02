@@ -31,8 +31,10 @@
     "loginHere": "已經有帳號了嗎? 點這裡登入",
     "signUpAccount": "建立新的帳號"
   },
-  "setting": {
-    "changeLanguage": "更換語言"
+  "settings": {
+    "changeLanguage": "更換語言",
+    "firstName": "名",
+    "lastName": "姓"
   },
   "scheduler": {
     "schedule": "班表",
