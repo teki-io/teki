@@ -7,6 +7,14 @@
             {{ 'headers.setting' | translate }}
           </div>
           <div class="table-responsive">
+            <div>
+              {{ 'settings.firstName' | translate }}
+              {{ (profile | async)?.firstName }}
+            </div>
+            <div>
+              {{ 'settings.lastName' | translate }}
+              {{ (profile | async)?.lastName }}
+            </div>
             <lang-switcher></lang-switcher>
           </div>
         </teki-widget-body>

@@ -20,6 +20,7 @@ import {
 import { ViewContainerRef } from '@angular/core';
 import { Modal, BS_MODAL_PROVIDERS } from 'angular2-modal/plugins/bootstrap/index';
 import { Loading } from '../loading/index';
+import * as Service from '../../shared/services/index';
 
 @BaseComponent({
   selector: 'teki-app',
@@ -74,7 +75,16 @@ import { Loading } from '../loading/index';
 ])
 
 export class AppComponent {
-  constructor(private multilang: MultilingualService, public modal: Modal, viewContainer: ViewContainerRef) {
+  constructor(
+    private modal: Modal,
+    private multilang: MultilingualService,
+    private viewContainer: ViewContainerRef,
+    private profileService: Service.Profile
+  ) {
     modal.defaultViewContainer = viewContainer;
+  }
+
+  ngOnInit() {
+    this.profileService.load();
   }
 }

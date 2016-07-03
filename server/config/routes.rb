@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :employees, only: [:index]
     resources :shifts, only: [:index]
+    resources :profile, only: [:index]
     scope '/admin', as: 'admin', module: 'admin' do
       resources :employees, only: [:index, :create, :update, :destroy]
       resources :shift_templates, only: [:index, :create, :update, :destroy]

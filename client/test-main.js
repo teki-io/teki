@@ -26,7 +26,10 @@ System.config({
     'ng2-bootstrap/*': 'node_modules/ng2-bootstrap/*.js',
     'moment/*': 'node_modules/moment/*.js',
     'moment': 'node_modules/moment/moment.js',
-    'angular2-jwt/angular2-jwt': 'node_modules/angular2-jwt/angular2-jwt.js'
+    'angular2-jwt/angular2-jwt': 'node_modules/angular2-jwt/angular2-jwt.js',
+    'ng2-dragula/*': 'node_modules/ng2-dragula/*.js',
+    'ng2-dragula/ng2-dragula': 'node_modules/ng2-dragula/ng2-dragula.js',
+    'angular2-modal/*': 'node_modules/angular2-modal/*.js'
   },
   map: {
     'rxjs': 'node_modules/rxjs',
@@ -34,48 +37,22 @@ System.config({
     'jquery': 'node_modules/jquery/dist/jquery.js',
     'lodash': 'node_modules/lodash/lodash.js',
     'toastr': 'node_modules/toastr/toastr.js',
-    '@ngrx/store': 'node_modules/@ngrx/store/index.js'
+    '@ngrx/store': 'node_modules/@ngrx/store/index.js',
+    'dragula': 'node_modules/dragula/dist/dragula.js'
   },
   packages: {
-    '@angular/core': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/compiler': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/common': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/platform-browser': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/platform-browser-dynamic': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/router-deprecated': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/router': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/http': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    'rxjs': {
-      defaultExtension: 'js'
-    },
-    '@ngrx/store' : {
-      main: 'dist/index.js',
-      defaultExtension: 'js'
-    }
+    '@ngrx/core': {main: 'index.js', defaultExtension: 'js'},
+    '@ngrx/store': {main: 'index.js', defaultExtension: 'js'},
+    '@angular/common': {main: 'index.js', defaultExtension: 'js'},
+    '@angular/compiler': {main: 'index.js', defaultExtension: 'js'},
+    '@angular/core': {main: 'index.js', defaultExtension: 'js'},
+    '@angular/http': {main: 'index.js', defaultExtension: 'js'},
+    '@angular/platform-browser': {main: 'index.js', defaultExtension: 'js'},
+    '@angular/platform-browser-dynamic': {main: 'index.js', defaultExtension: 'js'},
+    '@angular/router': {main: 'index.js', defaultExtension: 'js'},
+    '@angular/router-deprecated': {main: 'index.js', defaultExtension: 'js'},
+    '@angular/upgrade': {main: 'index.js', defaultExtension: 'js'},
+    'rxjs': { defaultExtension: 'js' }
   }
 });
 

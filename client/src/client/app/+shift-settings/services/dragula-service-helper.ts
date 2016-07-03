@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TimerWrapper } from 'angular2/src/facade/async';
+import { TimerWrapper } from '@angular/core/src/facade/async';
 
 @Injectable()
 export class DragulaServiceHelper {
