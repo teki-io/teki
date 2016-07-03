@@ -40,6 +40,9 @@ export class Profile {
   private _load(): Observable<Action> {
     return this.api.getAll()
       .do((payload: Profile) => this.store.dispatch({type: Actions.Profile.LOADED, payload }))
-      .catch((error: any) => this.errorHandler.handle(error));
+      .catch((error: any) => {
+        this.store.dispatch({type: Actions.Profile.ERROR});
+        this.errorHandler.handle(error);
+      });
   }
 }

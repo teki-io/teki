@@ -13,6 +13,8 @@ export const Profile: Reducer<any> = (state = initialState, action: Action) => {
       return Object.assign({}, state, { loading: true });
     case Actions.Profile.LOADED:
       return Object.assign({}, state, { profile: action.payload, loading: false });
+    case Actions.Profile.ERROR:
+      return Object.assign({}, state, { loading: false });
     default:
       return state;
   }

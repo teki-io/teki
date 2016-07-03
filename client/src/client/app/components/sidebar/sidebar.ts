@@ -12,6 +12,7 @@ import { BaseComponent }     from '../../shared/index';
   styleUrls: ['app/components/sidebar/sidebar.css'],
   directives: [ROUTER_DIRECTIVES]
 })
+
 export class SidebarComponent {
   @Output() toggled:EventEmitter<any> = new EventEmitter();
   @Input()  open:boolean = false;
