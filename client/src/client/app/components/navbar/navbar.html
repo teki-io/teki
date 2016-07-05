@@ -1,0 +1,26 @@
+<div id="teki-navbar-wrapper">
+  <div class="container-fluid">
+    <ul class="teki-navbar row">
+      <li class="teki-navbar-main">
+        <a><img class="logo" src="assets/img/teki.svg"></a>
+      </li>
+
+      <li class="teki-navbar-list">
+        <a [routerLink]=" ['Schedule'] " router-active>
+          {{ 'headers.schedule' | translate }}
+          <span class="menu-icon fa fa-calendar"></span>
+        </a>
+      </li>
+
+      <!--TODO: show team-->
+      <!--<li class="teki-navbar-list">-->
+        <!--<a [routerLink]=" ['Team'] " router-active>-->
+          <!--{{ 'headers.team' | translate }}-->
+          <!--<span class="menu-icon fa fa-users"></span>-->
+        <!--</a>-->
+      <!--</li>-->
+
+      <!--TODO: show pull-right user-profile-->
+    </ul>
+  </div>
+</div>

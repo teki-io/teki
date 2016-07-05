@@ -1,5 +1,8 @@
-<div id="page-wrapper" [ngClass]="{ open: open }">
-  <teki-sidebar  (toggled)="onToggled($event)" [open]="open"></teki-sidebar>
+<div id="{{ (profile | async)?.admin ? 'page-wrapper' : '' }}"
+     [ngClass]="{ open: open }"
+     *ngIf="!(loading | async)">
+  <teki-sidebar  (toggled)="onToggled($event)" [open]="open" *ngIf="(profile | async)?.admin"></teki-sidebar>
+  <teki-navbar *ngIf="!(profile | async)?.admin"></teki-navbar>
   <div id="content-wrapper">
     <div class="page-content app-content">
       <ng-content></ng-content>

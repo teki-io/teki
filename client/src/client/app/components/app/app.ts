@@ -5,6 +5,7 @@ import {
 } from '../../shared/index';
 import { CORE_DIRECTIVES } from '@angular/common';
 import {
+  Router,
   ROUTER_DIRECTIVES,
   RouteConfig
 } from '@angular/router-deprecated';
@@ -31,11 +32,12 @@ import * as Service from '../../shared/services/index';
   providers: [MultilingualService]
 })
 
+//TODO: switch home route based on permissions
 @RouteConfig([
   {
     path: '/',
     name: 'Home',
-    component: SchedulerComponent
+    component: ScheduleComponent
   },
   {
     path: '/login',
@@ -79,7 +81,8 @@ export class AppComponent {
     private modal: Modal,
     private multilang: MultilingualService,
     private viewContainer: ViewContainerRef,
-    private profileService: Service.Profile
+    private profileService: Service.Profile,
+    private router: Router
   ) {
     modal.defaultViewContainer = viewContainer;
   }

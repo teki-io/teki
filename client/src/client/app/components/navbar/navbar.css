@@ -1,0 +1,81 @@
+nav a.router-link-active {
+  color: #106cc8;
+}
+
+.logo {
+  width: 50px;
+  position: relative;
+  top: -2px;
+  margin-right: 5px;
+}
+
+
+#teki-navbar-wrapper {
+  background: #30426a;
+  height: 70px;
+}
+ul.teki-navbar .teki-navbar-list a:hover,
+#page-wrapper:not(.open) ul.teki-navbar .teki-navbar-title.separator {
+  background: #2d3e63;
+}
+
+ul.teki-navbar {
+  list-style-type: none;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+}
+ul.teki-navbar li a {
+  color: #fff;
+  float: left;
+  text-decoration: none;
+  width: 250px;
+}
+ul.teki-navbar .teki-navbar-main {
+  height: 65px;
+  width: 70px;
+}
+ul.teki-navbar .teki-navbar-main a {
+  font-size: 18px;
+  line-height: 60px;
+}
+ul.teki-navbar .teki-navbar-main a:hover {
+  cursor: pointer;
+}
+ul.teki-navbar .teki-navbar-main .menu-icon {
+  font-size: 20px;
+  padding-right: 28px;
+  line-height: 60px;
+}
+ul.teki-navbar .teki-navbar-title {
+  color: #738bc0;
+  font-size: 20px;
+  height: 35px;
+  line-height: 65px;
+  text-transform: uppercase;
+  transition: all .6s ease 0s;
+}
+ul.teki-navbar .teki-navbar-list {
+  height: 65px;
+}
+ul.teki-navbar .teki-navbar-list a {
+  text-indent: 25px;
+  font-size: 20px;
+  color: #b2bfdc;
+  line-height: 65px;
+}
+ul.teki-navbar .teki-navbar-list a:hover {
+  color: #fff;
+  border-bottom: 3px solid #e99d1a;
+  text-indent: 22px;
+}
+ul.teki-navbar .teki-navbar-list a:hover .menu-icon {
+  text-indent: 25px;
+}
+ul.teki-navbar .teki-navbar-list .menu-icon {
+  padding-right: 29px;
+  line-height: 65px;
+  width: 70px;
+}
