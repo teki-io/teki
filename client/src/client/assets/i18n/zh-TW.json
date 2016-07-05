@@ -9,7 +9,8 @@
     "logout": "登出",
     "login": "登入",
     "about": "關於",
-    "contactUs": "聯絡"
+    "contactUs": "聯絡",
+    "profile": "個人檔案"
   },
   "error": {
     "pleaseSignIn": "請登入",

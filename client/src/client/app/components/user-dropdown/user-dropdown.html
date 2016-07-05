@@ -1,0 +1,24 @@
+<div class="user">
+  <div class="item dropdown" [class.open]="clicked">
+    <a class="dropdown-toggle" aria-haspopup="true" aria-expanded="true">
+      <img class="circle" src="assets/img/avatar.jpg">
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li class="dropdown-header">
+        {{ (profile | async)?.firstName }}
+      </li>
+      <li class="divider"></li>
+      <li class="link">
+        <a [routerLink]=" ['Setting'] ">
+          {{ 'headers.profile' | translate }}
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li class="link">
+        <a (click)="logout()">
+          {{ 'headers.logout' | translate }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

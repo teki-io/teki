@@ -9,7 +9,8 @@
     "logout": "Logout",
     "login": "Sign In",
     "about": "About",
-    "contactUs": "Contact Us"
+    "contactUs": "Contact Us",
+    "profile": "Profile"
   },
   "error": {
     "pleaseSignIn": "Please Sign In",

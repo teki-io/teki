@@ -3,16 +3,16 @@ nav a.router-link-active {
 }
 
 .logo {
-  width: 50px;
+  width: 40px;
   position: relative;
-  top: -2px;
+  top: -5px;
   margin-right: 5px;
 }
 
 
 #teki-navbar-wrapper {
   background: #30426a;
-  height: 70px;
+  height: 60px;
 }
 ul.teki-navbar .teki-navbar-list a:hover,
 #page-wrapper:not(.open) ul.teki-navbar .teki-navbar-title.separator {
@@ -34,7 +34,7 @@ ul.teki-navbar li a {
   width: 250px;
 }
 ul.teki-navbar .teki-navbar-main {
-  height: 65px;
+  height: 55px;
   width: 70px;
 }
 ul.teki-navbar .teki-navbar-main a {
@@ -47,24 +47,24 @@ ul.teki-navbar .teki-navbar-main a:hover {
 ul.teki-navbar .teki-navbar-main .menu-icon {
   font-size: 20px;
   padding-right: 28px;
-  line-height: 60px;
+  line-height: 55px;
 }
 ul.teki-navbar .teki-navbar-title {
   color: #738bc0;
   font-size: 20px;
   height: 35px;
-  line-height: 65px;
+  line-height: 55px;
   text-transform: uppercase;
   transition: all .6s ease 0s;
 }
 ul.teki-navbar .teki-navbar-list {
-  height: 65px;
+  height: 55px;
 }
 ul.teki-navbar .teki-navbar-list a {
   text-indent: 25px;
   font-size: 20px;
   color: #b2bfdc;
-  line-height: 65px;
+  line-height: 55px;
 }
 ul.teki-navbar .teki-navbar-list a:hover {
   color: #fff;
@@ -76,6 +76,10 @@ ul.teki-navbar .teki-navbar-list a:hover .menu-icon {
 }
 ul.teki-navbar .teki-navbar-list .menu-icon {
   padding-right: 29px;
-  line-height: 65px;
+  line-height: 55px;
   width: 70px;
+}
+
+teki-user-dropdown {
+  margin-left: auto;
 }
