@@ -6,23 +6,36 @@ import { WidgetBody }       from '../components/widget-body/index';
 import { WidgetHeader }     from '../components/widget-header/index';
 import { Row }              from './components/row/index';
 import { Headers }          from './components/headers/index';
+import { NewRow }           from './components/new-row/index';
 import * as Service         from '../shared/services/index';
 
 @BaseComponent({
-  selector: 'teki-team',
-  templateUrl: 'app/+team/team.html',
-  styleUrls: ['app/+team/team.css'],
-  directives: [Widget, WidgetBody, WidgetHeader, Row, Headers, AppLayoutComponent],
+  selector: 'teki-employee',
+  templateUrl: 'app/+employee/employee.html',
+  styleUrls: ['app/+employee/employee.css'],
+  directives: [Widget, WidgetBody, WidgetHeader, Row, Headers, NewRow, AppLayoutComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 @PrivatePage()
-export class TeamComponent {
+export class EmployeeComponent {
   adding: boolean = false;
 
-  constructor(private employeeService: Service.Employee) {}
+  constructor(private employeeService: Service.Admin.Employee) {}
 
   ngOnInit() {
     this.employeeService.load();
+  }
+
+  add() {
+    this.adding = true;
+  }
+
+  cancel() {
+    this.adding = false;
+  }
+
+  editCancel() {
+    this.adding = false;
   }
 }

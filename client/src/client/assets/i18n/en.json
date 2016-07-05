@@ -1,5 +1,6 @@
 {
   "headers": {
+    "employees": "Employees",
     "scheduler": "Scheduler",
     "schedule": "My Schedule",
     "setting": "Setting",
@@ -54,13 +55,19 @@
     "select": "Select",
     "cancel": "Cancel"
   },
-  "team": {
+  "employees": {
     "nameTaken": "Employee Name is already taken",
     "firstName": "First Name",
     "lastName": "Last Name",
     "phoneNumber": "Phone Number",
     "add": "Add",
     "cancel": "Cancel",
+    "email": "Email"
+  },
+  "team": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phoneNumber": "Phone Number",
     "email": "Email"
   },
   "shiftSettings": {

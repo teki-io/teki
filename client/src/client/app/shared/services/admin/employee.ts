@@ -16,7 +16,7 @@ export class Employee {
   employees: Observable<Model.Admin.Employee[]>;
   private actions = new BehaviorSubject<Action>({type: null, payload: null});
 
-  constructor(@Inject(Api.Admin.Employee) public api: Api.Admin.Employee,
+  constructor(@Inject(Api.Admin.Employee) private api: Api.Admin.Employee,
               private store: Store<Interface.AppStore>,
               private errorHandler: HttpErrorHandler) {
 

@@ -1,52 +1,6 @@
 <div>
-  <div *ngIf="!editing" class="col-lg-2 table-cell right-border">{{ employee.firstName }}</div>
-  <div *ngIf="!editing" class="col-lg-2 table-cell right-border">{{ employee.lastName }}</div>
-  <div *ngIf="!editing" class="col-lg-3 table-cell right-border">{{ employee.phoneNumber }}</div>
-  <div *ngIf="!editing" class="col-lg-3 table-cell right-border">{{ employee.email }}</div>
-  <div *ngIf="!editing" class="col-lg-2 table-cell right-border">
-    <button *ngIf="!editing" class="btn btn-sm btn-info" (click)="edit()">
-      <i class="pull-right fa fa-pencil-square-o"></i>
-    </button>
-  </div>
-
-  <form novalidate *ngIf="editing" [ngFormModel]="form" (ngSubmit)="confirm()" #f="ngForm">
-    <div class="col-lg-2 table-cell right-border">
-      <input ngControl="firstName"
-             placeholder="{{ 'team.firstName' | translate }}"
-             [(ngModel)]="tmpEmployee.firstName"
-             required>
-      <control-messages control="firstName"></control-messages>
-    </div>
-    <div class="col-lg-2 table-cell right-border">
-      <input ngControl="lastName"
-             placeholder="{{ 'team.lastName' | translate }}"
-             [(ngModel)]="tmpEmployee.lastName"
-             required>
-      <control-messages control="lastName"></control-messages>
-    </div>
-    <div class="col-lg-3 table-cell right-border">
-      <input ngControl="phoneNumber"
-             placeholder="{{ 'team.phoneNumber' | translate }}"
-             [(ngModel)]="tmpEmployee.phoneNumber">
-    </div>
-    <div class="col-lg-3 table-cell right-border">
-      <input ngControl="email"
-             placeholder="{{ 'team.email' | translate }}"
-             [(ngModel)]="tmpEmployee.email"
-             type="email"
-             required>
-      <control-messages control="email"></control-messages>
-    </div>
-    <div *ngIf="editing" class="col-lg-2 table-cell right-border">
-      <button class="btn btn-sm btn-info" type="submit">
-        <i class="fa fa-check"></i>
-      </button>
-      <button class="btn btn-sm btn-info" (click)="editing = false">
-        <i class="fa fa-times"></i>
-      </button>
-      <button class="btn btn-sm btn-info" (click)="destroy()">
-        <i class="fa fa-trash-o"></i>
-      </button>
-    </div>
-  </form>
+  <div class="col-lg-3 table-cell right-border">{{ employee.firstName }}</div>
+  <div class="col-lg-3 table-cell right-border">{{ employee.lastName }}</div>
+  <div class="col-lg-3 table-cell right-border">{{ employee.phoneNumber }}</div>
+  <div class="col-lg-3 table-cell right-border">{{ employee.email }}</div>
 </div>

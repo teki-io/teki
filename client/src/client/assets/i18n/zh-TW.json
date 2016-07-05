@@ -1,5 +1,6 @@
 {
   "headers" : {
+    "employees": "員工",
     "scheduler": "班表",
     "schedule": "我的班表",
     "setting": "設定",
@@ -54,13 +55,19 @@
     "select": "選擇",
     "cancel": "取消"
   },
-  "team": {
+  "employees": {
     "nameTaken": "員工名已經存在",
     "firstName": "名",
     "lastName": "姓",
     "phoneNumber": "電話",
     "add": "新增",
     "cancel": "取消",
+    "email": "Email"
+  },
+  "team": {
+    "firstName": "名",
+    "lastName": "姓",
+    "phoneNumber": "電話",
     "email": "Email"
   },
   "shiftSettings": {

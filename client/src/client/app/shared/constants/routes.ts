@@ -8,6 +8,7 @@ export const API_ENDPOINTS = {
     SHIFT_TEMPLATES: `${BASE_API}/api/admin/shift_templates`,
     COMPANIES: `${BASE_API}/api/admin/companies`
   },
+  EMPLOYEES: `${BASE_API}/api/employees`,
   SHIFTS: `${BASE_API}/api/shifts`,
   PROFILE: `${BASE_API}/api/profile`,
   USER_SIGNIN: `${BASE_API}/users/sign_in.json`,

@@ -7,8 +7,8 @@ import { ControlMessages } from '../../../components/control-messages/index';
 
 @BaseComponent({
   selector: 'new-row',
-  templateUrl: 'app/+team/components/new-row/new-row.html',
-  styleUrls: ['app/+team/components/new-row/new-row.css'],
+  templateUrl: 'app/+employee/components/new-row/new-row.html',
+  styleUrls: ['app/+employee/components/new-row/new-row.css'],
   directives: [FORM_DIRECTIVES, ControlMessages],
   providers: [FormBuilder]
 })

@@ -1,0 +1,8 @@
+.table-header {
+  text-align: right;
+  padding: 0.75rem;
+  line-height: 1.5;
+  border-top: 1px solid #eceeef;
+  vertical-align: top;
+  margin-bottom: 0;
+}

@@ -4,7 +4,7 @@ import * as Interface      from '../interfaces/index';
 
 var initialState: Interface.IProfile = {
   profile: null,
-  loading: false
+  loading: true
 };
 
 export const Profile: Reducer<any> = (state = initialState, action: Action) => {

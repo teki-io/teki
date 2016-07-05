@@ -4,10 +4,23 @@
       <teki-widget>
         <teki-widget-body>
           <div class="title pull-left">
-            {{ 'headers.team' | translate }}
+            {{ 'headers.employees' | translate }}
+          </div>
+          <div class="pull-right">
+            <a class="btn btn-sm btn-info" (click)="add()" *ngIf="!adding">
+              <i class="fa fa-plus"></i>
+            </a>
+            <a class="btn btn-sm btn-info" (click)="cancel()" *ngIf="adding">
+              <i class="fa fa-times"></i>
+            </a>
           </div>
           <div class="table-responsive list-group">
             <headers class="row list-group-item no-bottom-border"></headers>
+            <new-row
+              *ngIf="adding"
+              class="row list-group-item no-bottom-border no-padding"
+              (editCancel)="editCancel($event)"
+            ></new-row>
             <row
               class="row list-group-item no-bottom-border no-padding"
               *ngFor="let employee of employeeService.employees | async"

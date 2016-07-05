@@ -28,6 +28,7 @@ import { WeekHelper } from '../index';
 const APP_PROVIDERS: any[] = [
   MULTILINGUAL_PROVIDERS,
   LoginService,
+  Api.Employee,
   Api.Admin.Shift,
   Api.Admin.Employee,
   Api.Admin.ShiftTemplate,
@@ -42,6 +43,7 @@ const APP_PROVIDERS: any[] = [
   Service.Admin.Company,
   Service.Shift,
   Service.Profile,
+  Service.Employee,
   WeekHelper
 ];
 
@@ -51,7 +53,8 @@ const APP_STORE: any = {
   'admin.shifts': Reducer.Admin.Shift,
   'admin.companies': Reducer.Admin.Company,
   'shifts': Reducer.Shift,
-  'profile': Reducer.Profile
+  'profile': Reducer.Profile,
+  'employees': Reducer.Employee
 };
 
 export {
