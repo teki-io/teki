@@ -1,10 +1,10 @@
 import { BaseComponent }  from '../shared/core/index';
 import { Router, RouterLink } from '@angular/router-deprecated';
 import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import { LoginService, PublicPage } from '../shared/index';
+import { Auth } from '../shared/services/index';
+import { PublicPage } from '../shared/index';
 import { FormBuilder, Validators, ControlGroup } from '@angular/common';
 import { ControlMessages } from '../components/control-messages/index';
-const toastr = require('toastr');
 
 @BaseComponent({
   selector: 'signup',
@@ -21,7 +21,7 @@ const toastr = require('toastr');
 export class SignupComponent {
   public signupForm: ControlGroup;
 
-  constructor(public router: Router, public loginService: LoginService, fb: FormBuilder) {
+  constructor(public router: Router, public auth: Auth, fb: FormBuilder) {
     this.signupForm = fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -29,15 +29,7 @@ export class SignupComponent {
   }
 
   signup() {
-    this.loginService.signup(this.signupForm.value.username, this.signupForm.value.password)
-      .subscribe(
-        () => {
-          this.router.parent.navigateByUrl('/');
-        },
-        (error: any) => {
-          toastr.error(error.text());
-        }
-      );
+    this.auth.signup(this.signupForm.value.username, this.signupForm.value.password);
   }
 
   login(event: any) {

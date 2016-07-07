@@ -1,5 +1,5 @@
 import { Router }             from '@angular/router-deprecated';
-import { LoginService }       from './login';
+import { Auth }               from './auth';
 import { Injectable, Inject } from '@angular/core';
 import { TranslateService }   from 'ng2-translate/ng2-translate';
 import { Observable }         from 'rxjs/Observable';
@@ -10,13 +10,13 @@ toastr.options.preventDuplicates = true;
 @Injectable()
 export class HttpErrorHandler {
   constructor(@Inject(Router) public router:Router,
-              @Inject(LoginService) public loginService: LoginService,
+              @Inject(Auth) public auth: Auth,
               private translate: TranslateService) {}
 
   handle(error:any) {
     if (error.status === 401) {
       this.translate.get('error.pleaseSignIn').subscribe((msg: string) => toastr.error(msg));
-      this.loginService.logout();
+      this.auth.logout();
       this.router.navigate(['/Login']);
     }
 

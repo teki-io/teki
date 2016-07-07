@@ -1,10 +1,10 @@
 import { BaseComponent }  from '../shared/core/index';
 import { Router, RouterLink } from '@angular/router-deprecated';
 import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import { LoginService, PublicPage } from '../shared/index';
+import { Auth } from '../shared/services/index';
+import { PublicPage } from '../shared/index';
 import { FormBuilder, Validators, ControlGroup } from '@angular/common';
 import { ControlMessages } from '../components/control-messages/index';
-const toastr = require('toastr');
 
 @BaseComponent({
   selector: 'login',
@@ -18,7 +18,7 @@ const toastr = require('toastr');
 export class LoginComponent {
   public loginForm: ControlGroup;
 
-  constructor(public router: Router, public loginService: LoginService, fb: FormBuilder) {
+  constructor(public router: Router, public auth: Auth, fb: FormBuilder) {
     this.loginForm = fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -26,20 +26,11 @@ export class LoginComponent {
   }
 
   login() {
-    this.loginService.login(this.loginForm.value.username, this.loginForm.value.password)
-      .subscribe(() => {
-        this.router.parent.navigateByUrl('/');
-      }, this.handleError);
+    this.auth.login(this.loginForm.value.username, this.loginForm.value.password);
   }
 
   signup(event:any) {
     event.preventDefault();
     this.router.parent.navigateByUrl('/signup');
-  }
-
-  handleError(error:any):void {
-    if (error && error.status === 401) {
-      toastr.error('Email or password is wrong.');
-    }
   }
 }

@@ -2,7 +2,7 @@ import { Directive, ViewContainerRef, DynamicComponentLoader } from '@angular/co
 import { Router, RouterOutlet, ComponentInstruction } from '@angular/router-deprecated';
 import { makeDecorator } from '@angular/core/src/util/decorators';
 import { reflector } from '@angular/core/src/reflection/reflection';
-import { LoginService } from '../../services/index';
+import { Auth } from '../../services/index';
 
 @Directive({
   selector: 'teki-router-outlet'
@@ -14,7 +14,7 @@ export class SecurityRouterOutlet extends RouterOutlet {
 
   constructor(_elementRef:ViewContainerRef, _loader:DynamicComponentLoader,
               _parentRouter:Router, nameAttr:string,
-              private loginService:LoginService) {
+              private auth: Auth) {
     super(_elementRef, _loader, _parentRouter, nameAttr);
     this.parentRouter = _parentRouter;
   }
@@ -23,7 +23,7 @@ export class SecurityRouterOutlet extends RouterOutlet {
     const publicPageMeta = reflector.annotations(next.componentType)
       .filter(a => a instanceof PublicPageMetadata)[0];
     if (publicPageMeta) {
-      if (!this.loginService.isSignedIn()) return super.activate(next);
+      if (!this.auth.isSignedIn) return super.activate(next);
       if (!publicPageMeta.whenSignedIn) return super.activate(next);
       publicPageMeta.whenSignedIn(this.parentRouter);
       return super.activate(next);
@@ -32,7 +32,7 @@ export class SecurityRouterOutlet extends RouterOutlet {
     const privatePageMeta = reflector.annotations(next.componentType)
       .filter(a => a instanceof PrivatePageMetadata)[0];
     if (privatePageMeta) {
-      if (this.loginService.isSignedIn()) return super.activate(next);
+      if (this.auth.isSignedIn) return super.activate(next);
       privatePageMeta.whenNotSignedIn(this.parentRouter);
       return;
     }

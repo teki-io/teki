@@ -5,6 +5,7 @@ import {
 }      from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router-deprecated';
 import { BaseComponent }     from '../../shared/index';
+import * as Service from '../../shared/services/index';
 
 @BaseComponent({
   selector: 'teki-sidebar',
@@ -16,18 +17,15 @@ import { BaseComponent }     from '../../shared/index';
 export class SidebarComponent {
   @Output() toggled:EventEmitter<any> = new EventEmitter();
   @Input()  open:boolean = false;
-  jwt: string;
 
-  constructor (public router: Router) {
-    this.jwt = localStorage.getItem('jwt');
-  }
+  constructor (public router: Router, private authService: Service.Auth) {}
 
   toggle() {
     this.toggled.emit({});
   }
 
   logout() {
-    localStorage.removeItem('jwt');
+    this.authService.logout();
     this.router.navigateByUrl('/login');
   }
 }

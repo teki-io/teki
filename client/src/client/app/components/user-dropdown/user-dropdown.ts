@@ -15,12 +15,14 @@ export class UserDropdownComponent {
   profile: Observable<Model.Profile>;
   clicked: boolean = false;
 
-  constructor(private profileService: Service.Profile, private router: Router) {
+  constructor(private profileService: Service.Profile,
+              private router: Router,
+              private authService: Service.Auth) {
     this.profile = this.profileService.profile;
   }
 
   public logout() {
-    localStorage.removeItem('jwt');
+    this.authService.logout();
     this.router.navigateByUrl('/login');
   }
 
