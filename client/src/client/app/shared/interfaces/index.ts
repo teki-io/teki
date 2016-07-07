@@ -4,6 +4,7 @@ import { IShifts } from './shift';
 import { IProfile } from './profile';
 import { IApi } from './api';
 import { IEmployees } from './employee';
+import { IAuth } from './auth';
 
 export {
   Admin,
@@ -11,5 +12,6 @@ export {
   AppStore,
   IApi,
   IProfile,
-  IEmployees
+  IEmployees,
+  IAuth
 };

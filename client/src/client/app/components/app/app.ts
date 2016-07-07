@@ -7,6 +7,7 @@ import { CORE_DIRECTIVES } from '@angular/common';
 import {
   Router,
   ROUTER_DIRECTIVES,
+  RouterLink,
   RouteConfig
 } from '@angular/router-deprecated';
 import { TekiRoutes } from './routes';
@@ -19,7 +20,7 @@ import * as Service from '../../shared/services/index';
   selector: 'teki-app',
   templateUrl: 'app/components/app/app.html',
   styleUrls: ['app/components/app/app.css'],
-  directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, SecurityRouterOutlet, Loading],
+  directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, SecurityRouterOutlet, Loading, RouterLink],
   viewProviders: [...BS_MODAL_PROVIDERS],
   providers: [MultilingualService]
 })
@@ -29,13 +30,19 @@ import * as Service from '../../shared/services/index';
 
 export class AppComponent {
   constructor(
+    public router: Router,
     private modal: Modal,
     private multilang: MultilingualService,
     private viewContainer: ViewContainerRef,
     private profileService: Service.Profile,
-    private router: Router
+    private authService: Service.Auth
   ) {
     modal.defaultViewContainer = viewContainer;
+    this.authService.loggedIn.subscribe((loggedIn: boolean) => {
+      if (loggedIn) {
+        router.navigateByUrl('/');
+      }
+    });
   }
 
   ngOnInit() {
