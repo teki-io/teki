@@ -12,8 +12,8 @@
 }
 
 .user {
-  min-width: 130px;
 }
+
 .user > .item {
   width: 65px;
   height: 60px;

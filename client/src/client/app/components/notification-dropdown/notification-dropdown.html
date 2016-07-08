@@ -1,0 +1,18 @@
+<div class="notification">
+  <div class="item dropdown" [class.open]="clicked">
+    <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <span class="notify-badge">{{ (notifications | async).length }}</span>
+      <i class="fa fa-bell-o bell"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li class="dropdown-header">You have {{ (notifications | async).length }} notifications</li>
+      <li class="divider"></li>
+      <li class="link" *ngFor="let notification of (notifications | async)">
+        <a href="#">
+          <i class="fa fa-users text-aqua"></i> {{notification.body}}
+        </a>
+      </li>
+      <li class="dropdown-header"><a href="#">View all</a></li>
+    </ul>
+  </div>
+</div>

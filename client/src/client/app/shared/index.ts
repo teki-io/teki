@@ -36,6 +36,7 @@ const APP_PROVIDERS: any[] = [
   Service.Shift,
   Service.Profile,
   Service.Employee,
+  Service.Notification,
   WeekHelper
 ];
 
@@ -47,7 +48,8 @@ const APP_STORE: any = {
   'shifts': Reducer.Shift,
   'profile': Reducer.Profile,
   'employees': Reducer.Employee,
-  'auth': Reducer.Auth
+  'auth': Reducer.Auth,
+  'notifications': Reducer.Notification
 };
 
 export {

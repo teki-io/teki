@@ -4,8 +4,7 @@ import * as Interface      from '../interfaces/index';
 
 var initialState: Interface.IAuth = {
   loading: false,
-  loggedIn: false,
-  error: false
+  loggedIn: false
 };
 
 export const Auth: Reducer<any> = (state = initialState, action: Action) => {

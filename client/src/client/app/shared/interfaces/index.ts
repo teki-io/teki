@@ -5,6 +5,7 @@ import { IProfile } from './profile';
 import { IApi } from './api';
 import { IEmployees } from './employee';
 import { IAuth } from './auth';
+import { INotifications } from './notification';
 
 export {
   Admin,
@@ -13,5 +14,6 @@ export {
   IApi,
   IProfile,
   IEmployees,
-  IAuth
+  IAuth,
+  INotifications
 };
