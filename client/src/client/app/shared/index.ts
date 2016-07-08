@@ -27,6 +27,7 @@ const APP_PROVIDERS: any[] = [
   Api.Admin.Company,
   Api.Shift,
   Api.Profile,
+  Api.Notification,
   HttpErrorHandler,
   Service.Admin.Shift,
   Service.Admin.Employee,

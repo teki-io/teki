@@ -12,8 +12,8 @@ export class ApiBase<TModel> implements IApi<TModel> {
   getAll(query = {}): Observable<TModel[]> {
     return this.authHttp.get(this.baseRoute, query)
       .map(res => res.json())
-      .map((employees: Array<any>) => {
-        return employees.map(d => this.parse(d));
+      .map((data: Array<any>) => {
+        return data.map(d => this.parse(d));
       });
   }
 
@@ -21,14 +21,14 @@ export class ApiBase<TModel> implements IApi<TModel> {
     let str = this.stringifyParam(data);
     return this.authHttp.post(this.baseRoute, str, { headers: contentHeaders })
       .map(res => res.json())
-      .map(employee => this.parse(employee));
+      .map(data => this.parse(data));
   }
 
   update(data: any): Observable<TModel> {
     let str = this.stringifyParam(data);
     return this.authHttp.put(`${this.baseRoute}/${data.id || ''}`, str, { headers: contentHeaders })
       .map(res => res.json())
-      .map(employee => this.parse(employee));
+      .map(data => this.parse(data));
   }
 
   destroy(data: any): Observable<TModel> {

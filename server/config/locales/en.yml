@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  wupee:
+    email_subjects:
+      user_has_been_assigned_shift: "user_has_been_assigned_shift"

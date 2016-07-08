@@ -95,6 +95,9 @@ GEM
       thor (>= 0.18.1)
     guard-compat (1.2.1)
     i18n (0.7.0)
+    jbuilder (2.5.0)
+      activesupport (>= 3.0.0, < 5.1)
+      multi_json (~> 1.2)
     jwt (1.5.4)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -110,6 +113,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
+    multi_json (1.12.1)
     nenv (0.3.0)
     nio4r (1.2.1)
     nokogiri (1.6.8)
@@ -206,6 +210,9 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    wupee (1.1.4)
+      jbuilder (~> 2.0)
+      rails (>= 4.2.0)
 
 PLATFORMS
   ruby
@@ -229,6 +236,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
   web-console (~> 3.0)
+  wupee (= 1.1.4)
 
 BUNDLED WITH
    1.11.2

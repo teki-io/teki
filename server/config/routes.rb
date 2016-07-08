@@ -7,11 +7,13 @@ Rails.application.routes.draw do
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
+  mount Wupee::Engine, at: "/wupee"
 
   namespace :api do
     resources :employees, only: [:index]
     resources :shifts, only: [:index]
     resources :profile, only: [:index]
+    resources :notifications, only: [:index, :update, :update_all]
     scope '/admin', as: 'admin', module: 'admin' do
       resources :employees, only: [:index, :create, :update, :destroy]
       resources :shift_templates, only: [:index, :create, :update, :destroy]
