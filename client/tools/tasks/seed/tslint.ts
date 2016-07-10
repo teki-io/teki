@@ -1,12 +1,13 @@
 import * as gulp from 'gulp';
 import * as gulpLoadPlugins from 'gulp-load-plugins';
 import {join} from 'path';
-import {APP_SRC, TOOLS_DIR, CODELYZER_RULES} from '../../config';
+import {APP_SRC, APP_SRC_LIB, TOOLS_DIR, CODELYZER_RULES} from '../../config';
 const plugins = <any>gulpLoadPlugins();
 
 export = () => {
   let src = [
     join(APP_SRC, '**/*.ts'),
+    '!' + join(APP_SRC_LIB, '**/*.ts'),
     '!' + join(APP_SRC, '**/*.d.ts'),
     join(TOOLS_DIR, '**/*.ts'),
     '!' + join(TOOLS_DIR, '**/*.d.ts')
