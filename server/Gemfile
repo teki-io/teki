@@ -10,6 +10,7 @@ gem 'jwt', '1.5.4'
 gem 'active_model_serializers', '0.9.5'
 gem 'paranoia', github: 'rubysherpas/paranoia', branch: 'release-3.0.0'
 gem 'wupee', '1.1.4'
+gem 'rake', '11.2.2'
 
 group :development, :test do
   gem 'rspec-rails', '3.5.0.beta1'

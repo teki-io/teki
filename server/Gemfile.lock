@@ -231,6 +231,7 @@ DEPENDENCIES
   puma
   rack-cors (= 0.4.0)
   rails (>= 5.0, < 5.1)
+  rake (= 11.2.2)
   rspec-rails (= 3.5.0.beta1)
   spring
   spring-watcher-listen (~> 2.0.0)
@@ -239,4 +240,4 @@ DEPENDENCIES
   wupee (= 1.1.4)
 
 BUNDLED WITH
-   1.11.2
+   1.12.5

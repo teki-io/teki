@@ -25,6 +25,7 @@ export class SeedConfig {
   APP_TITLE            = 'My Angular2 App';
 
   APP_SRC              = 'src/client';
+  APP_SRC_LIB          = 'src/client/app/libs';
   ASSETS_SRC           = `${this.APP_SRC}/assets`;
   CSS_SRC              = `${this.APP_SRC}/css`;
   FONTS_SRC            = `${this.APP_SRC}/fonts/*`;
