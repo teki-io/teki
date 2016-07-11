@@ -13,9 +13,14 @@ Got a question? Send us a note a [neil@teki.io](neil@teki.io)
 
 # Screen Shots
 
-### Weekly Scheduler
+### Admin View (Scheduler)
 
-![](https://cloud.githubusercontent.com/assets/746239/15346474/71f7857c-1c86-11e6-8a02-5f93dbe0b879.png)
+![](https://cloud.githubusercontent.com/assets/746239/16719138/2ce912cc-46f5-11e6-8cec-10e75cfac9b7.png)
+
+### Employee View
+
+![](https://cloud.githubusercontent.com/assets/746239/16719133/20e58334-46f5-11e6-8ecf-8139020ce88e.png)
+
 
 # Run Locally
 
