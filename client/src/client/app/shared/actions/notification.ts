@@ -2,6 +2,9 @@ export class Notification {
   static LOAD        = 'NotificationAction.LOAD';
   static LOADING     = 'NotificationAction.LOADING';
   static LOADED      = 'NotificationAction.LOADED';
+  static ADD         = 'NotificationAction.ADD';
+  static ADDING      = 'NotificationAction.ADDING';
+  static ADDED       = 'NotificationAction.ADDED';
   static UPDATE      = 'NotificationAction.UPDATE';
   static UPDATING    = 'NotificationAction.UPDATING';
   static UPDATED     = 'NotificationAction.UPDATED';

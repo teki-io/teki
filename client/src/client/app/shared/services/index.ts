@@ -1,6 +1,7 @@
 export * from './error-handler';
 export * from './operator';
 export * from './validation';
+export * from './cable';
 
 import * as Admin from './admin/index';
 import { Shift } from './shift';

@@ -13,6 +13,7 @@ export * from './directives/index';
 export * from './core/index';
 export * from './i18n/index';
 export * from './constants/index';
+export let bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 import { WeekHelper } from '../index';
 

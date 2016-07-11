@@ -17,6 +17,8 @@ export const Notification: Reducer<any> = (state = initialState, action: Action)
       return Object.assign({}, state, { loading: true });
     case Actions.Notification.UPDATED:
       return Object.assign({}, state, { loading: false });
+    case Actions.Notification.ADDED:
+      return Object.assign({}, state, { notifications: [...action.payload, ...state.notifications] });
     case Actions.Notification.UPDATINGALL:
       return Object.assign({}, state, { loading: true });
     case Actions.Notification.UPDATEDALL:

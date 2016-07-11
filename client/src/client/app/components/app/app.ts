@@ -15,7 +15,8 @@ import { ViewContainerRef } from '@angular/core';
 import { Modal, BS_MODAL_PROVIDERS } from 'angular2-modal/plugins/bootstrap/index';
 import { Loading } from '../loading/index';
 import * as Service from '../../shared/services/index';
-import { ActionCable, Consumer } from '../../libs/action-cable/index';
+import { Cable } from '../../shared/services/index';
+import { bind } from '../../shared/index';
 
 @BaseComponent({
   selector: 'teki-app',
@@ -23,7 +24,7 @@ import { ActionCable, Consumer } from '../../libs/action-cable/index';
   styleUrls: ['app/components/app/app.css'],
   directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, SecurityRouterOutlet, Loading, RouterLink],
   viewProviders: [...BS_MODAL_PROVIDERS],
-  providers: [MultilingualService, ActionCable]
+  providers: [MultilingualService, Cable]
 })
 
 //TODO: switch home route based on permissions
@@ -37,25 +38,29 @@ export class AppComponent {
     private viewContainer: ViewContainerRef,
     private profileService: Service.Profile,
     private authService: Service.Auth,
-    private cable: ActionCable
+    private cable: Cable
   ) {
     modal.defaultViewContainer = viewContainer;
-    this.authService.loggedIn.subscribe((loggedIn: boolean) => {
-      if (loggedIn) {
-        router.navigateByUrl('/');
-      }
-    });
-    let test: Consumer = this.cable.createConsumer('ws://localhost:3000/cable');
-    setTimeout(() => {
-      test.subscriptions.create({channel: 'NotificationChannel'}, {
-        connected: () => {
-          console.log('connected');
-        }
-      });
-    }, 3000);
+    this.handleProfileLoading = bind(this.handleProfileLoading, this);
+    this.handleLogin = bind(this.handleLogin, this);
+    this.authService.loggedIn.subscribe(this.handleLogin);
+    this.profileService.loading.subscribe(this.handleProfileLoading);
   }
 
   ngOnInit() {
     this.profileService.load();
+  }
+
+  handleLogin(loggedIn: boolean) {
+    if (loggedIn) {
+      this.router.navigateByUrl('/');
+    }
+  }
+
+  handleProfileLoading(loading: boolean) {
+    if (!loading) {
+      this.cable.start();
+      this.cable.subscribe();
+    }
   }
 }

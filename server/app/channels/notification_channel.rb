@@ -6,6 +6,10 @@ class NotificationChannel < ApplicationCable::Channel
   private
 
   def stream_name
-    'notification_channel'
+    "notification_channel_#{current_user.id}"
+  end
+
+  def broadcast(data)
+    ActionCable.server.broadcast "notification_channel_#{current_user.id}", data
   end
 end
