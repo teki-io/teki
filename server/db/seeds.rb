@@ -52,3 +52,6 @@ user = FactoryGirl.create(
 create_employees(10, company)
 templates = create_shift_templates(5, company)
 create_shifts([user], templates[0])
+
+# Must keep
+Wupee::NotificationType.create(name: 'user_has_been_assigned_shift')

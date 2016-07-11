@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Api::Admin::ShiftsController do
-  let(:admin)    { create :user, :admin }
-  let(:employee) { create :user, company: admin.company }
-  let!(:shifts)  { create_list :shift, 10, user: employee }
-  let(:result)   { JSON.parse(response.body) }
+  let(:admin)     { create :user, :admin }
+  let(:employee)  { create :user, company: admin.company }
+  let!(:shifts)   { create_list :shift, 10, user: employee }
+  let(:result)    { JSON.parse(response.body) }
+  let(:notifier)  { spy Notifier, notify: true }
 
   before(:each) do
     allow(controller).to receive(:authenticate).and_return true
     allow(controller).to receive(:authenticate_admin!).and_return true
     allow(controller).to receive(:current_user).and_return admin
+    allow(Notifier).to receive(:new).and_return notifier
   end
 
   describe 'GET index' do
@@ -42,6 +44,11 @@ RSpec.describe Api::Admin::ShiftsController do
       expect(response.status).to eq 200
     end
 
+    it 'notifies employee' do
+      expect(Notifier).to have_received(:new).with(employee, Notifier::TYPES[:USER_HAS_BEEN_ASSIGNED_SHIFT])
+      expect(notifier).to have_received(:notify)
+    end
+
     it 'responds with correct created shift template' do
       expect(result['name']).to eq template.name
       expect(result['startTime']).to eq '2016-05-09T10:00:00.000Z'
@@ -59,6 +66,11 @@ RSpec.describe Api::Admin::ShiftsController do
 
     it 'responds with success' do
       expect(response.status).to eq 200
+    end
+
+    it 'notifies employee' do
+      expect(Notifier).to have_received(:new).with(employee2, Notifier::TYPES[:USER_HAS_BEEN_ASSIGNED_SHIFT])
+      expect(notifier).to have_received(:notify)
     end
 
     it 'responds with correct updated template' do
