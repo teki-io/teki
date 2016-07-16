@@ -7,8 +7,7 @@ class Api::Admin::ShiftsController < Api::Admin::BaseController
 
   def create
     shift = Shift.create!(after_shift_params.merge(user: employee, shift_template: shift_template))
-    # TODO: move into another service. This is POC for now
-    ActionCable.server.broadcast "notification_channel_#{employee.id}", { body: 'you are assigned to a new shift'}
+    Notifier.new(employee, Notifier::TYPES[:USER_HAS_BEEN_ASSIGNED_SHIFT]).notify
     render json: shift,
            root: false,
            serializer: ::ShiftSerializer
@@ -16,6 +15,7 @@ class Api::Admin::ShiftsController < Api::Admin::BaseController
 
   def update
     shift.update!(user: employee)
+    Notifier.new(employee, Notifier::TYPES[:USER_HAS_BEEN_ASSIGNED_SHIFT]).notify
     render json: shift,
            root: false,
            serializer: ::ShiftSerializer
@@ -61,7 +61,8 @@ class Api::Admin::ShiftsController < Api::Admin::BaseController
       :employee_id,
       :shift_template_id,
       :start_time,
-      :end_time
+      :end_time,
+      :name
     )
   end
 

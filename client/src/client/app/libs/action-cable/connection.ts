@@ -162,7 +162,7 @@ export class Connection {
       this.disconnected = true;
       this.monitor.recordDisconnect();
       return this.subscriptions.notifyAll('disconnected', {
-        willAttemptReconnect: this.monitor.isRunning()
+        willAttemptReconnect: this.monitor.isRunning
       });
     },
     error: function() {

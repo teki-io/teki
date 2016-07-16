@@ -7,8 +7,14 @@ import {
   Consumer
 } from '../../libs/action-cable/index';
 import { Store }      from '@ngrx/store';
+import { NotificationTypes } from './cable/notification-types';
 
 import 'rxjs/add/operator/map';
+
+interface IActionCableNotification {
+  type: string;
+  payload: Model.Notification;
+}
 
 @Injectable()
 export class Cable {
@@ -29,15 +35,24 @@ export class Cable {
         console.log('connected');
       },
       received: (data: any[]) => {
-        this.parse(data);
-        //TODO: need a service to distinguish the type of notificaiton
-        //TODO: based on the notification, need to dispatch new information
-        this.store.dispatch({type: Actions.Notification.ADDED, payload: this.parse(data)});
+        let cableNotifications = this.parse(data);
+        //TODO: based on the notification, dispatch new objects
+        //EX: if user is assigned with new shift, need to dispatch ACTIONS.SHIFT.ADDED
+        cableNotifications.forEach((cableNotification) => {
+          switch (cableNotification.type) {
+            case NotificationTypes.USER_HAS_BEEN_ASSIGNED_SHIFT:
+              this.store.dispatch({type: Actions.Notification.ADDED, payload: cableNotification.payload});
+              break;
+            default:
+              break;
+          }
+        });
       }
     });
   }
 
-  parse(data: any[]): Model.Notification[] {
-    return data.map(d => new Model.Notification(d));
+  parse(data: any[]): IActionCableNotification[] {
+    return data.map(d => JSON.parse(d))
+      .map(d => <IActionCableNotification>{ type: d.type, payload: new Model.Notification(d.payload)});
   }
 }
